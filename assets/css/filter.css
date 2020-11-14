@@ -1,0 +1,23 @@
+.filter{
+  position: fixed;
+  z-index: 9999;
+  height: calc(100vh - 56px);
+  width: calc(16% - 15px);
+  padding: 8px 0px 0 48px;
+}
+.filter a{
+  width: 100%;
+  color: rgb(170, 170, 170);
+  padding: 5px 0 5px 0;
+}
+.filter a:hover{
+  text-decoration: none;
+  color: black;
+}
+.form-item-slider-margin{
+  margin-top: 5px;
+  margin-bottom: 40px;
+}
+.form-item-margin{
+  margin: 5px 0 5px 0;
+}

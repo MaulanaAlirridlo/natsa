@@ -1,0 +1,20 @@
+.katalog-wrapper{
+  margin-left: 0;
+}
+.card {
+  width: 22rem;
+  display: block;
+  margin: 10px!important;
+  margin-right: 0!important;
+}
+.card .card-image{
+  padding: 5px;
+  width: 100%;
+}
+.card .card-image img{
+  border-radius: 5px;
+  width: 100%;
+}
+p{
+  margin: 0;
+}

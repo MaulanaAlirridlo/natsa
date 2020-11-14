@@ -1,0 +1,20 @@
+.navbar{
+  width: 100%;
+  position: sticky;
+  top: 0;
+  z-index: 9999;
+  background-color: rgb(243, 242, 242)!important;
+}
+.search{
+  width: 400px!important;
+}
+.user{
+ min-width: 40px;
+ min-height: 40px;
+ overflow: hidden;
+}
+.user img{
+  width: 40px;
+  height: 40px;
+  position: relative;
+}

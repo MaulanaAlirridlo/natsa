@@ -1,0 +1,14 @@
+.desc-wrapper{
+  width: 1073px;
+  margin-left: 7px;
+}
+.desc-image{
+  width: 100%;
+  padding: 5px;
+}
+.desc-image img{
+  width: 100%;
+}
+.desc-description{
+  padding: 5px;
+}
