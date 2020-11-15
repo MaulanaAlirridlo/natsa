@@ -9,6 +9,14 @@
 .desc-image img{
   width: 100%;
 }
+.carousel-indicators{
+  position: relative;
+}
+.indicator-list{
+  min-width: 138px!important;
+  min-height: 90px!important;
+  background-size: 100%;
+}
 .desc-description{
   padding: 5px;
 }

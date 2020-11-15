@@ -20,7 +20,6 @@
       <?php include('./layouts/filter.html') ?>
     </div>
     <div class="col">
-      <?php //include('./layouts/katalog.desc.html') ?>
       <?php include('./layouts/katalog.php') ?>
     </div>
   </div>
