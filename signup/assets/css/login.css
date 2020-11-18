@@ -1,0 +1,30 @@
+body {
+  overflow-x: hidden;
+}
+.login {
+  padding: 80px 100px 0 100px;
+  height: 100vh;
+}
+.ask a {
+  color: black;
+}
+.ask a:hover {
+  text-decoration: none;
+}
+.or {
+  font-weight: 100;
+  position: relative;
+}
+.or::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 100px;
+  right: 0;
+  height: 0.5em;
+  border-top: 1px solid rgba(112, 112, 112, 0.603);
+  z-index: -1;
+}
+.picture{
+  background-color: grey;
+}
