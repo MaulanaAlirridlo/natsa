@@ -1,0 +1,58 @@
+.wrapper{
+  padding-top: 20px;
+}
+.carousel{
+  margin-right: -70px;
+}
+.carousel-indicators{
+  position: relative;
+  top: 0;
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 0 10px 0 45px !important;
+}
+.indicator-list{
+  width: calc(100% - 10px)!important;
+  margin: 0px 10px 10px 10px !important;
+  min-height: 90px!important;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-top: none!important;
+  border-bottom: none!important;
+  border-radius: 2px;
+  overflow: hidden;
+}
+.gallery{
+  max-width: 600px;
+  height: 600px;
+  padding: 0 5px 0 5px!important;
+}
+.gallery .image, .gallery .active{
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.desc-wrapper{
+  overflow-x: hidden;
+  overflow-y: auto;
+  position: relative;
+  padding-bottom: 20px!important;
+  scrollbar-width: thin;
+  scrollbar-color:rgba(128, 128, 128, 0.24) rgba(0, 0, 0, 0);
+}
+.desc-wrapper::-webkit-scrollbar {
+  width: 6px;
+}
+.desc-wrapper::-webkit-scrollbar-track {
+  background: none;
+}
+.desc-wrapper::-webkit-scrollbar-thumb {
+  background-color: rgba(128, 128, 128, 0.24);
+  border-radius: 20px;
+  scrollbar-width: thin;
+}
+.gallery img{
+  width: 100%;
+  border-radius: 5px;
+}

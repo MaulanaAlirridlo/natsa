@@ -18,3 +18,9 @@
   height: 40px;
   position: relative;
 }
+.user-btn button{
+  width: 80px;
+}
+.user-btn a:hover{
+  text-decoration: none;
+}
