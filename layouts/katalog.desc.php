@@ -1,6 +1,6 @@
 <div class="row mt-3 bg-light p-3 desc-wrapper">
   <div class="col-5 pl-0 pr-0">
-    <div id="carouselIndicators<?= $key ?>" class="carousel slide" data-ride="carousel">
+    <div id="carouselIndicators<?= $key ?>" class="carousel slide" data-ride="carousel" data-interval="99999999">
       <div class="carousel-inner">
         <div class="carousel-item desc-image active">
           <img src="https://images.unsplash.com/photo-1526773109852-8467aff022cf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" alt="">
