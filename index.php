@@ -10,11 +10,11 @@
   <link rel="stylesheet" href="./assets/css/filter.css">
   <link rel="stylesheet" href="./assets/css/katalog.css">
   <link rel="stylesheet" href="./assets/css/katalog.desc.css">
-  <title>Document</title>
+  <title>NatSa</title>
 </head>
 
 <body>
-  <?php include('./layouts/navbar.html') ?>
+  <?php include('./layouts/navbar.php') ?>
   <div class="row">
     <div class="col-2">
       <?php include('./layouts/filter.html') ?>

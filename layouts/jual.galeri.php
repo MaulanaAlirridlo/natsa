@@ -9,22 +9,11 @@ for ($i = 0; $i < 9; $i++) {
   ));
 }
 ?>
-<div class="row mt-3 katalog-wrapper">
+<div class="row mt-3 katalog-wrapper justify-content-center pb-3">
   <?php
   foreach ($dummy as $key => $v) {
   ?>
-    <?php if ($key % 3 == 0) { ?>
-      <div class="desc" id="desc<?= $katalogKey ?>">
-        <?php include('./layouts/katalog.desc.php') ?>
-      </div>
-    <?php $katalogKeyEnd = $key + 2;
-    } ?>
-    <div class="card"
-      data-harga="<?= $v->harga ?>" 
-      data-alamat="<?= $v->alamat ?>" 
-      data-cardid="<?= $key ?>"
-      data-descid="<?= $katalogKey ?>"
-    >
+    <div class="card" >
       <div class="card-image">
         <img src="https://images.unsplash.com/photo-1526773109852-8467aff022cf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" alt="">
       </div>
@@ -33,10 +22,5 @@ for ($i = 0; $i < 9; $i++) {
         <p class="card-text"><?= $v->alamat ?></p>
       </div>
     </div>
-  <?php
-    if ($key == $katalogKeyEnd) {
-      $katalogKey++;
-    }
-  }
-  ?>
+  <?php } ?>
 </div>

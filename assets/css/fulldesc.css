@@ -1,0 +1,12 @@
+body{
+  overflow: hidden;
+}
+.kontak{
+  box-shadow: 13px 0px 12px -13px #888888;
+  z-index: 5;
+}
+.map{
+  width: 100%;
+  height: calc(100vh - 56px);
+  border: none;
+}
