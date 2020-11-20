@@ -21,13 +21,13 @@
             <a href="#">
               <i class="fab fa-whatsapp"></i>
             </a>
-            <a href="facebook.com">
+            <a href="http://www.facebook.com">
               <i class="fab fa-facebook-square"></i>
             </a>
-            <a href="instagram.com">
+            <a href="http://www.instagram.com">
               <i class="fab fa-instagram"></i>
             </a>
-            <a href="twitter.com">
+            <a href="http://www.twitter.com">
               <i class="fab fa-twitter"></i>
             </a>
           </div>
