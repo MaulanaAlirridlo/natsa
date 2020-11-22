@@ -16,6 +16,7 @@ $(".card").click(function () {
     $(".desc").hide();
     setLastDescId(undefined);
   } else {
+    $(".desc").hide();
     $("#desc" + descId).show();
     setLastDescId(cardId);
   }
