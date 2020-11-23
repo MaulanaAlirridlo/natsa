@@ -1,3 +1,8 @@
+<?php
+
+  include './include/script.php';
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 

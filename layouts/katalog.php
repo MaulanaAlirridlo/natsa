@@ -1,13 +1,23 @@
 <?php
+$query = "SELECT *, FORMAT(harga, 0) as harga from sawah";
+$result = mysqli_query($conn, $query);
+
 $dummy = array();
 $katalogKey = 0;
+while ($row = mysqli_fetch_assoc($result)) {
 
-for ($i = 0; $i < 9; $i++) {
-  array_push($dummy, (object)array(
-    'harga' => $i,
-    'alamat' => 'Konoha'
-  ));
+    array_push($dummy, (object) array(
+        'harga' => $row['harga'],
+        'alamat' => $row['alamat'],
+    ));
+
 }
+// for ($i = 0; $i < 9; $i++) {
+//     array_push($dummy, (object) array(
+//         'harga' => $i,
+//         'alamat' => 'Konoha',
+//     ));
+// }
 ?>
 <div class="row mt-3 katalog-wrapper">
   <?php

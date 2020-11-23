@@ -279,8 +279,8 @@ function luasMinMax($conn, $hitung){
     return $luas;
 }
 function hargaMinMax($conn, $hitung){
-    if ($hitung == "max") $query = "SELECT max(harga) as harga from sawah";
-    if ($hitung == "min") $query = "SELECT min(harga) as harga from sawah";
+    if ($hitung == "max") $query = "SELECT format(max(harga),0) as harga from sawah";
+    if ($hitung == "min") $query = "SELECT format(min(harga),0) as harga from sawah";
 
     $result = mysqli_query($conn, $query) or die(mysqli_error());
     $row = mysqli_fetch_assoc($result);
