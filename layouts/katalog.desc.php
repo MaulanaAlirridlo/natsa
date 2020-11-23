@@ -37,5 +37,8 @@
       <h4 class="desc-harga">Harga</h4>
       <p class="desc-alamat">desc</p>
     </div>
+    <div class="filter-search">
+      <button class="btn btn-secondary float-right mt-5 rounded-pill">Detail</button>
+    </div>
   </div>
 </div>

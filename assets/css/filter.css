@@ -1,9 +1,6 @@
 .filter{
-  position: fixed;
   z-index: 9999;
-  height: calc(100vh - 56px);
-  width: calc(16% - 15px);
-  padding: 8px 0px 0 48px;
+  padding: 8px 28px 0 48px;
 }
 .filter a{
   width: 100%;

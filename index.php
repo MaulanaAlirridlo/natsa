@@ -21,10 +21,10 @@
 <body>
   <?php include('./layouts/navbar.php') ?>
   <div class="row">
-    <div class="col-2">
+    <div class="col-2 bg-light filter-container p-0">
       <?php include('./layouts/filter.php') ?>
     </div>
-    <div class="col">
+    <div class="col katalog-container">
       <?php include('./layouts/katalog.php') ?>
     </div>
   </div>

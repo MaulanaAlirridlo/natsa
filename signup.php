@@ -18,15 +18,14 @@
         <h2>SIGN UP</h2>
         <div class="form-group my-5 d-block">
           <form action="Post">
-            <input type="text" name="username" placeholder="Username" class="form-control my-2" />
+            <input type="email" name="email" placeholder="Email" class="form-control my-2" />
             <input type="password" name="password" placeholder="Password" class="form-control my-2" />
             <input type="submit" class="btn btn-primary float-right my-2" value="Sign Up" />
           </form>
         </div>
         <div class="ask mt-2 w-100 d-inline-block">
           <p>
-            <a href="#" class="float-left">Lupa Password</a>
-            <a href="#" class="float-right">Belum punya akun?</a>
+            <a href="#" class="float-left">sudah punya akun?</a>
           </p>
         </div>
         <h2 class="mt-5 or">Atau</h2>

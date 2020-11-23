@@ -1,4 +1,4 @@
-<div class="bg-light filter">
+<div class="filter">
   <div class="row text-center">
     <form method="post" action="">
       <div class="form-group">
@@ -64,6 +64,9 @@
             <option value="">----</option>
             <?php echo referenceDropdown($conn, "irigasi_sawah")."<br>"; ?>
           </select>
+        </div>
+        <div class="filter-search">
+          <button class="btn btn-secondary float-right mt-2 rounded-pill">Cari</button>
         </div>
       </div>
     </form>
