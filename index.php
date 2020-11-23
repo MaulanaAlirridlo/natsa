@@ -17,7 +17,7 @@
   <?php include('./layouts/navbar.php') ?>
   <div class="row">
     <div class="col-2">
-      <?php include('./layouts/filter.html') ?>
+      <?php include('./layouts/filter.php') ?>
     </div>
     <div class="col">
       <?php include('./layouts/katalog.php') ?>
