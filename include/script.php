@@ -319,3 +319,46 @@ function login($conn, $email, $password){
         <?php
     }
 }
+
+function signUp($conn, $email, $password){
+    $email = mysqli_real_escape_string($conn, $email);
+    $password = mysqli_real_escape_string($conn, $password);
+
+    $checkEmail = "SELECT email FROM pengguna WHERE email='$email'";
+    $result = mysqli_query($conn, $checkEmail);
+    $rows = mysqli_num_rows($result);
+
+    if ($rows > 0) {
+        ?>
+        <script>
+            alert("Email sudah sudah digunakan");
+            window.location.href;
+        </script>
+        <?php
+    } else {
+        $brokeEmail = explode("@", $email);
+
+        $id = generateKeyPrimary("pengguna");
+        $username = $brokeEmail[0];
+        $level = "user";
+
+
+        $query = "INSERT INTO pengguna (`id_pengguna`, `username`, `password`,`email`,`level`) value ('$id','$username','$password','$email','$level')";
+        $result = mysqli_query($conn, $query) or die(mysqli_error());
+        if (!$result) {
+            ?>
+            <script>
+                alert("gagal sign up");
+                window.location.href;
+            </script>
+            <?php
+        }else{
+            ?>
+            <script>
+                alert("berhasil sign up <?php echo $id." ".$username." ".$password." ".$email." ".$level." "?>");
+                window.location.href;
+            </script>
+            <?php
+        }
+    }
+}

@@ -19,16 +19,16 @@ $check_db = "SELECT * FROM pengguna WHERE email='$email' LIMIT 1 " ;
 $result = mysqli_query($db, $check_db) ;
 $cek = mysqli_fetch_assoc($result);
 
-if($cek){
-    if($cek['email'] ==== $email ){
-        array_push($errors, "Email sudah digunakan ")
-    }
-}
-//proses
-if(count($errors) == 0){
+// if($cek){
+//     if($cek['email'] == $email ){
+//         array_push($errors, "Email sudah digunakan ")
+//     }
+// }
+// //proses
+// if(count($errors) == 0){
 
-    $query = "INSERT INTO pengguna ("
-}
+//     $query = "INSERT INTO pengguna ("
+// }
 
 
 

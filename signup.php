@@ -1,3 +1,6 @@
+<?php
+include './include/script.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -17,10 +20,10 @@
       <div class="col-6 login">
         <h2>SIGN UP</h2>
         <div class="form-group my-5 d-block">
-          <form action="Post">
+          <form action="" method="post">
             <input type="email" name="email" placeholder="Email" class="form-control my-2" />
             <input type="password" name="password" placeholder="Password" class="form-control my-2" />
-            <input type="submit" class="btn btn-primary float-right my-2" value="Sign Up" />
+            <input type="submit" class="btn btn-primary float-right my-2" value="Sign Up" name="signup"/>
           </form>
         </div>
         <div class="ask mt-2 w-100 d-inline-block">
@@ -41,4 +44,13 @@
       <div class="col-6 picture"></div>
     </div>
   </body>
+
+<?php
+if (isset($_POST['signup'])) {
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+
+    signUp($conn, $email, $password);
+}
+?>
 </html>
