@@ -17,7 +17,7 @@
       <div class="col-6 login">
         <h2>LOGIN</h2>
         <div class="form-group my-5 d-block">
-          <form action="Post">
+          <form method="POST" action="index.php">
             <input type="email" name="email" placeholder="Email" class="form-control my-2" />
             <input type="password" name="password" placeholder="Password" class="form-control my-2" />
             <input type="submit" class="btn btn-primary float-right my-2" value="Log In" />
