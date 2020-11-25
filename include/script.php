@@ -289,3 +289,33 @@ function hargaMinMax($conn, $hitung){
 
     return $harga;
 }
+
+function login($conn, $email, $password){
+    session_start();
+    //pengecekan
+    $query = "SELECT * FROM pengguna WHERE email='$email' AND `password`='$password'";
+    $result = mysqli_query($conn, $query);
+    $rows = mysqli_num_rows($result);
+
+    if ($rows == 1) {
+        session_start();
+        $_SESSION['email'] = $email;
+        $_SESSION['password'] = $password;
+        echo "berhasil";
+        ?>
+        <script>
+            alert("Berhasil Login");
+            window.location.href = "index.php";
+        </script>
+        <?php
+    } else {
+        echo "gagal";
+
+        ?>
+        <script>
+            alert("Gagal Login <?php echo $rows;?>");
+            window.location.href;
+        </script>
+        <?php
+    }
+}

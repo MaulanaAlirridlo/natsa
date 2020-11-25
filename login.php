@@ -1,3 +1,6 @@
+<?php
+include './include/script.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -17,10 +20,10 @@
       <div class="col-6 login">
         <h2>LOGIN</h2>
         <div class="form-group my-5 d-block">
-          <form method="POST" action="index.php">
+          <form method="POST" action="">
             <input type="email" name="email" placeholder="Email" class="form-control my-2" />
             <input type="password" name="password" placeholder="Password" class="form-control my-2" />
-            <input type="submit" class="btn btn-primary float-right my-2" value="Log In" />
+            <input type="submit" class="btn btn-primary float-right my-2" value="Log In" name="login"/>
           </form>
         </div>
         <div class="ask mt-2 w-100 d-inline-block">
@@ -42,4 +45,13 @@
       <div class="col-6 picture"></div>
     </div>
   </body>
+<?php
+if(isset($_POST['login'])){
+  $email = $_POST['email'];
+  $password = $_POST['password'];
+
+  login($conn, $email, $password);
+}
+
+?>
 </html>

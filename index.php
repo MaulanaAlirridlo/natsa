@@ -1,10 +1,6 @@
 <?php
- session_start();
- if(!isset($_SESSION['email'])){
-     header("Location:login.php");
- }
-
-  include './include/script.php';
+session_start();
+include './include/script.php';
 
 ?>
 <!DOCTYPE html>
@@ -23,13 +19,13 @@
 </head>
 
 <body>
-  <?php include('./layouts/navbar.php') ?>
+  <?php include './layouts/navbar.php'?>
   <div class="row">
     <div class="col-2 bg-light filter-container p-0">
-      <?php include('./layouts/filter.php') ?>
+      <?php include './layouts/filter.php'?>
     </div>
     <div class="col katalog-container">
-      <?php include('./layouts/katalog.php') ?>
+      <?php include './layouts/katalog.php'?>
     </div>
   </div>
 
