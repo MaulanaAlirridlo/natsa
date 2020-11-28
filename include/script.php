@@ -20,8 +20,8 @@ jenis table dan codenya
  */
 
 // generate id untuk tabel utama
-function generateKeyPrimary($table)
-{
+
+function generateKeyPrimary($table){
     /*
     key : code-tanggal-hurufAcak-jam
 
@@ -54,8 +54,7 @@ function generateKeyPrimary($table)
     return $key;
 }
 
-function generateKeyReference($table, $conn)
-{
+function generateKeyReference($table, $conn){
     /*
 
     key : code-3 angka urut
@@ -105,8 +104,7 @@ function generateKeyReference($table, $conn)
     return $key;
 }
 
-function generateKeySecond()
-{
+function generateKeySecond($table, $conn){
     /*
     key : code-12 angka urut
     logikanya
@@ -115,42 +113,50 @@ function generateKeySecond()
     3 jika pemilik sawah codoenya PSW
     4 ambil id angka urut dari id terakhir
     5 tambah 1
-    6 jadikan key code-3 angka urut ditambah 1
+    6 jadikan key code-12 angka urut ditambah 1
      */
+    //Tentukan code dan pilih id di table
+    if ($table == "foto_sawah") {
+        $code = "FSW";
+        $sql = "select id_foto_sawah from foto_sawah ORDER BY id_foto_sawah DESC LIMIT 1";
+    } elseif ($table == "pemilik_sawah") {
+        $code = "PSW";
+        $sql = "select id_pemilik_sawah from pemilik_sawah ORDER BY id_pemilik_sawah DESC LIMIT 1";
+    }
 
-    $code = "FSW";
+    $result = mysqli_query($conn, $sql);
+    $row = mysqli_fetch_assoc($result);
 
-    $num = 1;
+    if ($table == "foto_sawah") {
+        $mykey = $row['id_foto_sawah'];
+    } elseif ($table == "pemilik_sawah") {
+        $mykey = $row['id_pemilik_sawah'];
+    }
+
+    $breake = explode("-", $mykey);
+
+    $num = $breake[1] + 1;
     $threeNum = sprintf("%012d", $num);
+
     $key = $code . "-" . $threeNum;
 
     return $key;
 }
 
-function enumDropdown($conn, $table_name, $column_name, $echo = false)
-{
-    $selectDropdown = "";
-    $result = mysqli_query($conn, "SELECT COLUMN_TYPE FROM INFORMATION_SCHEMA.COLUMNS
-           WHERE TABLE_NAME = '$table_name' AND COLUMN_NAME = '$column_name'")
-    or die(mysqli_error());
-
-    $row = mysqli_fetch_array($result);
-    $enumList = explode(",", str_replace("'", "", substr($row['COLUMN_TYPE'], 5, (strlen($row['COLUMN_TYPE']) - 6))));
-
-    foreach ($enumList as $value) {
-        $selectDropdown .= "<option value=\"$value\">$value</option>";
+function generateKey($conn, $table){
+    $hasil = null;
+    if ($table == "pengguna" || $table == "sawah") {
+        $hasil = generateKeyPrimary($table);
+    }elseif ($table == "foto_sawah" || $table == "pemilik_sawah") {
+        $hasil = generateKeySecond($table, $conn);
+    }elseif ($table == "bekas_sawah" || $table == "tipe_sawah" || $table == "irigasi_sawah") {
+        $hasil = generateKeyReference($table,$conn);
     }
-
-    $selectDropdown .= "";
-
-    if ($echo) {
-        echo $selectDropdown;
-    }
-
-    return $selectDropdown;
+    
+    return $hasil;
 }
-function enumDropdownEdit($conn, $table_name, $column_name, $item, $echo = false)
-{
+
+function enumDropdown($conn, $table_name, $column_name, $item, $echo = false){
     $selectDropdown = "";
     $result = mysqli_query($conn, "SELECT COLUMN_TYPE FROM INFORMATION_SCHEMA.COLUMNS
            WHERE TABLE_NAME = '$table_name' AND COLUMN_NAME = '$column_name'")
@@ -172,9 +178,7 @@ function enumDropdownEdit($conn, $table_name, $column_name, $item, $echo = false
     return $selectDropdown;
 }
 
-
-function referenceDropdown($conn, $table_name, $item = null, $echo = false)
-{
+function referenceDropdown($conn, $table_name, $item = null, $echo = false){
     $selectDropdown = "";
     $option;
     $query = "SELECT * FROM $table_name";
@@ -207,8 +211,7 @@ function referenceDropdown($conn, $table_name, $item = null, $echo = false)
     echo $row[$option[0]];
 }
 
-function pemilikSawahDropdown($conn, $table_name, $echo = false)
-{
+function pemilikSawahDropdown($conn, $table_name, $echo = false){
     $selectDropdown = "";
     $option;
     $query = "SELECT * FROM $table_name";
@@ -235,8 +238,7 @@ function pemilikSawahDropdown($conn, $table_name, $echo = false)
     return $selectDropdown;
 }
 
-function pickReference($conn, $table_name, $id, $echo = false)
-{
+function pickReference($conn, $table_name, $id, $echo = false){
 
     $field;
     if ($table_name == "bekas_sawah") {
@@ -278,6 +280,7 @@ function luasMinMax($conn, $hitung){
 
     return $luas;
 }
+
 function hargaMinMax($conn, $hitung){
     if ($hitung == "max") $query = "SELECT format(max(harga),0) as harga from sawah";
     if ($hitung == "min") $query = "SELECT format(min(harga),0) as harga from sawah";

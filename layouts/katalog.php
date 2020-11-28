@@ -1,5 +1,19 @@
 <?php
-$query = "SELECT *, FORMAT(harga, 0) as harga from sawah";
+$filter = null;
+if(isset($_GET['filter'])){
+  $luas=$_GET['luas'];
+  $harga=$_GET['harga'];
+  $bekas=$_GET['bekas'];
+  $tipe=$_GET['tipe'];
+  $irigasi=$_GET['irigasi'];
+
+  $filter = "WHERE luas='$luas' AND 
+  harga='$harga' AND 
+  id_bekas_sawah='$bekas' AND 
+  id_tipe_sawah='$tipe' AND 
+  id_irigasi_sawah='$irigasi'";
+}
+$query = "SELECT *, FORMAT(harga, 0) as harga from sawah $filter";
 $result = mysqli_query($conn, $query);
 
 $dummy = array();
@@ -12,12 +26,7 @@ while ($row = mysqli_fetch_assoc($result)) {
     ));
 
 }
-// for ($i = 0; $i < 9; $i++) {
-//     array_push($dummy, (object) array(
-//         'harga' => $i,
-//         'alamat' => 'Konoha',
-//     ));
-// }
+
 ?>
 <div class="row mt-3 katalog-wrapper">
   <?php

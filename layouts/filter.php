@@ -1,6 +1,7 @@
 <div class="filter">
   <div class="row text-center">
-    <form method="post" action="">
+
+    <form method="get" action="">
       <div class="form-group">
         <div class="luas-picker form-item-slider-margin text-left">
           <div class="picker">
@@ -12,6 +13,7 @@
                   id="customRange11"
                   min="<?php echo luasMinMax($conn, "min"); ?>"
                   max="<?php echo luasMinMax($conn, "max"); ?>"
+                  name="luas"
                 />
               <span
                 class="font-weight-bold text-primary ml-2 valueSpan2"
@@ -33,6 +35,7 @@
                   id="customRange12"
                   min="<?php echo hargaMinMax($conn, "min"); ?>"
                   max="<?php echo hargaMinMax($conn, "max"); ?>"
+                  name="harga"
                 />
               <span
                 class="font-weight-bold text-primary ml-2 valueSpan2"
@@ -46,29 +49,30 @@
         </div>
         <div class="bekas-picker form-item-margin text-left">
           <label for="bekas">Bekas Sawah</label>
-          <select name="cars" id="bekas" class="form-control">
+          <select name="bekas" id="bekas" class="form-control">
             <option value="">----</option>
             <?php echo referenceDropdown($conn, "bekas_sawah") . "<br>"; ?>
           </select>
         </div>
         <div class="tipe-picker form-item-margin text-left">
           <label for="tipe">Tipe Sawah</label>
-          <select name="cars" id="tipe" class="form-control">
+          <select name="tipe" id="tipe" class="form-control">
             <option value="">----</option>
             <?php echo referenceDropdown($conn, "tipe_sawah")."<br>"; ?>
           </select>
         </div>
         <div class="irigasi-picker form-item-margin text-left">
-          <label for="irigasi">Bekas Sawah</label>
-          <select name="cars" id="irigasi" class="form-control">
+          <label for="irigasi">Irigasi Sawah</label>
+          <select name="irigasi" id="irigasi" class="form-control">
             <option value="">----</option>
             <?php echo referenceDropdown($conn, "irigasi_sawah")."<br>"; ?>
           </select>
         </div>
         <div class="filter-search">
-          <button class="btn btn-secondary float-right mt-2 rounded-pill">Cari</button>
+          <button class="btn btn-secondary float-right mt-2 rounded-pill" name="filter" type="filter">Filter</button>
         </div>
       </div>
     </form>
+
   </div>
 </div>
