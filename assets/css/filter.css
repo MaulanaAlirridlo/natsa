@@ -11,9 +11,18 @@
   text-decoration: none;
   color: black;
 }
+.custom-range{
+  flex: none;
+  width: 50%;
+}
+.range-left{
+  margin: 0 1.5px 0 0;
+}
+.range-right{
+  margin: 0 0 0 1.5px;
+}
 .form-item-slider-margin{
   margin-top: 5px;
-  margin-bottom: 40px;
 }
 .form-item-margin{
   margin: 5px 0 5px 0;
