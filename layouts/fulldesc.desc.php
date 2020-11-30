@@ -3,21 +3,21 @@
     <div class="row">
       <div class="col-3 p-0 indicators">
         <ol class="carousel-indicators">
-          <li data-target="#carouselIndicators" data-slide-to="0" class="active indicator-list m-0" style="background-image: url(https://images.unsplash.com/photo-1526773109852-8467aff022cf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80);">
-          <li data-target="#carouselIndicators" data-slide-to="1" class="indicator-list m-0" style="background-image: url(https://images.unsplash.com/photo-1526773109852-8467aff022cf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80);">
-          <li data-target="#carouselIndicators" data-slide-to="2" class="indicator-list m-0" style="background-image: url(https://images.unsplash.com/photo-1526773109852-8467aff022cf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80);">
+          <li data-target="#carouselIndicators" data-slide-to="0" class="active indicator-list m-0" style="background-image: url(./assets/img/dummy.jpg);">
+          <li data-target="#carouselIndicators" data-slide-to="1" class="indicator-list m-0" style="background-image: url(./assets/img/dummy.jpg);">
+          <li data-target="#carouselIndicators" data-slide-to="2" class="indicator-list m-0" style="background-image: url(./assets/img/dummy.jpg);">
         </ol>
       </div>
       <div class="col p-0 gallery desc-wrapper">
         <div class="carousel-inner">
           <div class="carousel-item image active">
-            <img src="https://images.unsplash.com/photo-1526773109852-8467aff022cf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" alt="">
+            <img src="./assets/img/dummy.jpg" alt="">
           </div>
           <div class="carousel-item image">
-            <img src="https://images.unsplash.com/photo-1526773109852-8467aff022cf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" alt="">
+            <img src="./assets/img/dummy.jpg" alt="">
           </div>
           <div class="carousel-item image">
-            <img src="https://images.unsplash.com/photo-1526773109852-8467aff022cf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" alt="">
+            <img src="./assets/img/dummy.jpg" alt="">
           </div>
         </div>
         <div class="desc">

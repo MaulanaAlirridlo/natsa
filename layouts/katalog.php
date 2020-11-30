@@ -23,6 +23,7 @@ while ($row = mysqli_fetch_assoc($result)) {
     array_push($dummy, (object) array(
         'harga' => $row['harga'],
         'alamat' => $row['alamat'],
+        'img' => './assets/img/dummy.jpg'
     ));
 
 }
@@ -45,7 +46,7 @@ while ($row = mysqli_fetch_assoc($result)) {
       data-descid="<?= $katalogKey ?>"
     >
       <div class="card-image">
-        <img src="https://images.unsplash.com/photo-1526773109852-8467aff022cf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" alt="">
+        <img src="<?= $v->img ?>" alt="">
       </div>
       <div class="card-body">
         <h5 class="card-title"><?= $v->harga ?></h5>

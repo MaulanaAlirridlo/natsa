@@ -5,7 +5,8 @@ $katalogKey = 0;
 for ($i = 0; $i < 9; $i++) {
   array_push($dummy, (object)array(
     'harga' => $i,
-    'alamat' => 'Konoha'
+    'alamat' => 'Konoha',
+    'img' => './assets/img/dummy.jpg'
   ));
 }
 ?>
@@ -15,7 +16,7 @@ for ($i = 0; $i < 9; $i++) {
   ?>
     <div class="card" >
       <div class="card-image">
-        <img src="https://images.unsplash.com/photo-1526773109852-8467aff022cf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" alt="">
+        <img src="<?= $v->img ?>" alt="">
       </div>
       <div class="card-body">
         <h5 class="card-title"><?= $v->harga ?></h5>

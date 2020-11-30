@@ -3,13 +3,13 @@
     <div id="carouselIndicators<?= $key ?>" class="carousel slide" data-ride="carousel" data-interval="99999999">
       <div class="carousel-inner">
         <div class="carousel-item desc-image active">
-          <img src="https://images.unsplash.com/photo-1526773109852-8467aff022cf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" alt="">
+          <img src="<?= $v->img ?>" alt="">
         </div>
         <div class="carousel-item desc-image">
-          <img src="https://images.unsplash.com/photo-1526773109852-8467aff022cf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" alt="">
+          <img src="<?= $v->img ?>" alt="">
         </div>
         <div class="carousel-item desc-image">
-          <img src="https://images.unsplash.com/photo-1526773109852-8467aff022cf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" alt="">
+          <img src="<?= $v->img ?>" alt="">
         </div>
       </div>
       <ol class="carousel-indicators">
@@ -17,17 +17,17 @@
           data-target="#carouselIndicators<?= $key ?>" 
           data-slide-to="0" 
           class="active indicator-list"
-          style="background-image: url(https://images.unsplash.com/photo-1526773109852-8467aff022cf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80);"
+          style="background-image: url(<?= $v->img ?>);"
         >
         <li 
           data-target="#carouselIndicators<?= $key ?>" 
           data-slide-to="1" class="indicator-list"
-          style="background-image: url(https://images.unsplash.com/photo-1526773109852-8467aff022cf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80);"
+          style="background-image: url(<?= $v->img ?>);"
         >
         <li 
           data-target="#carouselIndicators<?= $key ?>" 
           data-slide-to="2" class="indicator-list"
-          style="background-image: url(https://images.unsplash.com/photo-1526773109852-8467aff022cf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80);"
+          style="background-image: url(<?= $v->img ?>);"
         >
       </ol>
     </div>
