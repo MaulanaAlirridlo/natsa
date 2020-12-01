@@ -1,16 +1,18 @@
 <?php
 $filter = null;
 if(isset($_GET['filter'])){
-  $luas=$_GET['luas'];
-  $harga=$_GET['harga'];
+  $minLuas=$_GET['luas-min'];
+  $maxLuas=$_GET['luas-max'];
+  $minHarga=$_GET['harga-min'];
+  $maxHarga=$_GET['harga-max'];
   $bekas=$_GET['bekas'];
   $tipe=$_GET['tipe'];
   $irigasi=$_GET['irigasi'];
-
-  $filter = "WHERE luas='$luas' AND 
-  harga='$harga' AND 
-  id_bekas_sawah='$bekas' AND 
-  id_tipe_sawah='$tipe' AND 
+  
+  $filter = "WHERE luas BETWEEN '$minLuas' AND '$maxLuas'  OR
+  harga BETWEEN '$minHarga' AND '$maxHarga'  OR
+  id_bekas_sawah='$bekas' OR 
+  id_tipe_sawah='$tipe' OR 
   id_irigasi_sawah='$irigasi'";
 }
 $query = "SELECT *, FORMAT(harga, 0) as harga from sawah $filter";
