@@ -15,7 +15,7 @@ $user = true;
       <input class="form-control mr-sm-2 search" type="search" name="search" placeholder="Cari Berdasarkan Daerah" aria-label="Search">
     </form>
     <?php if ($user) { ?>
-      <a href="#">
+      <a href="./userprofil.php">
         <div class="rounded-circle user">
           <img src="https://www.kindpng.com/picc/m/252-2524695_dummy-profile-image-jpg-hd-png-download.png" alt="F">
         </div>

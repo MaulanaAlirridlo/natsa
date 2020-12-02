@@ -13,22 +13,9 @@
         </div>
       </div>
       <ol class="carousel-indicators">
-        <li 
-          data-target="#carouselIndicators<?= $key ?>" 
-          data-slide-to="0" 
-          class="active indicator-list"
-          style="background-image: url(<?= $v->img ?>);"
-        >
-        <li 
-          data-target="#carouselIndicators<?= $key ?>" 
-          data-slide-to="1" class="indicator-list"
-          style="background-image: url(<?= $v->img ?>);"
-        >
-        <li 
-          data-target="#carouselIndicators<?= $key ?>" 
-          data-slide-to="2" class="indicator-list"
-          style="background-image: url(<?= $v->img ?>);"
-        >
+        <li data-target="#carouselIndicators<?= $key ?>" data-slide-to="0" class="active indicator-list" style="background-image: url(<?= $v->img ?>);">
+        <li data-target="#carouselIndicators<?= $key ?>" data-slide-to="1" class="indicator-list" style="background-image: url(<?= $v->img ?>);">
+        <li data-target="#carouselIndicators<?= $key ?>" data-slide-to="2" class="indicator-list" style="background-image: url(<?= $v->img ?>);">
       </ol>
     </div>
   </div>
@@ -38,7 +25,9 @@
       <p class="desc-alamat">desc</p>
     </div>
     <div class="filter-search">
-      <button class="btn btn-secondary float-right mt-5 rounded-pill">Detail</button>
+      <a href="./fulldesc.php">
+        <button class="btn btn-secondary float-right mt-5 rounded-pill">Detail</button>
+      </a>
     </div>
   </div>
 </div>
