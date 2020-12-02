@@ -1,8 +1,8 @@
 <div class="sidebar">
-  <a class="contact info" href="#contact info">contact info</a>
-  <a href="#ubah info">ubah info</a>
-  <a href="#ubah password">ubah password</a>
-  <a href="#jual/sewa sawah">jual/sewa sawah</a>
+  <a class="contact info" href="./userprofil.php">contact info</a>
+  <a href="./user.infosetting.php">ubah info</a>
+  <a href="./user.changePassword.php">ubah password</a>
+  <a href="./jual.php">jual/sewa sawah</a>
   <a href="# logout"> logout</a>
   <a href="# hapus akun"> hapus akun</a>
 </div>
