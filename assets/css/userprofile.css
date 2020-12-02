@@ -1,0 +1,9 @@
+body{
+  overflow-x: hidden;
+}
+.rounded-circle{
+  overflow: hidden;
+}
+.user-name{
+  padding-top: 60px;
+}

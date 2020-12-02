@@ -1,3 +1,4 @@
-<div class="row">
-    <i class="fas fa-plus-circle" input type="submit" value="Tambah sawah">
-</div>
+<button class="btn btn-secondary">
+  <i class="fas fa-plus-circle"></i>
+  <label>Tambah Sawah</label>
+</button>
