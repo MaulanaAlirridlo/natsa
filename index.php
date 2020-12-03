@@ -25,7 +25,9 @@ include './include/script.php';
       <?php include './layouts/filter.php'?>
     </div>
     <div class="col katalog-container">
+      
       <?php include './layouts/katalog.php'?>
+
     </div>
   </div>
 

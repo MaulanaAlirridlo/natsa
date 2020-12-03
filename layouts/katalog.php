@@ -1,5 +1,6 @@
 <?php
 $filter = null;
+$cari = null;
 if(isset($_GET['filter'])){
   $minLuas=$_GET['luas-min'];
   $maxLuas=$_GET['luas-max'];
@@ -15,7 +16,14 @@ if(isset($_GET['filter'])){
   id_tipe_sawah='$tipe' OR 
   id_irigasi_sawah='$irigasi'";
 }
-$query = "SELECT *, FORMAT(harga, 0) as harga from sawah $filter";
+if (isset($_GET['cari'])) {
+  $keyword = $_GET['cari'];
+  $cari = "HAVING daerah_sawah LIKE '%$keyword%'";
+}
+
+$query = "SELECT *, FORMAT(harga, 0) as harga, 
+(SELECT CONCAT(d.provinsi,', ', d.kabupaten) FROM daerah d WHERE sawah.id_daerah=d.id_daerah) as daerah_sawah
+from sawah $filter $cari";
 $result = mysqli_query($conn, $query);
 
 $dummy = array();
@@ -24,7 +32,7 @@ while ($row = mysqli_fetch_assoc($result)) {
 
     array_push($dummy, (object) array(
         'harga' => $row['harga'],
-        'alamat' => $row['alamat'],
+        'alamat' => $row['daerah_sawah'],
         'img' => './assets/img/dummy.jpg'
     ));
 

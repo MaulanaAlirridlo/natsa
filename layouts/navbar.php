@@ -11,8 +11,8 @@ $user = true;
         <a class="nav-link" href="#">Sewa</a>
       </li>
     </ul>
-    <form class="form-inline my-2 my-lg-0 ml-auto mr-auto" method="GET">
-      <input class="form-control mr-sm-2 search" type="search" name="search" placeholder="Cari Berdasarkan Daerah" aria-label="Search">
+    <form class="form-inline my-2 my-lg-0 ml-auto mr-auto" method="GET" action="">
+      <input class="form-control mr-sm-2 search" type="search" name="cari" placeholder="Cari Berdasarkan Daerah" aria-label="Search">
     </form>
     <?php if ($user) { ?>
       <a href="./userprofil.php">
