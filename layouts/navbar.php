@@ -1,5 +1,10 @@
 <?php
-$user = true;
+// session_start();
+if(isset($_SESSION['id_pengguna'])){
+  $user = true;
+}else{
+  $user = false;
+}
 ?>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -22,10 +27,10 @@ $user = true;
       </a>
     <?php } else { ?>
       <div class="user-btn">
-        <a href="./login.html">
+        <a href="./login.php">
           <button class="btn btn-secondary">Login</button>
         </a>
-        <a href="./signup.html">
+        <a href="./signup.php">
           <button class="btn btn-secondary">Signup</button>
         </a>
       </div>
