@@ -1,7 +1,7 @@
 <div class="filter">
   <div class="row text-center">
 
-    <form method="get" action="">
+    <form method="post" action="">
       <div class="form-group">
         <div class="luas-picker form-item-slider-margin text-left">
           <div class="picker">

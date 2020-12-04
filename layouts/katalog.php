@@ -1,14 +1,14 @@
 <?php
 $filter = null;
 $cari = null;
-if(isset($_GET['filter'])){
-  $minLuas=$_GET['luas-min'];
-  $maxLuas=$_GET['luas-max'];
-  $minHarga=$_GET['harga-min'];
-  $maxHarga=$_GET['harga-max'];
-  $bekas=$_GET['bekas'];
-  $tipe=$_GET['tipe'];
-  $irigasi=$_GET['irigasi'];
+if(isset($_POST['filter'])){
+  $minLuas=$_POST['luas-min'];
+  $maxLuas=$_POST['luas-max'];
+  $minHarga=$_POST['harga-min'];
+  $maxHarga=$_POST['harga-max'];
+  $bekas=$_POST['bekas'];
+  $tipe=$_POST['tipe'];
+  $irigasi=$_POST['irigasi'];
   
   $filter = "WHERE luas BETWEEN '$minLuas' AND '$maxLuas'  OR
   harga BETWEEN '$minHarga' AND '$maxHarga'  OR
