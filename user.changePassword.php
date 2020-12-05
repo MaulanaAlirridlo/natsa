@@ -1,6 +1,7 @@
 <?php
 session_start();
 include './include/script.php';
+// echo $_SESSION['id_pengguna'];
 
 ?>
 <!DOCTYPE html>
@@ -21,13 +22,13 @@ include './include/script.php';
       <?php include('./layouts/user.actionList.php') ?>
     </div>
     <div class="col">
-      <form action="/action_page.php" class="form-group">
+      <form action="" class="form-group" method="post">
         <div class="row mt-2">
           <div class="col-2">
             <label for="Password lama">Password lama</label>
           </div>
           <div class="col-75">
-            <input class="form-control" type="password" id="Password lama" name="Password lama" placeholder="Your Password lama..">
+            <input class="form-control" type="password" id="Password lama" name="passwordLama" placeholder="Your Password lama.." required>
           </div>
         </div>
         <div class="row">
@@ -35,17 +36,58 @@ include './include/script.php';
             <label for="Password baru">Password baru</label>
           </div>
           <div class="col-75">
-            <input class="form-control" type="password" id="Password baru" name="Password baru" placeholder="Your Password baru..">
+            <input class="form-control" type="password" id="Password baru" name="passwordBaru" placeholder="Your Password baru.." required>
           </div>
         </div>
 
         <div class="row pl-3">
-          <input type="submit" value="Submit">
+          <input type="submit" value="Submit" name="ganti">
         </div>
       </form>
     </div>
   </div>
 
-</body>
+<?php
+  if (isset($_POST['ganti'])) {
+    $id_pengguna = $_SESSION['id_pengguna'];
+    $password_lama = $_POST['passwordLama'];
+    $password_baru = $_POST['passwordBaru'];
 
+    $query = "SELECT id_pengguna, email, `password` from pengguna where id_pengguna='$id_pengguna' AND `password`='$password_lama'";
+    $result = mysqli_query($conn, $query);
+    $rows = mysqli_num_rows($result);
+    $data = mysqli_fetch_assoc($result);
+
+    if ($rows == 1) {
+        $qUpdatePassword = "UPDATE pengguna set `password`='$password_baru' where id_pengguna='$id_pengguna'";
+        $result = mysqli_query($conn, $qUpdatePassword);
+        if (!$result) {
+          ?>
+          <script>
+              alert("Gagal dalam");
+              window.location.href = "<?php echo $_SERVER['REQUEST_URI']?>";
+          </script>
+          <?php
+        } else{
+          ?>
+          <script>
+              alert("Password anda berhasil diubah");
+              window.location.href = "<?php echo $_SERVER['REQUEST_URI']?>";
+          </script>
+          <?php
+        }
+    } 
+    else {
+
+        ?>
+        <script>
+            alert("Gagal");
+            window.location.href = "<?php echo $_SERVER['REQUEST_URI']?>";
+        </script>
+        <?php
+    }
+  }
+
+?>
+</body>
 </html>
