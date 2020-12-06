@@ -156,7 +156,7 @@ function generateKey($conn, $table){
     return $hasil;
 }
 
-function enumDropdown($conn, $table_name, $column_name, $item, $echo = false){
+function enumDropdown($conn, $table_name, $column_name, $item = null, $echo = false){
     $selectDropdown = "";
     $result = mysqli_query($conn, "SELECT COLUMN_TYPE FROM INFORMATION_SCHEMA.COLUMNS
            WHERE TABLE_NAME = '$table_name' AND COLUMN_NAME = '$column_name'")
