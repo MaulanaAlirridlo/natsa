@@ -156,7 +156,7 @@ function generateKey($conn, $table){
     return $hasil;
 }
 
-function enumDropdown($conn, $table_name, $column_name, $item, $echo = false){
+function enumDropdown($conn, $table_name, $column_name, $item = null, $echo = false){
     $selectDropdown = "";
     $result = mysqli_query($conn, "SELECT COLUMN_TYPE FROM INFORMATION_SCHEMA.COLUMNS
            WHERE TABLE_NAME = '$table_name' AND COLUMN_NAME = '$column_name'")
@@ -296,14 +296,16 @@ function hargaMinMax($conn, $hitung){
 function login($conn, $email, $password){
     session_start();
     //pengecekan
-    $query = "SELECT * FROM pengguna WHERE email='$email' AND `password`='$password'";
+    $query = "SELECT email, `password`, id_pengguna FROM pengguna WHERE email='$email' AND `password`='$password'";
     $result = mysqli_query($conn, $query);
     $rows = mysqli_num_rows($result);
-
+    $data = mysqli_fetch_assoc($result);
+  
     if ($rows == 1) {
         session_start();
         $_SESSION['email'] = $email;
         $_SESSION['password'] = $password;
+        $_SESSION['id_pengguna'] = $data['id_pengguna'];
         echo "berhasil";
         ?>
         <script>
@@ -313,14 +315,15 @@ function login($conn, $email, $password){
         <?php
     } else {
         echo "gagal";
-
+  
         ?>
         <script>
-            alert("Gagal Login <?php echo $rows;?>");
-            window.location.href;
+            alert("Gagal Login");
+            window.location.href = "<?php echo $_SERVER['REQUEST_URI']?>";
         </script>
         <?php
     }
+    // echo $_SERVER['REQUEST_URI']."login.php";
 }
 
 function signUp($conn, $email, $password){
@@ -364,4 +367,13 @@ function signUp($conn, $email, $password){
             <?php
         }
     }
+}
+
+function logout(){
+    session_start();
+    unset($_SESSION["email"]);
+    unset($_SESSION["password"]);
+    unset($_SESSION["id_pengguna"]);
+    session_destroy();
+    header("Location: index.php");
 }

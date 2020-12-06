@@ -1,3 +1,13 @@
+<?php
+session_start();
+include './include/script.php';
+
+$id = $_SESSION['id_pengguna'];
+$query = "SELECT * from pengguna where id_pengguna='$id'";
+$result = mysqli_query($conn, $query);
+$row = mysqli_fetch_assoc($result);
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -25,7 +35,7 @@
               </div>
             </div>
             <div class="col user-name">
-              <h1 style="color:#080a0a;">Anju Alicia Johan </h1></span>
+              <h1 style="color:#080a0a;"><?php echo $row['username'];?></h1></span>
             </div>
           </div>
           <div class="col">
@@ -37,7 +47,7 @@
                 <p class="text-center">:</p>
               </div>
               <div class="col">
-                <p>081232230124</p>
+                <p><?php echo $row['no_hp'];?></p>
               </div>
             </div>
             <div class="row">
@@ -48,7 +58,7 @@
                 <p class="text-center">:</p>
               </div>
               <div class="col">
-                <p>081232230124</p>
+                <p><?php echo $row['wa'];?></p>
               </div>
             </div>
             <div class="row">
@@ -59,7 +69,7 @@
                 <p class="text-center">:</p>
               </div>
               <div class="col">
-                <p>anjujohan0@gmail.com</p>
+                <p><?php echo $row['email'];?></p>
               </div>
             </div>
             <div class="row">
@@ -70,7 +80,7 @@
                 <p class="text-center">:</p>
               </div>
               <div class="col">
-                <p>Jl.Dr.Wahidin Balung</p>
+                <p><?php echo $row['alamat'];?></p>
               </div>
             </div>
             <div class="row">
@@ -81,7 +91,7 @@
                 <p class="text-center">:</p>
               </div>
               <div class="col">
-                <p>Menjual dan menyewakan sawah di Jember</p>
+                <p><?php echo $row['deskripsi'];?></p>
               </div>
             </div>
           </div>

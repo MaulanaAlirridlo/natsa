@@ -6,3 +6,6 @@
 .fa-plus-circle{
   font-size: 20px;
 }
+.button-tambah-sawah label{
+  cursor: pointer;
+}

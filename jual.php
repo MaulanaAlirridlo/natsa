@@ -12,7 +12,7 @@
 <body>
   <?php include('./layouts/navbar.php') ?>
   <?php include('./layouts/jual.galeri.php') ?>
-  <a href="./tambahsawah.php" class="button-tambah-sawah">
+  <a href="./formtambahsawah.php" class="button-tambah-sawah">
     <?php include('./layouts/buttontambahsawah.php') ?>
   </a>
 
