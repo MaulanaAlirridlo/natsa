@@ -31,7 +31,7 @@ $row = mysqli_fetch_assoc($result);
           <div class="row pl-2">
             <div class="col-3">
               <div class="w-100 rounded-circle">
-                <img alt="User Pic" src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg" id="profile-image1" class="w-100">
+                <img alt="User Pic" src="./assets/img/<?php echo $row['nama_foto'];?>" id="profile-image1" class="w-100">
               </div>
             </div>
             <div class="col user-name">

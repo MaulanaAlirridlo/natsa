@@ -2,6 +2,11 @@
 session_start();
 include './include/script.php';
 
+$id = $_SESSION['id_pengguna'];
+$query = "SELECT * from pengguna where id_pengguna='$id'";
+$result = mysqli_query($conn, $query);
+$row = mysqli_fetch_assoc($result);
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -24,10 +29,8 @@ include './include/script.php';
       <form action="/action_page.php" class="form-group">
       <div class="row p-3">
         <div class="photo-profile">
-          <img 
-          src="https://sps.widyatama.ac.id/wp-content/uploads/2020/08/dummy-profile-pic-male1-300x300.jpg"
-          alt="profile">
-        <input type="file" name="foto" id="foto" class="pl-2">
+          <img src="./assets/img/<?php echo $row['nama_foto'];?>" alt="profile">
+          <input type="file" name="foto" id="foto" class="pl-2">
         </div>
       </div>
       <div class="row mt-2">
@@ -35,8 +38,8 @@ include './include/script.php';
             <label for="fnama">Nama</label>
           </div>
           <div class="col-75 d-flex">
-            <input class="form-control w-50 nama-depan" type="text" id="nama-depan" name="nama-depan" placeholder="Nama depan">         
-            <input class="form-control w-50" type="text" id="nama-belakang" name="nama-belakang" placeholder="Nama belakang">
+            <input class="form-control w-50 nama-depan" type="text" id="nama-depan" name="nama-depan" placeholder="Nama depan" value="<?php echo $row['nama_depan'];?>">         
+            <input class="form-control w-50" type="text" id="nama-belakang" name="nama-belakang" placeholder="Nama belakang" value="<?php echo $row['nama_belakang'];?>">
          </div>
         </div>
         <div class="row mt-2">
@@ -44,7 +47,7 @@ include './include/script.php';
             <label for="fnohp">No HP</label>
           </div>
           <div class="col-75">
-            <input class="form-control" type="number" id="fnohp" name="nohp" placeholder="No hp">
+            <input class="form-control" type="number" id="fnohp" name="nohp" placeholder="No hp" value="<?php echo $row['no_hp'];?>">
           </div>
         </div>
         <div class="row mt-2">
@@ -52,7 +55,7 @@ include './include/script.php';
             <label for="fwa">WhatsApp</label>
           </div>
           <div class="col-75">
-            <input class="form-control" type="number" id="fwa" name="nowa" placeholder="No wa">
+            <input class="form-control" type="number" id="fwa" name="nowa" placeholder="No wa" value="<?php echo $row['wa'];?>">
           </div>
         </div>
         <div class="row">
@@ -60,7 +63,7 @@ include './include/script.php';
             <label for="Alamat">Alamat</label>
           </div>
           <div class="col-75">
-            <textarea name="alamat" id="alamat" class="form-control" placeholder="Alamat""></textarea>
+            <textarea name="alamat" id="alamat" class="form-control" placeholder="Alamat""><?php echo $row['alamat'];?></textarea>
           </div>
         </div>
         <div class="row">
@@ -68,11 +71,9 @@ include './include/script.php';
             <label for="Deskripsi">Deskripsi</label>
           </div>
           <div class="col-75">
-            <textarea name="alamat" id="deskripsi" class="form-control" placeholder="Deskripsi anda""></textarea>
+            <textarea name="alamat" id="deskripsi" class="form-control" placeholder="Deskripsi anda""><?php echo $row['deskripsi'];?></textarea>
           </div>
         </div>
-
-
         <div class="pl-3 row py-3">
           <div class="col-2"></div>
           <div class="col-75">
@@ -84,5 +85,4 @@ include './include/script.php';
   </div>
 
 </body>
-
 </html>
