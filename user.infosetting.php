@@ -28,9 +28,11 @@ $row = mysqli_fetch_assoc($result);
     <div class="col">
       <form action="/action_page.php" class="form-group">
       <div class="row p-3">
-        <div class="photo-profile">
-          <img src="./assets/img/<?php echo $row['nama_foto'];?>" alt="profile">
-          <input type="file" name="foto" id="foto" class="pl-2">
+        <div class="col p-0">
+          <div class="photo-profile">
+            <img src="./assets/img/<?php echo $row['nama_foto'];?>" alt="profile">
+            <input type="file" name="foto" id="foto" class="pl-2">
+          </div>
         </div>
       </div>
       <div class="row mt-2">

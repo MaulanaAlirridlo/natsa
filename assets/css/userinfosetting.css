@@ -6,8 +6,10 @@ body  {
   position: relative;
 }
 .photo-profile img{
-  width: 65%;
-  height: auto;
+  min-width: 15%;
+  min-height: 195px;
+  max-width: 25%;
+  max-height: 230px;
 }
 .photo-profile input[type=file]{
   position: absolute;
