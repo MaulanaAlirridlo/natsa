@@ -377,3 +377,22 @@ function logout(){
     session_destroy();
     header("Location: index.php");
 }
+
+function JSMassage($pesan, $href="here"){
+    ?>
+    <script>
+        alert("<?php echo $pesan?>");
+        <?php 
+            if ($href="here") {
+        ?>
+                window.location.href = "<?php echo $_SERVER['REQUEST_URI']?>";
+        <?php
+            }else{
+        ?>
+                window.location.href = "<?php echo $href?>";
+        <?php               
+            }
+        ?>
+    </script>
+    <?php
+}

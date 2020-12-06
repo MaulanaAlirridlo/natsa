@@ -26,7 +26,7 @@ $row = mysqli_fetch_assoc($result);
       <?php include('./layouts/user.actionList.php') ?>
     </div>
     <div class="col">
-      <form action="" class="form-group" method="POST">
+      <form action="" class="form-group" method="POST" enctype="multipart/form-data">
       <div class="row p-3">
         <div class="photo-profile">
           <img src="./assets/img/<?php echo $row['nama_foto'];?>" alt="profile">
@@ -38,8 +38,8 @@ $row = mysqli_fetch_assoc($result);
             <label for="fnama">Nama </label>
           </div>
           <div class="col-75 d-flex">
-            <input class="form-control w-50 nama-depan" type="text" id="nama_depan" name="nama-depan" placeholder="Nama depan" value="<?php echo $row['nama_depan'];?>" required maxlength="20">         
-            <input class="form-control w-50" type="text" id="nama_belakang" name="nama-belakang" placeholder="Nama belakang" value="<?php echo $row['nama_belakang'];?>" required maxlength="20">
+            <input class="form-control w-50 nama-depan" type="text" id="nama-depan" name="nama_depan" placeholder="Nama depan" value="<?php echo $row['nama_depan'];?>" required maxlength="20">         
+            <input class="form-control w-50" type="text" id="nama-belakang" name="nama_belakang" placeholder="Nama belakang" value="<?php echo $row['nama_belakang'];?>" required maxlength="20">
          </div>
         </div>
         <div class="row mt-2">
@@ -93,7 +93,6 @@ $row = mysqli_fetch_assoc($result);
     </div>
   </div>
 <?php
-  
   if (isset($_POST['updateInfo'])) {
       $nama_depan = $_POST['nama_depan'];
       $nama_belakang = $_POST['nama_belakang'];
@@ -104,6 +103,61 @@ $row = mysqli_fetch_assoc($result);
       $deskripsi = $_POST['deskripsi'];
       $id = $_POST['id'];
 
+      $file = $_FILES['foto'];
+      $fileName = $_FILES['foto']['name'];
+      $fileTmp = $_FILES['foto']['tmp_name'];
+      $fileSize = $_FILES['foto']['size'];
+      $fileError = $_FILES['foto']['error'];
+      $fileType = $_FILES['foto']['type'];
+
+      $fileExt = explode('.', $fileName);
+      $fileActualExt = strtolower(end($fileExt));
+      $fileNameNew = null;
+      $allow = array('jpg', 'jpeg', 'png');
+      
+      if (in_array($fileActualExt, $allow)) {
+          if ($fileError === 0) {
+              if ($fileSize <= 1048576) {
+                  $fileNameNew = uniqid('PGN-', true) . "." . $fileActualExt;
+
+                  $fileDestination = 'assets/img/' . $fileNameNew;
+                  $result = move_uploaded_file($fileTmp, $fileDestination);
+                  if ($result) {
+                      JSMassage("berhasil upload foto profile", "here");
+
+                      $sql = "UPDATE pengguna SET 
+                      nama_depan='$nama_depan', 
+                      nama_belakang='$nama_belakang', 
+                      no_hp='$no_hp', 
+                      wa='$wa', 
+                      email='$email', 
+                      alamat='$alamat',
+                      deskripsi='$deskripsi',
+                      verfikasi='terverifikasi',
+                      nama_foto='$fileNameNew'
+                      where id_pengguna = '$id' ";
+            
+                      $result = mysqli_query($conn, $sql) or die(mysqli_error());
+                      if (!$result) {
+                          JSMassage("gagal update", "here");
+                      }else{
+                          JSMassage("Berhasil update data", "here");
+                      }
+                      
+                  } else {
+                      $error_massage = mysqli_error($result);
+                      JSMassage("ada yang salah", "here");
+                  }
+              } else {
+                  JSMassage("ukuran file harus kurang dari 1 MB", "here");
+              }
+          } else {
+              JSMassage("there was an error while uplaoding your file", "here");
+          }
+      } else {
+          JSMassage("upload file dengan ekstensi .jpg/.jpeg/.png", "here");
+      }
+
       $sql = "UPDATE pengguna SET 
           nama_depan='$nama_depan', 
           nama_belakang='$nama_belakang', 
@@ -112,26 +166,15 @@ $row = mysqli_fetch_assoc($result);
           email='$email', 
           alamat='$alamat',
           deskripsi='$deskripsi',
-          verfikasi='terverifikasi'
+          verfikasi='terverifikasi',
+          nama_foto='$fileNameNew'
           where id_pengguna = '$id' ";
 
       $result = mysqli_query($conn, $sql) or die(mysqli_error());
       if (!$result) {
-          ?>
-          <script>
-              alert("gagal update");
-              window.location.href = "<?php echo $_SERVER['REQUEST_URI']?>";
-          </script>
-
-          <?php
+          JSMassage("gagal update", "here");
       }else{
-          ?>
-          <script>
-              alert("berhasil update info");
-              window.location.href = "<?php echo $_SERVER['REQUEST_URI']?>";
-          </script>
-
-          <?php
+          JSMassage("Berhasil update data", "here");
       }
   }
 
