@@ -2,7 +2,20 @@
 body  {
   box-sizing: border-box;
 }
-
+.photo-profile{
+  position: relative;
+}
+.photo-profile img{
+  width: 65%;
+  height: auto;
+}
+.photo-profile input[type=file]{
+  position: absolute;
+  bottom: 0;
+}
+.nama-depan{
+  margin-right: 5px;
+}
 input[type=text], select, textarea {
   width: 100%;
   padding: 12px;
