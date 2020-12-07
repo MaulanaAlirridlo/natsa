@@ -33,7 +33,8 @@ while ($row = mysqli_fetch_assoc($result)) {
     array_push($dummy, (object) array(
         'harga' => $row['harga'],
         'alamat' => $row['daerah_sawah'],
-        'img' => './assets/img/dummy.jpg'
+        'img' => './assets/img/dummy.jpg',
+        'id' => $row['id_sawah']
     ));
 
 }

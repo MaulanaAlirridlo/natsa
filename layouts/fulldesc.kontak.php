@@ -5,14 +5,14 @@
         <div class="p-2">
           <a href="#" class="text-decoration-none text-dark">
             <div class="rounded-circle desc-user-image">
-              <img src="https://www.kindpng.com/picc/m/252-2524695_dummy-profile-image-jpg-hd-png-download.png" alt="F">
+              <img src="./assets/img/<?php echo $rowPemilik['foto_pemilik'];?>" alt="F">
             </div>
-            <h5 class="mt-2">Nama Nama Nama</h5>
-            <p>data singkat atau rating</p>
+            <h5 class="mt-2"><?php echo $rowPemilik['nama_pemilik'];?></h5>
+            <p>&nbsp;</p>
           </a>
           <?php if ($user) { ?>
             <div class="border rounded">
-              <p class="my-2">0812345678910</p>
+              <p class="my-2"><?php echo $rowPemilik['no_hp'];?></p>
             </div>
           <?php } ?>
         </div>

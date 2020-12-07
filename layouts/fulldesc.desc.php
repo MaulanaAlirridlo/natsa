@@ -23,24 +23,24 @@
         <div class="desc">
           <div class="row">
             <div class="col">
-              <h3>Harga</h3>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore facilis, eos unde laboriosam amet consectetur distinctio perferendis quas ipsam facere enim dolorum excepturi debitis, quo odio est, aspernatur ex quod.</p>
+              <h3>Harga : Rp <?php echo $rowSawah['harga'];?></h3>
+              <p><?php echo $rowSawah['alamat'];?><p>
               <div class="row">
                 <div class="col">
                   <h6>Luas</h6>
-                  <p>50m x 50m</p>
+                  <p><?php echo $rowSawah['luas'];?> m<sup>2</sup></p>
                   <h6>Jumlah Panen</h6>
-                  <p>1 ton</p>
+                  <p><?php echo $rowSawah['jumlah_panen'];?> kali</p>
                   <h6>Bekas Sawah</h6>
-                  <p>Tembakau</p>
+                  <p><?php echo $rowSawah['bekas_sawah'];?></p>
                   <h6>Tipe Sawah</h6>
-                  <p>Sawah</p>
+                  <p><?php echo $rowSawah['tipe_sawah'];?></p>
                   <h6>Irigasi Sawah</h6>
-                  <p>Sawah</p>
+                  <p><?php echo $rowSawah['irigasi_sawah'];?></p>
                 </div>
                 <div class="col">
                   <h6>Deskripsi</h6>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit qui quibusdam, quisquam obcaecati id aliquid voluptatibus ad. Ipsa sunt, quis accusamus tenetur, numquam eaque repudiandae illo voluptatibus blanditiis eos quae?</p>
+                  <p><?php echo $rowSawah['deskripsi'];?><p>
                 </div>
               </div>
             </div>

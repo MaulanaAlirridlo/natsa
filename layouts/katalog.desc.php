@@ -25,7 +25,7 @@
       <p class="desc-alamat">desc</p>
     </div>
     <div class="filter-search">
-      <a href="./fulldesc.php">
+      <a href="./fulldesc.php?id=<?= $v->id ?>">
         <button class="btn btn-secondary float-right mt-5 rounded-pill">Detail</button>
       </a>
     </div>

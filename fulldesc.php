@@ -1,3 +1,30 @@
+<?php
+session_start();
+include './include/script.php';
+
+$id = $_GET['id'];
+
+$querySawah = "SELECT *,FORMAT(harga, 0) as harga, 
+          (SELECT nama_bekas_sawah from bekas_sawah where sawah.id_bekas_sawah=bekas_sawah.id_bekas_sawah) as bekas_sawah,
+          (SELECT nama_irigasi_sawah from irigasi_sawah where sawah.id_irigasi_sawah=irigasi_sawah.id_irigasi_sawah) as irigasi_sawah,
+          (SELECT nama_tipe_sawah from tipe_sawah where sawah.id_tipe_sawah=tipe_sawah.id_tipe_sawah) as tipe_sawah
+          from sawah
+          where id_sawah='$id'";
+
+$resultSawah = mysqli_query($conn, $querySawah);
+$rowSawah = mysqli_fetch_assoc($resultSawah);
+
+$queryPemilik = "SELECT pms.id_sawah as id_sawah, pms.id_pengguna as id_pemilik, 
+                pgn.nama_foto as foto_pemilik, pgn.no_hp,
+                CONCAT(pgn.nama_depan, ' ', pgn.nama_belakang) as nama_pemilik 
+                FROM pemilik_sawah pms 
+                INNER JOIN pengguna pgn ON pms.id_pengguna=pgn.id_pengguna
+                where pms.id_sawah='$id'";
+
+$resultPemilik = mysqli_query($conn, $queryPemilik);
+$rowPemilik = mysqli_fetch_assoc($resultPemilik);
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
