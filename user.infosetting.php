@@ -23,7 +23,7 @@ $row = mysqli_fetch_assoc($result);
   <?php include './layouts/navbar.php'?>
   <div class="row">
     <div class="col-2">
-      <!-- <?php include './layouts/user.actionList.php'?> -->
+      <?php include './layouts/user.actionList.php'?>
     </div>
     <div class="col">
       <form action="" class="form-group" method="POST" enctype="multipart/form-data">

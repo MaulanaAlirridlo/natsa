@@ -184,22 +184,22 @@ function referenceDropdown($conn, $table_name, $item = null, $echo = false){
     $query = "SELECT * FROM $table_name";
     $result = mysqli_query($conn, $query) or die(mysqli_error());
 
-    if ($table_name == "bekas_sawah") {
-        $option = ["id_bekas_sawah", "nama_bekas_sawah"];
-    }
+    if ($table_name == "bekas_sawah") $option = ["id_bekas_sawah", "nama_bekas_sawah"];
+    if ($table_name == "irigasi_sawah")$option = ["id_irigasi_sawah", "nama_irigasi_sawah"];
+    if ($table_name == "tipe_sawah")$option = ["id_tipe_sawah", "nama_tipe_sawah"];
+    if($table_name == "daerah") $option = ["id_daerah", "kabupaten", "provinsi"];
 
-    if ($table_name == "irigasi_sawah") {
-        $option = ["id_irigasi_sawah", "nama_irigasi_sawah"];
-    }
-
-    if ($table_name == "tipe_sawah") {
-        $option = ["id_tipe_sawah", "nama_tipe_sawah"];
-    }
 
     $optionID = $option[0];
-    while ($row = mysqli_fetch_assoc($result)) {
-        $select = ($row[$option[0]] == $item) ? "selected" : "";
-        $selectDropdown .= "<option " . $select . " value='" . $row[$option[0]] . "'" . ">" . $row[$option[1]] . "</option>";
+    if($table_name == "daerah"){
+        while ($row = mysqli_fetch_assoc($result)) {
+            $selectDropdown .= "<option " . $select . " value=".$row[$option[0]].">".$row[$option[1]].", ".$row[$option[2]]."</option>";
+        }
+    }else{
+        while ($row = mysqli_fetch_assoc($result)) {
+            $select = ($row[$option[0]] == $item) ? "selected" : "";
+            $selectDropdown .= "<option " . $select . " value='" . $row[$option[0]] . "'" . ">" . $row[$option[1]] . "</option>";
+        }
     }
     $selectDropdown .= "";
 
@@ -361,7 +361,7 @@ function signUp($conn, $email, $password){
         }else{
             ?>
             <script>
-                alert("berhasil sign up <?php echo $id." ".$username." ".$password." ".$email." ".$level." "?>");
+                alert("berhasil sign up);
                 window.location.href;
             </script>
             <?php
