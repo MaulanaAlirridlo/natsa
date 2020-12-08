@@ -5,7 +5,7 @@
         <div class="p-2">
           <a href="#" class="text-decoration-none text-dark">
             <div class="rounded-circle desc-user-image">
-              <img src="./assets/img/<?php echo $rowPemilik['foto_pemilik'];?>" alt="F">
+              <img src="./assets/img/<?php echo $rowPemilik['nama_foto'];?>" alt="F">
             </div>
             <h5 class="mt-2"><?php echo $rowPemilik['nama_pemilik'];?></h5>
             <p>&nbsp;</p>

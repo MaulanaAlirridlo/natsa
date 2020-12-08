@@ -14,12 +14,9 @@ $querySawah = "SELECT *,FORMAT(harga, 0) as harga,
 $resultSawah = mysqli_query($conn, $querySawah);
 $rowSawah = mysqli_fetch_assoc($resultSawah);
 
-$queryPemilik = "SELECT pms.id_sawah as id_sawah, pms.id_pengguna as id_pemilik,
-                pgn.nama_foto as foto_pemilik, pgn.no_hp,
-                CONCAT(pgn.nama_depan, ' ', pgn.nama_belakang) as nama_pemilik
-                FROM pemilik_sawah pms
-                INNER JOIN pengguna pgn ON pms.id_pengguna=pgn.id_pengguna
-                where pms.id_sawah='$id'";
+$queryPemilik = "SELECT nama_foto, concat(nama_depan, ' ', nama_belakang) as nama_pemilik,
+                no_hp
+                from pengguna";
 
 $resultPemilik = mysqli_query($conn, $queryPemilik);
 $rowPemilik = mysqli_fetch_assoc($resultPemilik);
