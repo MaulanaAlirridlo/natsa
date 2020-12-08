@@ -4,7 +4,7 @@ include './include/script.php';
 
 $id = $_GET['id'];
 
-$querySawah = "SELECT *,FORMAT(harga, 0) as harga, 
+$querySawah = "SELECT *,FORMAT(harga, 0) as harga,
           (SELECT nama_bekas_sawah from bekas_sawah where sawah.id_bekas_sawah=bekas_sawah.id_bekas_sawah) as bekas_sawah,
           (SELECT nama_irigasi_sawah from irigasi_sawah where sawah.id_irigasi_sawah=irigasi_sawah.id_irigasi_sawah) as irigasi_sawah,
           (SELECT nama_tipe_sawah from tipe_sawah where sawah.id_tipe_sawah=tipe_sawah.id_tipe_sawah) as tipe_sawah
@@ -14,10 +14,10 @@ $querySawah = "SELECT *,FORMAT(harga, 0) as harga,
 $resultSawah = mysqli_query($conn, $querySawah);
 $rowSawah = mysqli_fetch_assoc($resultSawah);
 
-$queryPemilik = "SELECT pms.id_sawah as id_sawah, pms.id_pengguna as id_pemilik, 
+$queryPemilik = "SELECT pms.id_sawah as id_sawah, pms.id_pengguna as id_pemilik,
                 pgn.nama_foto as foto_pemilik, pgn.no_hp,
-                CONCAT(pgn.nama_depan, ' ', pgn.nama_belakang) as nama_pemilik 
-                FROM pemilik_sawah pms 
+                CONCAT(pgn.nama_depan, ' ', pgn.nama_belakang) as nama_pemilik
+                FROM pemilik_sawah pms
                 INNER JOIN pengguna pgn ON pms.id_pengguna=pgn.id_pengguna
                 where pms.id_sawah='$id'";
 
@@ -40,13 +40,13 @@ $rowPemilik = mysqli_fetch_assoc($resultPemilik);
 </head>
 
 <body>
-  <?php include('./layouts/navbar.php') ?>
+  <?php include './layouts/navbar.php'?>
   <div class="row fulldesc">
     <div class="col-7 p-0">
-      <?php include('./layouts/fulldesc.desc.php') ?>
+      <?php include './layouts/fulldesc.desc.php'?>
     </div>
     <div class="col-2 p-0 kontak">
-      <?php include('./layouts/fulldesc.kontak.php') ?>
+      <?php include './layouts/fulldesc.kontak.php'?>
     </div>
     <div class="col-3 p-0">
       <iframe
