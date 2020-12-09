@@ -29,12 +29,26 @@ $result = mysqli_query($conn, $query);
 $dummy = array();
 $katalogKey = 0;
 while ($row = mysqli_fetch_assoc($result)) {
+    $id_sawah = $row['id_sawah'];
+    
+    $foto=[];$a=0;
+    $queryFoto = "SELECT nama_foto FROM foto_sawah where id_sawah='$id_sawah'";
+    $resultFoto = mysqli_query($conn, $queryFoto);
+
+    while ($rowFoto = mysqli_fetch_assoc($resultFoto)) {
+      $foto[$a] = $rowFoto['nama_foto'];
+      $a++;
+    }
 
     array_push($dummy, (object) array(
         'harga' => $row['harga'],
         'alamat' => $row['daerah_sawah'],
-        'img' => './assets/img/dummy.jpg',
-        'id' => $row['id_sawah']
+        'id' => $row['id_sawah'],
+        'img' => './assets/img/'.$foto[0],
+        'img1' => './assets/img/'.$foto[0],
+        'img2' => './assets/img/'.$foto[1],
+        'img3' => './assets/img/'.$foto[2]
+
     ));
 
 }
