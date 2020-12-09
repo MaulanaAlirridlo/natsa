@@ -18,9 +18,8 @@ include './include/script.php';
   <?php include './layouts/navbar.php'?>
   <div class="container mt-3">
     <h1>Form Tambah Sawah</h1>
-    <form action="" class="form-group" method="post">
-
-      <label for="jenis">Jenis</label>
+    <form action="" class="form-group" method="post" enctype="multipart/form-data">
+    <label for="jenis">Jenis</label>
       <select name="jenis" id="jenis" class="form-control" required>
         <option value="">jenis ----</option>
         <?php echo enumDropdown($conn, "sawah", "jenis") . "<br>"; ?>
@@ -40,7 +39,6 @@ include './include/script.php';
           <option value="">daerah ----</option>
           <?php echo referenceDropdown($conn, "daerah") . "<br>"; ?>
       </select>
-
 
       <label for="bekas-sawah">Bekas sawah</label>
       <select name="bekas" id="bekas" class="form-control" required>
@@ -70,7 +68,7 @@ include './include/script.php';
       <textarea name="maps" id="maps" class="form-control" placeholder="link iframe google maps" required></textarea>
 
       <label for="foto-sawah">Foto sawah</label> <br>
-      <input type="file" nama="foto-sawah" id="foto-sawah"> <br>
+      <input type="file" name="foto[]" id="foto-sawah" multiple="multiple"> <br>
 
       <input type="hidden" name="id_pengguna" value="<?php echo $_SESSION['id_pengguna']; ?>">
 
@@ -80,7 +78,8 @@ include './include/script.php';
 <?php
 
 if (isset($_POST['tambahSawah'])) {
-    $id = generateKeyPrimary("sawah");
+
+    $id_sawah = generateKeyPrimary("sawah");
     $id_pengguna = $_POST['id_pengguna'];
     $luas = $_POST['luas'];
     $harga = $_POST['harga'];
@@ -93,17 +92,88 @@ if (isset($_POST['tambahSawah'])) {
     $maps = $_POST['maps'];
     $deskripsi = $_POST['deskripsi'];
     $jenis = $_POST['jenis'];
-    // $status = $_POST['status'];
 
     $sql = "INSERT INTO sawah
-    (`id_sawah`, `id_pengguna`, `luas`, `harga`, `id_bekas_sawah`, `id_tipe_sawah`, `id_irigasi_sawah`, `jumlah_panen`, `id_daerah`, `alamat`, `maps`, `deskripsi`, `jenis`)
-    value 
-    ('$id','$id_pengguna','$luas','$harga','$bekas','$tipe','$irigasi','$panen','$daerah','$alamat','$maps','$deskripsi','$jenis')";
+        (`id_sawah`, `id_pengguna`, `luas`, `harga`, `id_bekas_sawah`, `id_tipe_sawah`, `id_irigasi_sawah`, `jumlah_panen`, `id_daerah`, `alamat`, `maps`, `deskripsi`, `jenis`)
+        value
+        ('$id_sawah','$id_pengguna','$luas','$harga','$bekas','$tipe','$irigasi','$panen','$daerah','$alamat','$maps','$deskripsi','$jenis')";
+
     $result = mysqli_query($conn, $sql) or die(mysqli_error($conn));
+    // $result = true;
     if (!$result) {
-      JSMassage("data gagal masuk");
+        JSMassage("data gagal masuk");
     } else {
-      JSMassage("data berhasil masuk");
+        //cek apakah ada file yang masuk atau tidak
+        $fileName = $_FILES['foto']['name'];
+        foreach ($fileName as $key => $value) {
+            if (empty($value)) {
+                unset($fileName[$key]);
+            }
+        }
+
+        if (!empty($fileName)) {
+            // $id_sawah = "SWH-201209-fnbp14-031816";
+            $file = $_FILES['foto'];
+            $fileNameNew = null;
+            $allow = array('jpg', 'jpeg', 'png');
+            $total = count($_FILES['foto']['name']);
+
+            echo $id_sawah;
+            
+                for ($i = 0; $i < $total; $i++) {
+                    $id_foto_sawah = generateKeySecond("foto_sawah", $conn);
+                    $fileName = $_FILES['foto']['name'][$i];
+                    $fileTmp = $_FILES['foto']['tmp_name'][$i];
+                    $fileSize = $_FILES['foto']['size'][$i];
+                    $fileError = $_FILES['foto']['error'][$i];
+                    $fileType = $_FILES['foto']['type'][$i];
+
+                    $fileExt = explode('.', $fileName);
+                    $fileActualExt = strtolower(end($fileExt));
+
+                    if (in_array($fileActualExt, $allow)) {
+                        if ($fileError === 0) {
+                            if ($fileSize <= 1048576) {
+                                $fileNameNew = uniqid('FSW-', true) . "." . $fileActualExt;
+                                $sql = "INSERT INTO foto_sawah values ('$id_foto_sawah', '$id_sawah', '$fileNameNew')";
+
+                                $result = mysqli_query($conn, $sql) or die(mysqli_error($conn));
+
+                                if (!$result) {
+                                    JSMassage("gagal upload", "here");
+                                } else {
+                                    $fileDestination = './assets/img/' . $fileNameNew;
+                                    $result = move_uploaded_file($fileTmp, $fileDestination);
+                                    if ($result) {
+                                        JSMassage("berhasil " . ($i + 1));
+
+                                        // echo "berhasil ". ($i + 1);
+                                        // JSMassage("berhasil upload data", "here");
+
+                                    } else {
+                                        JSMassage("ada yang salah", "here");
+
+                                        // $error_massage = mysqli_error($result);
+                                        // echo "gagal ". ($i + 1);
+
+                                    }
+                                }
+
+                            } else {
+                                JSMassage("ukuran file harus kurang dari 1 MB", "here");
+                            }
+                        } else {
+                            JSMassage("there was an error while uplaoding your file", "here");
+                        }
+                    } else {
+                        JSMassage("upload file dengan ekstensi .jpg/.jpeg/.png", "here");
+                    }
+                }
+            
+        } else {
+            JSMassage("data berhasil masuk masuk else", "");
+        }
+
     }
 }
 

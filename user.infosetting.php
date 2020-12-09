@@ -134,7 +134,8 @@ if (isset($_POST['updateInfo'])) {
         } else {
             JSMassage("Berhasil update data", "here");
         }
-    } else {
+    } 
+    else {
         if (in_array($fileActualExt, $allow)) {
             if ($fileError === 0) {
                 if ($fileSize <= 1048576) {

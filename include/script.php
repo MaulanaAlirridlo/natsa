@@ -187,7 +187,7 @@ function referenceDropdown($conn, $table_name, $item = null, $echo = false){
     if ($table_name == "bekas_sawah") $option = ["id_bekas_sawah", "nama_bekas_sawah"];
     if ($table_name == "irigasi_sawah")$option = ["id_irigasi_sawah", "nama_irigasi_sawah"];
     if ($table_name == "tipe_sawah")$option = ["id_tipe_sawah", "nama_tipe_sawah"];
-    if($table_name == "daerah") $option = ["id_daerah", "kabupaten", "provinsi"];
+    if ($table_name == "daerah") $option = ["id_daerah", "kabupaten", "provinsi"];
 
 
     $optionID = $option[0];

@@ -10,9 +10,24 @@
         <input name="upload[]" type="file" multiple="multiple" />
         <input type="submit" value="kirim" name="submit">
     </form>
-    <?php
+<?php
+
 if (isset($_POST['submit'])) {
-    $total = count($_FILES['upload']['name']);
+    $fileName = $_FILES['upload']['name'];
+    
+    foreach ($fileName as $key => $value) {
+        if (empty($value)) {
+           unset($fileName[$key]);
+        }
+    }
+
+    if (empty($fileName)) {
+        $total = count($_FILES['upload']['name']);
+        echo "tidak ada file yang dikirim";       
+    }else{
+        echo "ada file yang dikirim";
+    }
+    echo $fileName[0];
 
     // Loop through each file
     for ($i = 0; $i < $total; $i++) {
