@@ -16,7 +16,9 @@ $rowSawah = mysqli_fetch_assoc($resultSawah);
 
 $queryPemilik = "SELECT nama_foto, concat(nama_depan, ' ', nama_belakang) as nama_pemilik,
                 no_hp
-                from pengguna";
+                from pengguna
+                INNER JOIN sawah on sawah.id_pengguna=pengguna.id_pengguna
+                where sawah.id_sawah='$id'";
 
 $resultPemilik = mysqli_query($conn, $queryPemilik);
 $rowPemilik = mysqli_fetch_assoc($resultPemilik);
