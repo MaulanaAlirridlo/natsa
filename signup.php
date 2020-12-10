@@ -28,7 +28,7 @@ include './include/script.php';
         </div>
         <div class="ask mt-2 w-100 d-inline-block">
           <p>
-            <a href="#" class="float-left">sudah punya akun?</a>
+            <a href="login.php" class="float-left">sudah punya akun?</a>
           </p>
         </div>
         <h2 class="mt-5 or">Atau</h2>

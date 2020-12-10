@@ -309,19 +309,15 @@ function login($conn, $email, $password){
         echo "berhasil";
         ?>
         <script>
-            alert("Berhasil Login");
+            alert("Selamat datang <?php echo $_SESSION['email'];?>");
             window.location.href = "index.php";
         </script>
         <?php
     } else {
-        echo "gagal";
-  
-        ?>
-        <script>
-            alert("Gagal Login");
-            window.location.href = "<?php echo $_SERVER['REQUEST_URI']?>";
-        </script>
-        <?php
+        session_start();
+        $_SESSION['email'] = $email;
+        $_SESSION['password'] = $password;
+        header('location:login.php?pesan="gagal"');
     }
     // echo $_SERVER['REQUEST_URI']."login.php";
 }
@@ -355,14 +351,14 @@ function signUp($conn, $email, $password){
             ?>
             <script>
                 alert("gagal sign up");
-                window.location.href;
+                window.location.href="<?php echo $_SERVER['REQUEST_URI']?>";
             </script>
             <?php
         }else{
             ?>
             <script>
-                alert("berhasil sign up);
-                window.location.href;
+                alert("selamat anda berhasil signup silahkan login dihalaman login");
+                window.location.href="login.php";
             </script>
             <?php
         }

@@ -1,4 +1,5 @@
 <?php
+session_start();
 include './include/script.php';
 ?>
 <!DOCTYPE html>
@@ -21,15 +22,30 @@ include './include/script.php';
         <h2>LOGIN</h2>
         <div class="form-group my-5 d-block">
           <form method="POST" action="">
-            <input type="email" name="email" placeholder="Email" class="form-control my-2" />
-            <input type="password" name="password" placeholder="Password" class="form-control my-2" />
+            <input type="email" name="email" placeholder="Email" class="form-control my-2" required value="<?php if (isset($_SESSION['email'])) echo $_SESSION['email']?>"/>
+            <input type="password" name="password" placeholder="Password" class="form-control my-2" required value="<?php if (isset($_SESSION['password'])) echo $_SESSION['password']?>"/>
             <input type="submit" class="btn btn-primary float-right my-2" value="Log In" name="login"/>
           </form>
         </div>
+        <?php 
+
+          if (isset($_GET['pesan'])) {
+            if ($_GET['pesan']) {
+        ?>
+          <div class="col-6 alert alert-danger" role="alert">
+            Password atau email salah
+          </div>
+        <?php
+            }
+          }
+
+        ?>
+
+        
         <div class="ask mt-2 w-100 d-inline-block">
           <p>
             <a href="#" class="float-left">Lupa Password</a>
-            <a href="#" class="float-right">Belum punya akun?</a>
+            <a href="signup.php" class="float-right">Belum punya akun?</a>
           </p>
         </div>
         <h2 class="mt-5 or">Atau</h2>
