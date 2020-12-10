@@ -2,13 +2,14 @@
 // session_start();
 if(isset($_SESSION['id_pengguna'])){
   $user = true;
+  $id_pengguna = $_SESSION['id_pengguna'];
+  $pilihFotoPengguna = "SELECT nama_foto FROM pengguna where id_pengguna='$id_pengguna'";
+  $hasilFotoPengguna = mysqli_query($conn, $pilihFotoPengguna);
+  $dataFotoPengguna =mysqli_fetch_assoc($hasilFotoPengguna);
 }else{
   $user = false;
 }
-$id_pengguna = $_SESSION['id_pengguna'];
-$pilihFotoPengguna = "SELECT nama_foto FROM pengguna where id_pengguna='$id_pengguna'";
-$hasilFotoPengguna = mysqli_query($conn, $pilihFotoPengguna);
-$dataFotoPengguna =mysqli_fetch_assoc($hasilFotoPengguna);
+
 
 ?>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
