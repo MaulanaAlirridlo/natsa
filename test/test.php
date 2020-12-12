@@ -9,7 +9,7 @@
 </head>
 <body>
 
-    <form action="" method="post">
+    <!-- <form action="" method="post">
         <input type="text" name="city" list="cityname" autocomplete="off">
             <datalist id="cityname">
                 <option value="123">pilih ini</option>
@@ -17,14 +17,30 @@
                 <option value="Cambridge">
             </datalist>
         <input type="submit" value="kirim" name="submit">
-    </form>
+    </form> -->
 
     <?php
     
-        if (isset($_POST['submit'])) {
-            echo $_POST['city'];
+        // if (isset($_POST['submit'])) {
+        //     echo $_POST['city'];
+        // }
+        
+        $dummy = array(
+            (object) array(
+                'nama' => 'nama 1',
+                'alamat' => 'alamat 1'
+            ),
+            (object) array(
+                'nama' => 'nama 2',
+                'alamat' => 'alamat 2'
+            )
+        );
+        echo "<pre>";
+        print_r($dummy);
+        echo "</pre>";
+        foreach ($dummy as $key => $value) {
+            include 'showData.php';  
         }
-
     ?>
 </body>
 </html>

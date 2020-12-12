@@ -19,15 +19,14 @@ include './include/script.php';
 </head>
 
 <body>
+
   <?php include './layouts/navbar.php'?>
   <div class="row">
     <div class="col-2 bg-light filter-container p-0">
       <?php include './layouts/filter.php'?>
     </div>
     <div class="col katalog-container">
-      
       <?php include './layouts/katalog.php'?>
-
     </div>
   </div>
 
@@ -35,6 +34,7 @@ include './include/script.php';
   <script src="./vendor/jquery/jquery-3.5.1.min.js"></script>
   <script src="./vendor/bootstrap/js/bootstrap.min.js"></script>
   <script src="./assets/js/index.js"></script>
+
 </body>
 
 </html>
