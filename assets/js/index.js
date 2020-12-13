@@ -6,6 +6,7 @@ function setLastDescId(id) {
 
 $(".desc").hide();
 $(".card").click(function () {
+
   let harga = $(this).data("harga");
   let alamat = $(this).data("alamat");
   let cardId = $(this).data("cardid");
@@ -13,6 +14,8 @@ $(".card").click(function () {
   let img1 = $(this).data("img1");
   let img2 = $(this).data("img2");
   let img3 = $(this).data("img3");
+  let id = $(this).data("id");
+
   $('#img'+descId+'1').attr('src',img1);
   $('#img'+descId+'2').attr('src',img2);
   $('#img'+descId+'3').attr('src',img3);
@@ -21,6 +24,8 @@ $(".card").click(function () {
   $('#indicator'+descId+'3').css('background-image', 'url(' + img3 + ')');
   $(".desc-harga").text(harga);
   $(".desc-alamat").text(alamat);
+  $('#link'+descId).attr('href','./fulldesc.php?id='+id);
+
   if (lastCardId === cardId) {
     $(".desc").hide();
     setLastDescId(undefined);
@@ -29,4 +34,5 @@ $(".card").click(function () {
     $("#desc" + descId).show();
     setLastDescId(cardId);
   }
+
 });
