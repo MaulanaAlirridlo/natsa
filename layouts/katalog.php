@@ -74,6 +74,9 @@ foreach ($dummy as $key => $v) {
       data-alamat="<?=$v->alamat?>"
       data-cardid="<?=$key?>"
       data-descid="<?=$katalogKey?>"
+      data-img1="<?=$v->img1?>"
+      data-img2="<?=$v->img2?>"
+      data-img3="<?=$v->img3?>"
     >
       <div class="card-image">
         <img src="<?=$v->img?>" alt="">

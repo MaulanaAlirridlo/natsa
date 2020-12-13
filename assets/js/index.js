@@ -10,6 +10,15 @@ $(".card").click(function () {
   let alamat = $(this).data("alamat");
   let cardId = $(this).data("cardid");
   let descId = $(this).data("descid");
+  let img1 = $(this).data("img1");
+  let img2 = $(this).data("img2");
+  let img3 = $(this).data("img3");
+  $('#img'+descId+'1').attr('src',img1);
+  $('#img'+descId+'2').attr('src',img2);
+  $('#img'+descId+'3').attr('src',img3);
+  $('#indicator'+descId+'1').css('background-image', 'url(' + img1 + ')');
+  $('#indicator'+descId+'2').css('background-image', 'url(' + img2 + ')');
+  $('#indicator'+descId+'3').css('background-image', 'url(' + img3 + ')');
   $(".desc-harga").text(harga);
   $(".desc-alamat").text(alamat);
   if (lastCardId === cardId) {
