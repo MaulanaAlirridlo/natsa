@@ -15,6 +15,9 @@ $(".card").click(function () {
   let img2 = $(this).data("img2");
   let img3 = $(this).data("img3");
   let id = $(this).data("id");
+  let luas = $(this).data("luas");
+  let jumlahPanen = $(this).data("jumlahPanen");
+  let deskripsi = $(this).data("deskripsi");
 
   $('#img'+descId+'1').attr('src',img1);
   $('#img'+descId+'2').attr('src',img2);
@@ -24,6 +27,9 @@ $(".card").click(function () {
   $('#indicator'+descId+'3').css('background-image', 'url(' + img3 + ')');
   $(".desc-harga").text(harga);
   $(".desc-alamat").text(alamat);
+  $(".desc-luas").text(luas);
+  $(".desc-jumlahPanen").text(jumlahPanen);
+  $(".desc-desk").text(deskripsi);
   $('#link'+descId).attr('href','./fulldesc.php?id='+id);
 
   if (lastCardId === cardId) {

@@ -23,6 +23,19 @@
     <div class="desc-description">
       <h4 class="desc-harga">Harga</h4>
       <p class="desc-alamat">desc</p>
+      <div class="row py-4">
+        <div class="col">
+          <p class="desc-luas">luas</p>
+        </div>
+        <div class="col">
+          <p class="desc-jumlahPanen">jumlah panen</p>
+        </div>
+        <div class="col">
+          <p class="desc-luas">luas</p>
+        </div>
+      </div>
+      <h6>Deskripsi</h6>
+      <p class="desc-desk">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea dolorum laboriosam eveniet deserunt suscipit? Rem sint officiis maxime quam consequuntur. Nisi placeat, quis aliquam pariatur at et iure amet atque!</p>
     </div>
     <div class="filter-search">
       <a id="link<?=$katalogKey?>" >
