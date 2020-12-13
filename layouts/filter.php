@@ -6,7 +6,7 @@
         <div class="luas-picker form-item-slider-margin text-left">
           <div class="picker">
             <label for="customRange1">Luas</label>
-            <div class="justify-content-center d-flex">
+            <div class="justify-content-center d-flex pl-1">
                 <input
                   type="text"
                   class="custom-range d-inline-block range-left form-control bg-white"
@@ -25,7 +25,7 @@
             </div>
           </div>
         </div>
-        <div class="harga-picker form-item-slider-margin text-left">
+        <div class="harga-picker form-item-slider-margin text-left pl-1">
           <div class="picker">
             <label for="customRange2">Harga</label>
             <div class="justify-content-center d-flex">
