@@ -4,6 +4,7 @@
 }
 .desc-image{
   width: 100%;
+  min-height: 295px;
   padding: 5px;
 }
 .desc-image img{
@@ -15,7 +16,7 @@
 .indicator-list{
   min-width: 138px!important;
   min-height: 90px!important;
-  background-size: 100%;
+  background-size: cover;
   background-repeat: no-repeat;
 }
 .desc-description{
