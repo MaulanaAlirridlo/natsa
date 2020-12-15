@@ -30,13 +30,14 @@ include './include/script.php';
         <?php 
 
           if (isset($_GET['pesan'])) {
-            if ($_GET['pesan']) {
+            $pesan = null;
+            if ($_GET['pesan']=="gagal") {$pesan = "password atau email salah";}
+            if ($_GET['pesan']=="verfikasi") {$pesan = "email belum diverifikasi";}
         ?>
           <div class="col-6 alert alert-danger" role="alert">
-            Password atau email salah
+            <?= $pesan?>
           </div>
         <?php
-            }
           }
 
         ?>

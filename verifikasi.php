@@ -9,7 +9,6 @@
 <body>
     
 </body>
-</html>
 <?php
     include "./include/conn.php";
 
@@ -18,7 +17,7 @@
 
         $queryData = "SELECT verifikasi, vkey from pengguna where verifikasi='0' and vkey='$vkey' LIMIT 1";
         $resultData = mysqli_query($conn, $queryData);
-        $countData = mysqli_num_rows($resultData) or die(mysqli_error($conn));
+        $countData = mysqli_num_rows($resultData);
 
         if ($countData == 1) {
             //verfikasi email
@@ -36,3 +35,4 @@
         die("Something wrong i can feel it");
     }
 ?>
+</html>

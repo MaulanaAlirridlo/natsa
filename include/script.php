@@ -298,32 +298,49 @@ function login($conn, $email, $password){
     session_start();
     //pengecekan
     $passwordEnkripsi = md5($password);
-    $query = "SELECT email, `password`, id_pengguna FROM pengguna WHERE email='$email' AND `password`='$passwordEnkripsi'";
-    $result = mysqli_query($conn, $query);
-    $rows = mysqli_num_rows($result);
-    $data = mysqli_fetch_assoc($result);
-  
-    if ($rows == 1) {
-        session_start();
-        $_SESSION['email'] = $email;
-        $_SESSION['password'] = $password;
-        $_SESSION['id_pengguna'] = $data['id_pengguna'];
-        echo "berhasil";
-        ?>
-        <script>
-            alert("Selamat datang <?php echo $_SESSION['email'];?>");
-            window.location.href = "index.php";
-        </script>
-        <?php
+
+    //cek email dan password
+    $queryLogin = "SELECT email, `password`, id_pengguna, verifikasi FROM pengguna WHERE email='$email' AND `password`='$passwordEnkripsi'";
+    $resultLogin = mysqli_query($conn, $queryLogin);
+    $rowsLogin = mysqli_num_rows($resultLogin);
+    $dataLogin = mysqli_fetch_assoc($resultLogin);
+    $id_pengguna = $dataLogin['id_pengguna'];
+
+    if ($rowsLogin == 1) {
+        //cek apakah sudah verifikasi
+        // $queryVerfikasi = "SELECT verfikasi FROM pengguna WHERE verifikasi='0' and id_pengguna='$id_pengguna'";
+        // $resultVerfikasi = mysqli_query($conn, $queryVerfikasi);
+        // $rowVerfikasi = mysqli_num_rows($resultVerfikasi);
+
+        if ($dataLogin['verifikasi'] == 1) {
+            session_start();
+            $_SESSION['email'] = $email;
+            $_SESSION['password'] = $password;
+            $_SESSION['id_pengguna'] = $id_pengguna;
+            echo "berhasil";
+            ?>
+            <script>
+                alert("Selamat datang <?php echo $_SESSION['email'];?>");
+                window.location.href = "index.php";
+            </script>
+            <?php
+        } else {
+            session_start();
+            $_SESSION['email'] = $email;
+            $_SESSION['password'] = $password;
+            header("location:login.php?pesan=verfikasi&id_pengguna=$id_pengguna");
+        }
+
     } else {
         session_start();
         $_SESSION['email'] = $email;
         $_SESSION['password'] = $password;
-        header('location:login.php?pesan=gagal');
-        // header("location:login.php?pesan=gagal&password=$password&passwordE=$passwordEnkripsi");
+        // header('location:login.php?pesan=gagal');
+        header("location:login.php?pesan=gagal&password=$password&passwordE=$passwordEnkripsi");
 
     }
-    // echo $_SERVER['REQUEST_URI']."login.php";
+
+
 }
 
 function signUp($conn, $email, $password){
