@@ -1,6 +1,7 @@
 <?php
 
 include "./include/conn.php";
+include './include/sendMail.php';
 
 /*
 jenis table dan codenya
@@ -296,7 +297,8 @@ function hargaMinMax($conn, $hitung){
 function login($conn, $email, $password){
     session_start();
     //pengecekan
-    $query = "SELECT email, `password`, id_pengguna FROM pengguna WHERE email='$email' AND `password`='$password'";
+    $passwordEnkripsi = md5($password);
+    $query = "SELECT email, `password`, id_pengguna FROM pengguna WHERE email='$email' AND `password`='$passwordEnkripsi'";
     $result = mysqli_query($conn, $query);
     $rows = mysqli_num_rows($result);
     $data = mysqli_fetch_assoc($result);
@@ -317,7 +319,9 @@ function login($conn, $email, $password){
         session_start();
         $_SESSION['email'] = $email;
         $_SESSION['password'] = $password;
-        header('location:login.php?pesan="gagal"');
+        header('location:login.php?pesan=gagal');
+        // header("location:login.php?pesan=gagal&password=$password&passwordE=$passwordEnkripsi");
+
     }
     // echo $_SERVER['REQUEST_URI']."login.php";
 }
@@ -327,14 +331,14 @@ function signUp($conn, $email, $password){
     $password = mysqli_real_escape_string($conn, $password);
 
     $checkEmail = "SELECT email FROM pengguna WHERE email='$email'";
-    $result = mysqli_query($conn, $checkEmail);
-    $rows = mysqli_num_rows($result);
+    $resultEmail = mysqli_query($conn, $checkEmail);
+    $rows = mysqli_num_rows($resultEmail);
 
     if ($rows > 0) {
         ?>
         <script>
-            alert("Email sudah sudah digunakan");
-            window.location.href;
+            alert("Email yang anda masukkan telah terdaftar digunakan");
+            window.location.href = "<?php echo $_SERVER['REQUEST_URI']?>";
         </script>
         <?php
     } else {
@@ -342,11 +346,13 @@ function signUp($conn, $email, $password){
 
         $id = generateKeyPrimary("pengguna");
         $username = $brokeEmail[0];
+        $password = md5($password);
         $level = "user";
+        $vkey = md5(time().$username);
 
-
-        $query = "INSERT INTO pengguna (`id_pengguna`, `username`, `password`,`email`,`level`) value ('$id','$username','$password','$email','$level')";
-        $result = mysqli_query($conn, $query) or die(mysqli_error());
+        $query = "INSERT INTO pengguna (`id_pengguna`, `username`, `password`,`email`, `level`, `vkey`) 
+        value ('$id','$username','$password','$email','$level', '$vkey')";
+        $result = mysqli_query($conn, $query) or die(mysqli_error($conn));
         if (!$result) {
             ?>
             <script>
@@ -355,12 +361,27 @@ function signUp($conn, $email, $password){
             </script>
             <?php
         }else{
+            $senderMail = "naturalsawah@gmail.com";
+            $senderPassword = "natsa123";
+            $senderName = "Natural Sawah";
+            $reciever = "irhasalif@gmail.com";
+            $subject = "
+                    <h2> Verifikasi Email </h2>
+                    <a href='http://localhost/natsa/natsa/verifikasi.php?vkey=$vkey'>verfikasi akun</a>
+                    ini yang benar-benar terbaru
+                    " ;
+            $mail = sendMail($senderMail, $senderPassword, $senderName, $reciever, $subject);
+            if (!$mail) {
+                $error .= " || email verfikasi tidak dapat dikirim<br>";
+            }else{
+                // echo " || selamat anda sudah mendaftar, email verfikasi telah dikirimkan ke email anda<br>";
             ?>
             <script>
-                alert("selamat anda berhasil signup silahkan login dihalaman login");
-                window.location.href="login.php";
+                alert("selamat anda sudah mendaftar, email verfikasi telah dikirimkan ke email anda");
+                window.location.href="index.php";
             </script>
             <?php
+            }
         }
     }
 }

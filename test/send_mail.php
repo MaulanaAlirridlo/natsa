@@ -3,18 +3,13 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception ;
 
-
-
 require 'PHPMailer/Exception.php' ;
 require 'PHPMailer/PHPMailer.php' ;
 require 'PHPMailer/SMTP.php' ;
 
-
 $mail = new PHPMailer ;
 
-
 //konfigurasi SMPT
-
 $mail -> isSMTP() ;
 $mail -> Host = 'smtp.gmail.com' ;
 $mail -> SMTPAuth = true ;
@@ -26,7 +21,6 @@ $mail -> Port ='587' ;
 $mail -> setFrom('naturalsawah@gmail.com','natural sawah') ;
 
 // penerima
-
 $mail -> addAddress('naufalfarros05@gmail.com') ;
 //subjek
 $mail -> Subject = 'Verivikasi Email NatSa' ;

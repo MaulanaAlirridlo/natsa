@@ -1,5 +1,13 @@
 <?php
 include './include/script.php';
+
+if (isset($_POST['signup'])) {
+  $email = $_POST['email'];
+  $password = $_POST['password'];
+
+  signUp($conn, $email, $password);
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -44,13 +52,4 @@ include './include/script.php';
       <div class="col-6 picture"></div>
     </div>
   </body>
-
-<?php
-if (isset($_POST['signup'])) {
-    $email = $_POST['email'];
-    $password = $_POST['password'];
-
-    signUp($conn, $email, $password);
-}
-?>
 </html>
