@@ -381,7 +381,7 @@ function signUp($conn, $email, $password){
             $senderMail = "naturalsawah@gmail.com";
             $senderPassword = "natsa123";
             $senderName = "Natural Sawah";
-            $reciever = "irhasalif@gmail.com";
+            $reciever = $email;
             $subject = "
                     <h2> Verifikasi Email </h2>
                     <a href='http://localhost/natsa/natsa/verifikasi.php?vkey=$vkey'>verfikasi akun</a>

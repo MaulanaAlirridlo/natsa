@@ -12,108 +12,140 @@ include './include/script.php';
     <link rel="stylesheet" href="./vendor/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="./assets/css/navbar.css">
     <link rel="stylesheet" href="./assets/css/formtambahsawah.css">
+
+    <script src="./vendor/jquery/jquery-3.5.1.min.js"></script>
+    <script src="./vendor/bootstrap/js/bootstrap.min.js"></script>
+
     <title>Form Tambah Sawah</title>
 </head>
-
 <body>
-    <?php include './layouts/navbar.php' ?>
-    <div class="container mt-3">
-        <div class="row">
-            <div class="col">
-                <h1>Form Tambah Sawah</h1>
-                <form action="" class="form-group" method="post" enctype="multipart/form-data">
+    <script>
+        function myFunction(val) {
+            document.getElementById("frameMaps").src = "https://maps.google.com/maps?q="+val+"&output=embed";
+        }
+    </script>
+    <?php include './layouts/navbar.php'?>
+    <form action="" class="form-group" method="post" enctype="multipart/form-data">
+        <div class="container mt-3">
+            <div class="row">
+                    <div class="col">
+                        <h1>Form Tambah Sawah</h1>
 
-                    <label for="jenis">Jenis</label>
-                    <select name="jenis" id="jenis" class="form-control" required>
-                        <option value="">jenis ----</option>
-                        <?php echo enumDropdown($conn, "sawah", "jenis") . "<br>"; ?>
-                    </select>
-                    <div class="row">
-                        <div class="col">
-                            <label for="luas">Luas</label>
-                            <div class="input-group">
-                                <input type="number" class="form-control" name="luas" id="luas" placeholder="400" oninput="this.value=this.value.slice(0,this.maxLength)" maxlength="8" required>
-                                <div class="input-group-append">
-                                    <span class="input-group-text">m<span style="font-size: 10px;">2</span></span>
+                            <label for="jenis">Jenis</label>
+                            <select name="jenis" id="jenis" class="form-control" required>
+                                <option value="">jenis ----</option>
+                                <?php echo enumDropdown($conn, "sawah", "jenis") . "<br>"; ?>
+                            </select>
+                            <div class="row">
+                                <div class="col">
+                                    <label for="luas">Luas</label>
+                                    <div class="input-group">
+                                        <input type="number" class="form-control" name="luas" id="luas" placeholder="400" oninput="this.value=this.value.slice(0,this.maxLength)" maxlength="8" required>
+                                        <div class="input-group-append">
+                                            <span class="input-group-text">m<span style="font-size: 10px;">2</span></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <label for="harga">Harga</label>
+                                    <div class="input-group">
+                                        <div class="input-group-append">
+                                            <span class="input-group-text">Rp</span>
+                                        </div>
+                                        <input type="number" class="form-control" name="harga" id="harga" placeholder="12000000" oninput="this.value=this.value.slice(0,this.maxLength)" maxlength="13" required>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <label for="jumlah-panen">Jumlah panen</label>
+                                    <div class="input-group">
+                                        <input type="number" class="form-control" name="panen" id="jumlah-panen" placeholder="12" oninput="this.value=this.value.slice(0,this.maxLength)" maxlength="3" required>
+                                        <div class="input-group-append">
+                                            <span class="input-group-text">kali</span></span>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col">
-                            <label for="harga">Harga</label>
-                            <div class="input-group">
-                                <div class="input-group-append">
-                                    <span class="input-group-text">Rp</span>
+                            <label for="daerah">Daerah</label>
+                            <input type="text" name="daerah" id="daerah" class="form-control" required list="listDaerah" oninput="console.log(this.value);">
+                            <datalist id="listDaerah">
+                                <?php echo referenceDropdown($conn, "daerah") . "<br>"; ?>
+                                
+                            </datalist>
+                            <!-- <select name="daerah" id="daerah" class="form-control" required>
+                                <option value="">daerah ----</option>
+                                <?php //echo referenceDropdown($conn, "daerah") . "<br>"; ?>
+                            </select> -->
+                            <div class="row">
+                                <div class="col">
+                                    <label for="bekas-sawah">Bekas sawah</label>
+                                    <select name="bekas" id="bekas" class="form-control" required>
+                                        <option value="">bekas ----</option>
+                                        <?php echo referenceDropdown($conn, "bekas_sawah") . "<br>"; ?>
+                                    </select>
                                 </div>
-                                <input type="number" class="form-control" name="harga" id="harga" placeholder="12000000" oninput="this.value=this.value.slice(0,this.maxLength)" maxlength="13" required>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <label for="jumlah-panen">Jumlah panen</label>
-                            <div class="input-group">
-                                <input type="number" class="form-control" name="panen" id="jumlah-panen" placeholder="12" oninput="this.value=this.value.slice(0,this.maxLength)" maxlength="3" required>
-                                <div class="input-group-append">
-                                    <span class="input-group-text">kali</span></span>
+                                <div class="col">
+                                    <label for="tipe-sawah">Tipe sawah</label>
+                                    <select name="tipe" id="tipe" class="form-control" required>
+                                        <option value="">tipe ----</option>
+                                        <?php echo referenceDropdown($conn, "tipe_sawah") . "<br>"; ?>
+                                    </select>
+                                </div>
+                                <div class="col">
+                                    <label for="irigasi-sawah">Irigasi sawah</label>
+                                    <select name="irigasi" id="irigasi" class="form-control" required>
+                                        <option value="">irigasi ----</option>
+                                        <?php echo referenceDropdown($conn, "irigasi_sawah") . "<br>"; ?>
+                                    </select>
                                 </div>
                             </div>
-                        </div>
+
+                            <div class="row">
+                                <div class="col">
+                                    <label for="alamat">alamat</label>
+                                    <textarea name="alamat" id="alamat" class="form-control" required></textarea>
+                                </div>
+                                <div class="col">
+                                    <label for="deskripsi">Deskripsi</label>
+                                    <textarea name="deskripsi" id="deskripsi" class="form-control" required></textarea>
+                                </div>
+                            </div>
+
+                            <label for="foto-sawah">Foto sawah</label> <br>
+                            <input type="file" name="foto[]" id="foto-sawah" multiple="multiple"> <br>
+
+                            <input type="submit" value="Tambah" class="btn btn-secondary float-right mb-5" name="tambahSawah">
                     </div>
-                    <label for="daerah">Daerah</label>
-                    <select name="daerah" id="daerah" class="form-control" required>
-                        <option value="">daerah ----</option>
-                        <?php echo referenceDropdown($conn, "daerah") . "<br>"; ?>
-                    </select>
-                    <div class="row">
-                        <div class="col">
-                            <label for="bekas-sawah">Bekas sawah</label>
-                            <select name="bekas" id="bekas" class="form-control" required>
-                                <option value="">bekas ----</option>
-                                <?php echo referenceDropdown($conn, "bekas_sawah") . "<br>"; ?>
-                            </select>
-                        </div>
-                        <div class="col">
-                            <label for="tipe-sawah">Tipe sawah</label>
-                            <select name="tipe" id="tipe" class="form-control" required>
-                                <option value="">tipe ----</option>
-                                <?php echo referenceDropdown($conn, "tipe_sawah") . "<br>"; ?>
-                            </select>
-                        </div>
-                        <div class="col">
-                            <label for="irigasi-sawah">Irigasi sawah</label>
-                            <select name="irigasi" id="irigasi" class="form-control" required>
-                                <option value="">irigasi ----</option>
-                                <?php echo referenceDropdown($conn, "irigasi_sawah") . "<br>"; ?>
-                            </select>
-                        </div>
+                    <div class="col">
+                        <h1>&nbsp;</h1>
+
+                        <label for="maps">Maps</label>
+                        <input type="text" name="maps" id="maps" class="form-control mb-2" placeholder="alamat rinci Kota, daerah, desa" required oninput="myFunction(this.value)">
+
+                        <iframe width="100%" height="400" id="frameMaps" src="https://maps.google.com/maps?q=indonesia&output=embed" frameborder="0"></iframe>
+
                     </div>
-
-                    <div class="row">
-                        <div class="col">
-                            <label for="alamat">alamat</label>
-                            <textarea name="alamat" id="alamat" class="form-control" required></textarea>
-                        </div>
-                        <div class="col">
-                            <label for="deskripsi">Deskripsi</label>
-                            <textarea name="deskripsi" id="deskripsi" class="form-control" required></textarea>
-                        </div>
-                    </div>
-
-
-
-
-                    <label for="maps">Maps</label>
-                    <textarea name="maps" id="maps" class="form-control" placeholder="link iframe google maps" required></textarea>
-
-                    <label for="foto-sawah">Foto sawah</label> <br>
-                    <input type="file" name="foto[]" id="foto-sawah" multiple="multiple"> <br>
-
                     <input type="hidden" name="id_pengguna" value="<?php echo $_SESSION['id_pengguna']; ?>">
-
-                    <input type="submit" value="Tambah" class="btn btn-secondary float-right mb-5" name="tambahSawah">
-                </form>
+                    <input type="hidden" name="kodeDaerah" id="kodeDaerah">
             </div>
         </div>
-    </div>
-    <?php
+    </form>
+    <script>
+        
+        var inp = document.getElementById('daerah');
+        inp.addEventListener('input', function() {
+            var value = this.value;
+            var opt = [].find.call(this.list.options, function(option) {
+                return option.value === value;
+            });
+            if(opt) {
+                this.value = opt.textContent;
+            }
+            document.getElementById('kodeDaerah').value = value;
+        });                    
+
+    </script>
+
+<?php
 
     if (isset($_POST['tambahSawah'])) {
 
@@ -125,21 +157,22 @@ include './include/script.php';
         $tipe = $_POST['tipe'];
         $irigasi = $_POST['irigasi'];
         $panen = $_POST['panen'];
-        $daerah = $_POST['daerah'];
+        $daerah = $_POST['kodeDaerah'];
         $alamat = $_POST['alamat'];
         $maps = $_POST['maps'];
         $deskripsi = $_POST['deskripsi'];
         $jenis = $_POST['jenis'];
 
         $sql = "INSERT INTO sawah
-        (`id_sawah`, `id_pengguna`, `luas`, `harga`, `id_bekas_sawah`, `id_tipe_sawah`, `id_irigasi_sawah`, `jumlah_panen`, `id_daerah`, `alamat`, `maps`, `deskripsi`, `jenis`)
-        value
-        ('$id_sawah','$id_pengguna','$luas','$harga','$bekas','$tipe','$irigasi','$panen','$daerah','$alamat','$maps','$deskripsi','$jenis')";
+                (`id_sawah`, `id_pengguna`, `luas`, `harga`, `id_bekas_sawah`, `id_tipe_sawah`, `id_irigasi_sawah`, `jumlah_panen`, `id_daerah`, `alamat`, `maps`, `deskripsi`, `jenis`)
+                value
+                ('$id_sawah','$id_pengguna','$luas','$harga','$bekas','$tipe','$irigasi','$panen','$daerah','$alamat','$maps','$deskripsi','$jenis')";
 
         $result = mysqli_query($conn, $sql) or die(mysqli_error($conn));
         // $result = true;
         if (!$result) {
             JSMassage("data gagal masuk");
+            // echo "data gagal masuk";
         } else {
             //cek apakah ada file yang masuk atau tidak
             $fileName = $_FILES['foto']['name'];
@@ -190,10 +223,6 @@ include './include/script.php';
 
                                     } else {
                                         JSMassage("ada yang salah", "here");
-
-                                        // $error_massage = mysqli_error($result);
-                                        // echo "gagal ". ($i + 1);
-
                                     }
                                 }
                             } else {
@@ -212,7 +241,7 @@ include './include/script.php';
         }
     }
 
-    ?>
+?>
 </body>
 
 </html>
