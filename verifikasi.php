@@ -29,10 +29,12 @@
                 echo mysqli_error($conn);
             }
         }else{
-            echo "you expected a back door, but it was me DIO!!!";
+            // echo "you expected a back door, but it was me DIO!!!";
+            echo "<center><img src='./assets/img/dio.jpg'>";
         }
     }else{
-        die("Something wrong i can feel it");
+        echo "<center><img src='./assets/img/somethingWrong.jpg'>";
+        // die("Something wrong i can feel it");
     }
 ?>
 </html>

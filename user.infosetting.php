@@ -123,8 +123,7 @@ if (isset($_POST['updateInfo'])) {
                 wa='$wa',
                 email='$email',
                 alamat='$alamat',
-                deskripsi='$deskripsi',
-                verfikasi='terverifikasi'
+                deskripsi='$deskripsi'
                 where id_pengguna = '$id' ";
 
         $result = mysqli_query($conn, $sql) or die(mysqli_error($conn));
@@ -154,7 +153,6 @@ if (isset($_POST['updateInfo'])) {
                                 email='$email',
                                 alamat='$alamat',
                                 deskripsi='$deskripsi',
-                                verfikasi='terverifikasi',
                                 nama_foto='$fileNameNew'
                                 where id_pengguna = '$id' ";
 
