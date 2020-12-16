@@ -7,6 +7,24 @@ body{
   margin: 10px!important;
   margin-right: 0!important;
 }
+.crud-icon{
+  width: 120px;
+  position: absolute;
+  top: -1px;
+  right: 13px;
+}
+.crud-icon .detail, .edit, .delete{
+  cursor: pointer;
+  background-color: white;
+  padding: 0;
+  text-align: center;
+}
+.crud-icon .delete{
+  border-top-right-radius: .25rem;
+}
+.crud-icon .detail:hover, .edit:hover, .delete:hover{
+  background-color: rgb(231, 231, 231);
+}
 .card .card-image{
   padding: 5px;
   width: 100%;

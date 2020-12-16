@@ -26,6 +26,17 @@ while ($row = mysqli_fetch_assoc($result)) {
   foreach ($dummy as $key => $v) {
   ?>
     <div class="card" >
+      <div class="row crud-icon">
+        <div class="col border detail">
+          <i class="fas fa-search-plus text-center text-success"></i>
+        </div>
+        <div class="col border edit">
+          <i class="fas fa-pencil-alt text-center text-warning"></i>
+        </div>
+        <div class="col border delete">
+          <i class="fas fa-trash-alt text-center text-danger"></i>
+        </div>
+      </div>
       <div class="card-image">
         <img src="<?= $v->img ?>" alt="">
       </div>
