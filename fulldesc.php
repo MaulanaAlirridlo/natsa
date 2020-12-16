@@ -49,7 +49,7 @@ $rowPemilik = mysqli_fetch_assoc($resultPemilik);
     </div>
     <div class="col-3 p-0">
       <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7443154.79590166!2d5.93717945410757!3d76.83672901074213!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x45a1cfdc4fa3c049%3A0x2bf373e71b35e875!2sSvalbard!5e0!3m2!1sid!2sid!4v1605783149885!5m2!1sid!2sid"
+        src="https://maps.google.com/maps?q=<?php echo $rowSawah['maps'];?>&output=embed"
         allowfullscreen class="map"></iframe>
     </div>
   </div>
