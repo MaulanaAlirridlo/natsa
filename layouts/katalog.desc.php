@@ -26,15 +26,23 @@
       <div class="row py-4">
         <div class="col">
           <p class="">Luas</p>
-          <p class="desc-luas">luas</p>
+          <p class="d-flex align-items-center">
+            <span class="desc-luas mr-1">luas</span>
+            m<span class="kuadrat ">2</span>
+          </p>
         </div>
         <div class="col">
           <p class="">Jumlah Panen</p>
-          <p class="desc-jumlahPanen">jumlahPanen</p>
+          <p>
+            <span class="desc-jumlahPanen">jumlahPanen</span>
+            kali
+          </p>
         </div>
         <div class="col">
           <p class="jenis">Jenis</p>
-          <p class="desc-jenis">jenis</p>
+          <p>
+            <span class="desc-jenis">jenis</span>
+          </p>
         </div>
       </div>
       <h6>Deskripsi</h6>

@@ -83,9 +83,9 @@ foreach ($dummy as $key => $v) {
       data-img3="<?=$v->img3?>"
       data-id="<?=$v->id?>"
       data-luas="<?=$v->luas?>"
-      data-jumlahPanen="<?=$v->panen?>"
-      data-deskripsi = "<?=$v->deskripsi?>"
+      data-jumlah-panen="<?=$v->panen?>"
       data-jenis = "<?=$v->jenis?>"
+      data-deskripsi = "<?=$v->deskripsi?>"
     >
       <div class="card-image">
         <img src="<?=$v->img?>" alt="">
