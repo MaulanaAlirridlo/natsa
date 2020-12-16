@@ -1,7 +1,7 @@
 <html>
     <head>
         <title>lupa password</title>
-        <link rel="stylesheet" href="lupapassword.css">
+		<link rel="stylesheet" href="assets/css/lupapassword.css">
     </head>
    
     <body>
@@ -10,7 +10,7 @@
             <form>
                 <label>Email</label><br>
                 <input type="email"><br>
-                
+                <p>
                 <button>Submit</button>
             </form>
         </div>     
