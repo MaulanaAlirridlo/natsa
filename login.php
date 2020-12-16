@@ -7,12 +7,7 @@ include './include/script.php';
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
-      integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
-      crossorigin="anonymous"
-    />
+    <link rel="stylesheet" href="./vendor/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="./assets/css/login.css">
     <title>Login</title>
   </head>
@@ -45,7 +40,7 @@ include './include/script.php';
         
         <div class="ask mt-2 w-100 d-inline-block">
           <p>
-            <a href="#" class="float-left">Lupa Password</a>
+            <a href="lupapassword.php" class="float-left">Lupa Password</a>
             <a href="signup.php" class="float-right">Belum punya akun?</a>
           </p>
         </div>

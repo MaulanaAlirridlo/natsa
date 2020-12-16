@@ -10,6 +10,7 @@ body {
 }
 .ask a:hover {
   text-decoration: none;
+  color: rgba(0, 153, 255, 0.829);
 }
 .or {
   font-weight: 100;
