@@ -25,13 +25,16 @@
       <p class="desc-alamat">desc</p>
       <div class="row py-4">
         <div class="col">
+          <p class="">Luas</p>
           <p class="desc-luas">luas</p>
         </div>
         <div class="col">
-          <p class="desc-jumlahPanen">jumlah panen</p>
+          <p class="">Jumlah Panen</p>
+          <p class="desc-jumlahPanen">jumlahPanen</p>
         </div>
         <div class="col">
-          <p class="desc-luas">luas</p>
+          <p class="jenis">Jenis</p>
+          <p class="desc-jenis">jenis</p>
         </div>
       </div>
       <h6>Deskripsi</h6>

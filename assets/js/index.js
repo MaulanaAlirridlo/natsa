@@ -18,6 +18,7 @@ $(".card").click(function () {
   let luas = $(this).data("luas");
   let jumlahPanen = $(this).data("jumlahPanen");
   let deskripsi = $(this).data("deskripsi");
+  let jenis = $(this).data("jenis");
 
   $('#img'+descId+'1').attr('src',img1);
   $('#img'+descId+'2').attr('src',img2);
@@ -30,6 +31,7 @@ $(".card").click(function () {
   $(".desc-luas").text(luas);
   $(".desc-jumlahPanen").text(jumlahPanen);
   $(".desc-desk").text(deskripsi);
+  $(".desc-jenis").text(jenis);
   $('#link'+descId).attr('href','./fulldesc.php?id='+id);
 
   if (lastCardId === cardId) {

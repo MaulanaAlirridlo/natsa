@@ -1,5 +1,9 @@
-<html>
+<?php
+session_start();
+include './include/script.php';
 
+?>
+<html>
 <head>
   <link rel="stylesheet" href="./vendor/bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" href="./assets/css/navbar.css">

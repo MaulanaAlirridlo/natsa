@@ -25,7 +25,7 @@ if (isset($_GET['cari'])) {
 $querySawah = "SELECT *, FORMAT(harga, 0) as harga,
 (SELECT CONCAT(d.provinsi,', ', d.kabupaten) FROM daerah d WHERE sawah.id_daerah=d.id_daerah) as daerah_sawah
 from sawah $filter $cari";
-$resultSawah = mysqli_query($conn, $querySawah);
+$resultSawah = mysqli_query($conn, $querySawah) or die(mysqli_error($conn));
 
 $dummy = array();
 $katalogKey = 0;
@@ -46,6 +46,10 @@ while ($rowSawah = mysqli_fetch_assoc($resultSawah)) {
         'harga' => $rowSawah['harga'],
         'alamat' => $rowSawah['daerah_sawah'],
         'id' => $rowSawah['id_sawah'],
+        'luas' => $rowSawah['luas'],
+        'panen' => $rowSawah['jumlah_panen'],
+        'jenis' => $rowSawah['jenis'],
+        'deskripsi' => $rowSawah['deskripsi'],
         'img' => './assets/img/' . $foto[0],
         'img1' => './assets/img/' . $foto[0],
         'img2' => './assets/img/' . $foto[1],
@@ -78,9 +82,10 @@ foreach ($dummy as $key => $v) {
       data-img2="<?=$v->img2?>"
       data-img3="<?=$v->img3?>"
       data-id="<?=$v->id?>"
-      data-luas="10"
-      data-jumlahPanen="5 kali"
-      data-deskripsi = "junaidi"
+      data-luas="<?=$v->luas?>"
+      data-jumlahPanen="<?=$v->panen?>"
+      data-deskripsi = "<?=$v->deskripsi?>"
+      data-jenis = "<?=$v->jenis?>"
     >
       <div class="card-image">
         <img src="<?=$v->img?>" alt="">

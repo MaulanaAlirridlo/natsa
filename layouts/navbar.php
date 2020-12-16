@@ -47,7 +47,9 @@ if(isset($_SESSION['id_pengguna'])){
 
 <datalist id="alamat">
   <?php 
-    $pilihDaerah = "SELECT CONCAT(provinsi,', ', kabupaten) as daerah_sawah FROM daerah";
+    $pilihDaerah = "SELECT CONCAT(daerah.provinsi,', ', daerah.kabupaten) as daerah_sawah 
+    FROM daerah 
+    WHERE EXISTS (SELECT sawah.id_daerah from sawah WHERE daerah.id_daerah=sawah.id_daerah)";
     $hasilDaerah = mysqli_query($conn, $pilihDaerah);
     while ($dataDaerah=mysqli_fetch_assoc($hasilDaerah)) {
   ?>
