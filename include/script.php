@@ -382,9 +382,10 @@ function signUp($conn, $email, $password){
             $senderPassword = "natsa123";
             $senderName = "Natural Sawah";
             $reciever = $email;
+            $url = $_SERVER['HTTP_HOST'].dirname($_SERVER['PHP_SELF'])."/verifikasi.php?vkey=$vkey";
             $subject = "
                     <h2> Verifikasi Email </h2>
-                    <a href='http://localhost/natsa/natsa/verifikasi.php?vkey=$vkey'>verfikasi akun</a>
+                    <a href='".$url."'>verfikasi akun</a>
                     ini yang benar-benar terbaru
                     " ;
             $mail = sendMail($senderMail, $senderPassword, $senderName, $reciever, $subject);

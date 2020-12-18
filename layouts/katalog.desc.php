@@ -28,7 +28,8 @@
           <p class="">Luas</p>
           <p class="d-flex align-items-center">
             <span class="desc-luas mr-1">luas</span>
-            m<span class="kuadrat ">2</span>
+            m<sup>2</sup>
+            <!-- m<span class="kuadrat ">2</span> -->
           </p>
         </div>
         <div class="col">
