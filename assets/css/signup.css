@@ -29,5 +29,6 @@ body {
 .picture{
   background-image: url(../img/wall-log.png);
   background-repeat: no-repeat;
+  background-position: 0;
   background-size: cover;
 }
