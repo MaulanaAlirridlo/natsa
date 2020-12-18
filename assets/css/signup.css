@@ -27,5 +27,7 @@ body {
   z-index: -1;
 }
 .picture{
-  background-color: grey;
+  background-image: url(../img/wall-log.png);
+  background-repeat: no-repeat;
+  background-size: cover;
 }

@@ -54,9 +54,7 @@ include './include/script.php';
           </a>
         </div>
       </div>
-      <div class="col-6 picture">
-          <img src="assets/img/wall-log.png" class="img-fluid" style="max-height:100vh;">
-      </div>
+      <div class="col-6 picture"></div>
     </div>
   </body>
 <?php
