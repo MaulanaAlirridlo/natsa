@@ -1,36 +1,40 @@
 <html>
     <head>
         <title>Ubah password</title>
-		<link rel="stylesheet" href="assets/css/ubah_password.css">
+        <link rel="stylesheet" href="./vendor/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="./assets/css/navbar.css">
+        <link rel="stylesheet" href="assets/css/ubah_password.css">
     </head>
    
     <body>
         <div class="container">
-            <h1>Ubah password</h1>
-            <?php
-                $selector = (isset($_GET['selector'])) ? $_GET['selector'] : "" ;
-                $validator = (isset($_GET['validator'])) ? $_GET['validator'] : "" ;
+            <div class="form-group w-50 mx-auto mt-5 border p-5 rounded">
+                <h1 class="text-center">Ubah password</h1>
+                <?php
+                    $selector = (isset($_GET['selector'])) ? $_GET['selector'] : "" ;
+                    $validator = (isset($_GET['validator'])) ? $_GET['validator'] : "" ;
 
-                if (empty($selector) || empty($validator)) {
-                    echo "tidak bisa memverfikasi permintaan anda";
-                }else{
-                    if (ctype_xdigit($selector) !== false && ctype_xdigit($validator) !== false) {
-            ?>
-            <form action="" method="post">
-                <input type="hidden" name="selector" value="<?= $selector?>">
-                <input type="hidden" name="validator" value="<?= $validator?>">
-                <input type="password" name="pwd" placeholder="Password baru" id="" required>
-                <input type="password" name="pwdRepeat" placeholder="ketik password lagi" id="" required>
-                <button type="submit" value="ubah" name="ubahPasswordSubmit">ubah</button>
-                <!-- <input type="submit" value="ubah" name="ubahPasswordSubmit"> -->
-            </form>
-            <?php
+                    if (empty($selector) || empty($validator)) {
+                        echo "tidak bisa memverfikasi permintaan anda";
                     }else{
-                        echo "data salah";
+                        if (ctype_xdigit($selector) !== false && ctype_xdigit($validator) !== false) {
+                ?>
+                <form action="" method="post">
+                    <input type="hidden" name="selector" value="<?= $selector?>">
+                    <input type="hidden" name="validator" value="<?= $validator?>">
+                    <input type="password" class="form-control" name="pwd" placeholder="Password baru" id="" required>
+                    <input type="password" class="form-control" name="pwdRepeat" placeholder="ketik password lagi" id="" required>
+                    <input class="btn btn-primary active" type="submit" value="Ubah" name="ubahPasswordSubmit">
+                    <!-- <input type="submit" value="ubah" name="ubahPasswordSubmit"> -->
+                </form>
+                <?php
+                        }else{
+                            echo "data salah";
+                        }
                     }
-                }
 
-            ?>
+                ?>
+            </div>
         </div>
     <?php
         include "./include/conn.php";
