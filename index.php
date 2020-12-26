@@ -22,7 +22,8 @@ include './include/script.php';
 
   <?php include './layouts/navbar.php'?>
   <div class="row">
-    <div class="col-2 bg-light filter-container p-0">
+    <div class="col-1"></div>
+    <div class="col-2 filter-container p-0">
       <?php include './layouts/filter.php'?>
     </div>
     <div class="col katalog-container">
