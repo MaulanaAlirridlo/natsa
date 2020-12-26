@@ -22,27 +22,35 @@ $row = mysqli_fetch_assoc($result);
 </head>
 
 <body style="overflow-x: hidden;">
-  <?php include './layouts/navbar.php'?>
+  <?php include './layouts/navbar.php' ?>
   <div class="row">
     <div class="col-2">
-      <?php include './layouts/user.actionList.php'?>
+      <?php include './layouts/user.actionList.php' ?>
     </div>
     <div class="col">
       <form action="" class="form-group" method="POST" enctype="multipart/form-data">
-      <div class="row p-3">
-        <div class="photo-profile">
-          <img src="./assets/img/<?php echo $row['nama_foto']; ?>" alt="profile">
-          <input type="file" name="foto" id="foto" class="pl-2">
+        <div class="row p-3">
+          <div class="photo-profile">
+            <img src="./assets/img/<?php echo $row['nama_foto']; ?>" alt="profile">
+            <input type="file" name="foto" id="foto" class="pl-2">
+          </div>
         </div>
-      </div>
-      <div class="row mt-2">
+        <div class="row mt-2">
+          <div class="col-2">
+            <label for="username">Username</label>
+          </div>
+          <div class="col-75">
+            <input class="form-control" type="text" id="username" name="username" placeholder="Masukkan username" value="" required>
+          </div>
+        </div>
+        <div class="row mt-2">
           <div class="col-2">
             <label for="fnama">Nama </label>
           </div>
           <div class="col-75 d-flex">
             <input class="form-control w-50 nama-depan" type="text" id="nama-depan" name="nama_depan" placeholder="Nama depan" value="<?php echo $row['nama_depan']; ?>" required maxlength="20">
             <input class="form-control w-50" type="text" id="nama-belakang" name="nama_belakang" placeholder="Nama belakang" value="<?php echo $row['nama_belakang']; ?>" required maxlength="20">
-         </div>
+          </div>
         </div>
         <div class="row mt-2">
           <div class="col-2">
@@ -94,8 +102,8 @@ $row = mysqli_fetch_assoc($result);
       </form>
     </div>
   </div>
-<?php
-if (isset($_POST['updateInfo'])) {
+  <?php
+  if (isset($_POST['updateInfo'])) {
     $nama_depan = $_POST['nama_depan'];
     $nama_belakang = $_POST['nama_belakang'];
     $no_hp = $_POST['no_hp'];
@@ -118,7 +126,7 @@ if (isset($_POST['updateInfo'])) {
     $allow = array('jpg', 'jpeg', 'png');
 
     if ($fileName == null or $file == "") {
-        $sql = "UPDATE pengguna SET
+      $sql = "UPDATE pengguna SET
                 nama_depan='$nama_depan',
                 nama_belakang='$nama_belakang',
                 no_hp='$no_hp',
@@ -128,26 +136,25 @@ if (isset($_POST['updateInfo'])) {
                 deskripsi='$deskripsi'
                 where id_pengguna = '$id' ";
 
-        $result = mysqli_query($conn, $sql) or die(mysqli_error($conn));
-        if (!$result) {
-            // mysqli_error($result);
-            JSMassage("gagal update", "here");
-        } else {
-            JSMassage("Berhasil update data", "here");
-        }
-    } 
-    else {
-        if (in_array($fileActualExt, $allow)) {
-            if ($fileError === 0) {
-                if ($fileSize <= 1048576) {
-                    $fileNameNew = uniqid('PGN-', true) . "." . $fileActualExt;
+      $result = mysqli_query($conn, $sql) or die(mysqli_error($conn));
+      if (!$result) {
+        // mysqli_error($result);
+        JSMassage("gagal update", "here");
+      } else {
+        JSMassage("Berhasil update data", "here");
+      }
+    } else {
+      if (in_array($fileActualExt, $allow)) {
+        if ($fileError === 0) {
+          if ($fileSize <= 1048576) {
+            $fileNameNew = uniqid('PGN-', true) . "." . $fileActualExt;
 
-                    $fileDestination = 'assets/img/' . $fileNameNew;
-                    $result = move_uploaded_file($fileTmp, $fileDestination);
-                    if ($result) {
-                        JSMassage("berhasil upload foto profile", "here");
+            $fileDestination = 'assets/img/' . $fileNameNew;
+            $result = move_uploaded_file($fileTmp, $fileDestination);
+            if ($result) {
+              JSMassage("berhasil upload foto profile", "here");
 
-                        $sql = "UPDATE pengguna SET
+              $sql = "UPDATE pengguna SET
                                 nama_depan='$nama_depan',
                                 nama_belakang='$nama_belakang',
                                 no_hp='$no_hp',
@@ -158,30 +165,29 @@ if (isset($_POST['updateInfo'])) {
                                 nama_foto='$fileNameNew'
                                 where id_pengguna = '$id' ";
 
-                        $result = mysqli_query($conn, $sql) or die(mysqli_error($conn));
-                        if (!$result) {
-                            JSMassage("gagal update", "here");
-                        } else {
-                            JSMassage("Berhasil update data", "here");
-                        }
-
-                    } else {
-                        $error_massage = mysqli_error($result);
-                        JSMassage("ada yang salah", "here");
-                    }
-                } else {
-                    JSMassage("ukuran file harus kurang dari 1 MB", "here");
-                }
+              $result = mysqli_query($conn, $sql) or die(mysqli_error($conn));
+              if (!$result) {
+                JSMassage("gagal update", "here");
+              } else {
+                JSMassage("Berhasil update data", "here");
+              }
             } else {
-                JSMassage("there was an error while uplaoding your file", "here");
+              $error_massage = mysqli_error($result);
+              JSMassage("ada yang salah", "here");
             }
+          } else {
+            JSMassage("ukuran file harus kurang dari 1 MB", "here");
+          }
         } else {
-            JSMassage("upload file dengan ekstensi .jpg/.jpeg/.png", "here");
+          JSMassage("there was an error while uplaoding your file", "here");
         }
+      } else {
+        JSMassage("upload file dengan ekstensi .jpg/.jpeg/.png", "here");
+      }
     }
+  }
 
-}
-
-?>
+  ?>
 </body>
+
 </html>
