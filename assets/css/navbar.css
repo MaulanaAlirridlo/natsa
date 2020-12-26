@@ -3,10 +3,17 @@
   position: sticky;
   top: 0;
   z-index: 9999;
-  background-color: rgb(243, 242, 242)!important;
+  background-color: white;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
 }
 .search{
   width: 400px!important;
+}
+.input-group-append button{
+  outline: none;
+}
+.input-group-text img{
+  height: 24px;
 }
 .user{
  min-width: 40px;

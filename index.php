@@ -15,6 +15,7 @@ include './include/script.php';
   <link rel="stylesheet" href="./assets/css/filter.css">
   <link rel="stylesheet" href="./assets/css/katalog.css">
   <link rel="stylesheet" href="./assets/css/katalog.desc.css">
+  <link rel="shortcut icon" href="./assets/img/logo.png" type="image/x-icon">
   <title>NatSa</title>
 </head>
 

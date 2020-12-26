@@ -18,6 +18,8 @@ $row = mysqli_fetch_assoc($result);
   <link rel="stylesheet" href="./assets/css/userlist.css">
   <link rel="stylesheet" href="./assets/css/navbar.css">
   <link rel="stylesheet" href="./assets/css/userprofile.css">
+  <link rel="shortcut icon" href="./assets/img/logo.png" type="image/x-icon">
+  <title>Profil pengguna | natsa</title>
 
 <body>
   <?php include './layouts/navbar.php' ?>

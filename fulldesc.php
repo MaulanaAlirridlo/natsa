@@ -35,7 +35,7 @@ $rowPemilik = mysqli_fetch_assoc($resultPemilik);
   <link rel="stylesheet" href="./assets/css/fulldesc.desc.css">
   <link rel="stylesheet" href="./assets/css/fulldesc.kontak.css">
   <link rel="stylesheet" href="./assets/css/fulldesc.css">
-  <title>Judul Sawah</title>
+  <title>Deskripsi sawah | natsa</title>
 </head>
 
 <body>

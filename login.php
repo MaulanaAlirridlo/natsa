@@ -9,7 +9,8 @@ include './include/script.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./vendor/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="./assets/css/login.css">
-    <title>Login</title>
+    <link rel="shortcut icon" href="./assets/img/logo.png" type="image/x-icon">
+    <title>Masuk | natsa</title>
   </head>
   <body>
     <div class="row">

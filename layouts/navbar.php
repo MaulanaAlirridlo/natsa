@@ -12,7 +12,7 @@ if(isset($_SESSION['id_pengguna'])){
 
 
 ?>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light">
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav">
       <li class="nav-item">
@@ -22,8 +22,13 @@ if(isset($_SESSION['id_pengguna'])){
         <a class="nav-link" href="index.php">Sewa</a>
       </li>
     </ul>
-    <form class="form-inline my-2 my-lg-0 ml-auto mr-auto" method="GET" action="">
-      <input class="form-control mr-sm-2 search" type="search" name="cari" placeholder="Cari Berdasarkan Daerah" aria-label="Search" list="alamat" autocomplete="off">
+    <form class="form-inline my-2 my-lg-0 ml-auto mr-auto input-group w-auto" method="GET" action="">
+      <input class="form-control search" type="search" name="cari" placeholder="Cari Berdasarkan Daerah" aria-label="Search" list="alamat" autocomplete="off">
+      <div class="input-group-append">
+        <button type="submit" class="input-group-text" id="basic-addon2">
+          <img src="./assets/img/logo.png" alt="C">
+        </button>
+      </div>
     </form>
     <?php if ($user) { ?>
       <a href="./userprofil.php">

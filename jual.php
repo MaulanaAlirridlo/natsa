@@ -12,7 +12,8 @@ include './include/script.php';
   <link rel="stylesheet" href="./assets/css/navbar.css">
   <link rel="stylesheet" href="./assets/css/jual.galeri.css">
   <link rel="stylesheet" href="./assets/css/buttontambahsawah.css">
-  <title>Galeri Penjualan</title>
+  <link rel="shortcut icon" href="./assets/img/logo.png" type="image/x-icon">
+  <title>Galeri penjualan | natsa</title>
 </head>
 <body>
   <?php include('./layouts/navbar.php') ?>

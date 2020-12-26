@@ -15,8 +15,9 @@ include './include/script.php';
 
     <script src="./vendor/jquery/jquery-3.5.1.min.js"></script>
     <script src="./vendor/bootstrap/js/bootstrap.min.js"></script>
-
-    <title>Form Tambah Sawah</title>
+    
+    <link rel="shortcut icon" href="./assets/img/logo.png" type="image/x-icon">
+    <title>Tambah Sawah | natsa</title>
 </head>
 <body>
     <script>

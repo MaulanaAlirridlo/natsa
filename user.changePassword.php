@@ -13,6 +13,8 @@ include './include/script.php';
   <link rel="stylesheet" href="./assets/css/addpassword.css">
   <link rel="stylesheet" href="./assets/css/userlist.css">
   <link rel="stylesheet" href="./assets/css/navbar.css">
+  <link rel="shortcut icon" href="./assets/img/logo.png" type="image/x-icon">
+  <title>Ubah password | natsa</title>
 </head>
 
 <body style="overflow-x: hidden;">

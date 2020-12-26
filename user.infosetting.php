@@ -17,6 +17,8 @@ $row = mysqli_fetch_assoc($result);
   <link rel="stylesheet" href="./assets/css/userinfosetting.css">
   <link rel="stylesheet" href="./assets/css/userlist.css">
   <link rel="stylesheet" href="./assets/css/navbar.css">
+  <link rel="shortcut icon" href="./assets/img/logo.png" type="image/x-icon">
+  <title>Pengaturan informasi pengguna | natsa</title>
 </head>
 
 <body style="overflow-x: hidden;">
@@ -156,7 +158,7 @@ if (isset($_POST['updateInfo'])) {
                                 nama_foto='$fileNameNew'
                                 where id_pengguna = '$id' ";
 
-                        $result = mysqli_query($conn, $sql) or die(mysqli_error());
+                        $result = mysqli_query($conn, $sql) or die(mysqli_error($conn));
                         if (!$result) {
                             JSMassage("gagal update", "here");
                         } else {
