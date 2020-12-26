@@ -12,6 +12,14 @@
 .card:hover{
   transform: scale(1.02)
 }
+.card .jenis-label{
+  position: absolute;
+  right: 0;
+  top: 0;
+  background-color: white;
+  width: auto;
+  padding: 0px 5px 5px 8px;
+}
 .card .card-image{
   padding: 5px;
   width: 100%;

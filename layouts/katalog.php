@@ -87,6 +87,11 @@ foreach ($dummy as $key => $v) {
       data-jenis = "<?=$v->jenis?>"
       data-deskripsi = "<?=$v->deskripsi?>"
     >
+      <div class="jenis-label rounded">
+        <h5 class="mb-0">
+          <?php if($v->jenis=="jual") { echo "Dijual"; } else { echo "Disewakan"; }; ?>
+        </h5>
+      </div>
       <div class="card-image">
         <img src="<?=$v->img?>" alt="">
       </div>
