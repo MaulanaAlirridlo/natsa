@@ -4,7 +4,6 @@ body{
 
 .filter-container{
   margin-top: 25px;
-  z-index: 9999;
   height: 405px;
   box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.4);
   border-radius: 5px;
