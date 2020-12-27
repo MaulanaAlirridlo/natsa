@@ -1,6 +1,6 @@
 <?php
 session_start();
-include './include/script.php';
+include './include/conn.php';
 
 $id = $_SESSION['id_pengguna'];
 $query = "SELECT * from pengguna where id_pengguna='$id'";
