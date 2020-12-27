@@ -53,7 +53,7 @@ include './include/script.php';
                                         <div class="input-group-append">
                                             <span class="input-group-text">Rp</span>
                                         </div>
-                                        <input type="number" class="form-control" name="harga" id="harga" placeholder="12000000" oninput="this.value=this.value.slice(0,this.maxLength)" maxlength="13" required>
+                                        <input type="number" class="form-control" name="harga" id="harga" placeholder="12000000" oninput="this.value=this.value.slice(0,this.maxLength)" maxlength="12" required>
                                     </div>
                                 </div>
                                 <div class="col">
@@ -174,8 +174,9 @@ include './include/script.php';
         if (!$result) {
             JSMassage("data gagal masuk");
             // echo "data gagal masuk";
-        } else {
+        }else {
             //cek apakah ada file yang masuk atau tidak
+            
             $fileName = $_FILES['foto']['name'];
             foreach ($fileName as $key => $value) {
                 if (empty($value)) {

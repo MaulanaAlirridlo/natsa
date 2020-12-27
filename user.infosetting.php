@@ -40,7 +40,7 @@ $row = mysqli_fetch_assoc($result);
             <label for="username">Username</label>
           </div>
           <div class="col-75">
-            <input class="form-control" type="text" id="username" name="username" placeholder="Masukkan username" value="" required>
+            <input class="form-control" type="text" id="username" name="username" placeholder="Masukkan username" value="<?php echo $row['username']; ?>" required>
           </div>
         </div>
         <div class="row mt-2">
@@ -104,6 +104,7 @@ $row = mysqli_fetch_assoc($result);
   </div>
   <?php
   if (isset($_POST['updateInfo'])) {
+    $username = $_POST['username'];
     $nama_depan = $_POST['nama_depan'];
     $nama_belakang = $_POST['nama_belakang'];
     $no_hp = $_POST['no_hp'];
@@ -127,6 +128,7 @@ $row = mysqli_fetch_assoc($result);
 
     if ($fileName == null or $file == "") {
       $sql = "UPDATE pengguna SET
+                username='$username',
                 nama_depan='$nama_depan',
                 nama_belakang='$nama_belakang',
                 no_hp='$no_hp',
@@ -155,6 +157,7 @@ $row = mysqli_fetch_assoc($result);
               JSMassage("berhasil upload foto profile", "here");
 
               $sql = "UPDATE pengguna SET
+                                username='$username',
                                 nama_depan='$nama_depan',
                                 nama_belakang='$nama_belakang',
                                 no_hp='$no_hp',
