@@ -14,6 +14,9 @@ include './include/script.php';
   <link rel="stylesheet" href="./assets/css/userlist.css">
   <link rel="stylesheet" href="./assets/css/navbar.css">
   <link rel="shortcut icon" href="./assets/img/logo.png" type="image/x-icon">
+
+  <script src="./vendor/components/jquery/jquery.min.js"></script>
+
   <title>Ubah password | natsa</title>
 </head>
 
@@ -27,10 +30,10 @@ include './include/script.php';
       <form action="" class="form-group" method="post">
         <div class="row mt-2">
           <div class="col-2">
-            <label for="Password lama">Password lama</label>
+            <label for="PasswordLama">Password lama</label>
           </div>
           <div class="col-75">
-            <input class="form-control" type="password" id="Password lama" name="passwordLama" placeholder="Your Password lama.." required>
+            <input class="form-control" type="password" id="passwordLama" name="passwordLama" placeholder="Your Password lama.." required>
           </div>
         </div>
         <div class="row">
@@ -38,17 +41,24 @@ include './include/script.php';
             <label for="Password baru">Password baru</label>
           </div>
           <div class="col-75">
-            <input class="form-control" type="password" id="Password baru" name="passwordBaru" placeholder="Your Password baru.." required>
+            <input class="form-control" type="password" id="passwordBaru" name="passwordBaru" placeholder="Your Password baru.." required>
           </div>
         </div>
-
+        <div class="row">
+          <div class="col-2">
+          </div>
+          <div class="col-75">
+            <div class="col alert alert-danger" role="alert" id="pesanError">error</div>
+          </div>
+        </div>
         <div class="row pl-3">
-          <input type="submit" value="Submit" name="ganti">
+          <input type="button" value="Submit" name="ganti" id="gantiPassword">
         </div>
       </form>
     </div>
   </div>
 
+<script src="./assets/js/ubahPassword.js"></script>
 <?php
   if (isset($_POST['ganti'])) {
     $id_pengguna = $_SESSION['id_pengguna'];
