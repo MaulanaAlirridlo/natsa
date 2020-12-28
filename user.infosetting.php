@@ -75,15 +75,15 @@ $row = mysqli_fetch_assoc($result);
             <label for="email">Email</label>
           </div>
           <div class="col-75">
-            <input class="form-control" type="email" id="email" name="email" placeholder="Email" value="<?php echo $row['email']; ?>" required maxlength="30">
+            <input class="form-control" type="email" id="email" name="email" placeholder="Email" value="<?php echo $row['email']; ?>" required maxlength="30" readonly>
           </div>
         </div>
         <div class="row">
           <div class="col-2">
-            <label for="alamat">Alamat</label>
+            <label for="alamatPengguna">Alamat</label>
           </div>
           <div class="col-75">
-            <textarea name="alamat" id="alamat" class="form-control" placeholder="Alamat" required><?php echo $row['alamat']; ?></textarea>
+            <textarea name="alamat" id="alamatPengguna" class="form-control" placeholder="Alamat" required><?php echo $row['alamat']; ?></textarea>
           </div>
         </div>
         <div class="row">

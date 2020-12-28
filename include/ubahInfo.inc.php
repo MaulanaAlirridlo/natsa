@@ -27,7 +27,6 @@ $nama_depan = $_POST['namaDepan'];
 $nama_belakang = $_POST['namaBelakang'];
 $no_hp = $_POST['nohp'];
 $wa = $_POST['wa'];
-$email = $_POST['email'];
 $alamat = $_POST['alamat'];
 $deskripsi = $_POST['deskripsi'];
 $id = $_POST['idPengguna'];
@@ -87,7 +86,6 @@ if ($updateFoto) {
     nama_belakang='$nama_belakang',
     no_hp='$no_hp',
     wa='$wa',
-    email='$email',
     alamat='$alamat',
     deskripsi='$deskripsi',
     nama_foto='$fileNameNew'
@@ -110,7 +108,6 @@ if ($updateFoto) {
                     nama_belakang='$nama_belakang',
                     no_hp='$no_hp',
                     wa='$wa',
-                    email='$email',
                     alamat='$alamat',
                     deskripsi='$deskripsi'
                     where id_pengguna = '$id' ";

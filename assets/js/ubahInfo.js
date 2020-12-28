@@ -15,8 +15,7 @@ $("body").on('click', '#updateInfo', function () {
     var  namaBelakang= $('#namaBelakang').val();
     var  nohp= $('#fnohp').val();
     var  wa= $('#fwa').val();
-    var  email= $('#email').val();
-    var  alamat= $('#alamat').val();
+    var  alamat= $('#alamatPengguna').val();
     var  deskripsi= $('#deskripsi').val();
     var  idPengguna= $('#idPengguna').val();
     
@@ -27,7 +26,6 @@ $("body").on('click', '#updateInfo', function () {
     formData.append('namaBelakang', namaBelakang);
     formData.append('nohp', nohp);
     formData.append('wa', wa);
-    formData.append('email', email);
     formData.append('alamat', alamat);
     formData.append('deskripsi', deskripsi);
     formData.append('idPengguna', idPengguna);
