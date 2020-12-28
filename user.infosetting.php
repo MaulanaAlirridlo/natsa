@@ -19,6 +19,8 @@ $row = mysqli_fetch_assoc($result);
   <link rel="stylesheet" href="./assets/css/navbar.css">
   <link rel="shortcut icon" href="./assets/img/logo.png" type="image/x-icon">
   <title>Pengaturan informasi pengguna | natsa</title>
+
+  <script src="./vendor/jquery/jquery-3.5.1.min.js"></script>
 </head>
 
 <body style="overflow-x: hidden;">
@@ -32,7 +34,7 @@ $row = mysqli_fetch_assoc($result);
         <div class="row p-3">
           <div class="photo-profile">
             <img src="./assets/img/<?php echo $row['nama_foto']; ?>" alt="profile">
-            <input type="file" name="foto" id="foto" class="pl-2">
+            <input type="file" name="foto" class="pl-2" id="fotoProfil">
           </div>
         </div>
         <div class="row mt-2">
@@ -48,8 +50,8 @@ $row = mysqli_fetch_assoc($result);
             <label for="fnama">Nama </label>
           </div>
           <div class="col-75 d-flex">
-            <input class="form-control w-50 nama-depan" type="text" id="nama-depan" name="nama_depan" placeholder="Nama depan" value="<?php echo $row['nama_depan']; ?>" required maxlength="20">
-            <input class="form-control w-50" type="text" id="nama-belakang" name="nama_belakang" placeholder="Nama belakang" value="<?php echo $row['nama_belakang']; ?>" required maxlength="20">
+            <input class="form-control w-50 nama-depan" type="text" id="namaDepan" name="nama_depan" placeholder="Nama depan" value="<?php echo $row['nama_depan']; ?>" required maxlength="20">
+            <input class="form-control w-50" type="text" id="namaBelakang" name="nama_belakang" placeholder="Nama belakang" value="<?php echo $row['nama_belakang']; ?>" required maxlength="20">
           </div>
         </div>
         <div class="row mt-2">
@@ -70,15 +72,15 @@ $row = mysqli_fetch_assoc($result);
         </div>
         <div class="row mt-2">
           <div class="col-2">
-            <label for="fwa">Email</label>
+            <label for="email">Email</label>
           </div>
           <div class="col-75">
-            <input class="form-control" type="email" id="fwa" name="email" placeholder="Email" value="<?php echo $row['email']; ?>" required maxlength="30">
+            <input class="form-control" type="email" id="email" name="email" placeholder="Email" value="<?php echo $row['email']; ?>" required maxlength="30">
           </div>
         </div>
         <div class="row">
           <div class="col-2">
-            <label for="Alamat">Alamat</label>
+            <label for="alamat">Alamat</label>
           </div>
           <div class="col-75">
             <textarea name="alamat" id="alamat" class="form-control" placeholder="Alamat" required><?php echo $row['alamat']; ?></textarea>
@@ -86,111 +88,33 @@ $row = mysqli_fetch_assoc($result);
         </div>
         <div class="row">
           <div class="col-2">
-            <label for="Deskripsi">Deskripsi</label>
+            <label for="deskripsi">Deskripsi</label>
           </div>
           <div class="col-75">
             <textarea name="deskripsi" id="deskripsi" class="form-control" placeholder="Deskripsi anda" required><?php echo $row['deskripsi']; ?></textarea>
           </div>
         </div>
-        <input type="hidden" name="id" value="<?php echo $row['id_pengguna']; ?>">
+        <input type="hidden" name="id" id="idPengguna" value="<?php echo $row['id_pengguna']; ?>">
+
+        <div class="row">
+          <div class="col-2">
+          </div>
+          <div class="col-75">
+            <div class="col alert alert-danger" role="alert" id="pesanError">error</div>
+          </div>
+        </div>
+
         <div class="pl-3 row py-3">
           <div class="col-2"></div>
           <div class="col-75">
-            <input type="submit" value="Simpan" name="updateInfo" class="ml-auto">
+            <input type="button" value="Simpan" name="updateInfo" class="ml-auto" id="updateInfo">
           </div>
+
         </div>
       </form>
     </div>
   </div>
-  <?php
-  if (isset($_POST['updateInfo'])) {
-    $username = $_POST['username'];
-    $nama_depan = $_POST['nama_depan'];
-    $nama_belakang = $_POST['nama_belakang'];
-    $no_hp = $_POST['no_hp'];
-    $wa = $_POST['wa'];
-    $email = $_POST['email'];
-    $alamat = $_POST['alamat'];
-    $deskripsi = $_POST['deskripsi'];
-    $id = $_POST['id'];
-
-    $file = $_FILES['foto'];
-    $fileName = $_FILES['foto']['name'];
-    $fileTmp = $_FILES['foto']['tmp_name'];
-    $fileSize = $_FILES['foto']['size'];
-    $fileError = $_FILES['foto']['error'];
-    $fileType = $_FILES['foto']['type'];
-
-    $fileExt = explode('.', $fileName);
-    $fileActualExt = strtolower(end($fileExt));
-    $fileNameNew = null;
-    $allow = array('jpg', 'jpeg', 'png');
-
-    if ($fileName == null or $file == "") {
-      $sql = "UPDATE pengguna SET
-                username='$username',
-                nama_depan='$nama_depan',
-                nama_belakang='$nama_belakang',
-                no_hp='$no_hp',
-                wa='$wa',
-                email='$email',
-                alamat='$alamat',
-                deskripsi='$deskripsi'
-                where id_pengguna = '$id' ";
-
-      $result = mysqli_query($conn, $sql) or die(mysqli_error($conn));
-      if (!$result) {
-        // mysqli_error($result);
-        JSMassage("gagal update", "here");
-      } else {
-        JSMassage("Berhasil update data", "here");
-      }
-    } else {
-      if (in_array($fileActualExt, $allow)) {
-        if ($fileError === 0) {
-          if ($fileSize <= 1048576) {
-            $fileNameNew = uniqid('PGN-', true) . "." . $fileActualExt;
-
-            $fileDestination = 'assets/img/' . $fileNameNew;
-            $result = move_uploaded_file($fileTmp, $fileDestination);
-            if ($result) {
-              JSMassage("berhasil upload foto profile", "here");
-
-              $sql = "UPDATE pengguna SET
-                                username='$username',
-                                nama_depan='$nama_depan',
-                                nama_belakang='$nama_belakang',
-                                no_hp='$no_hp',
-                                wa='$wa',
-                                email='$email',
-                                alamat='$alamat',
-                                deskripsi='$deskripsi',
-                                nama_foto='$fileNameNew'
-                                where id_pengguna = '$id' ";
-
-              $result = mysqli_query($conn, $sql) or die(mysqli_error($conn));
-              if (!$result) {
-                JSMassage("gagal update", "here");
-              } else {
-                JSMassage("Berhasil update data", "here");
-              }
-            } else {
-              $error_massage = mysqli_error($result);
-              JSMassage("ada yang salah", "here");
-            }
-          } else {
-            JSMassage("ukuran file harus kurang dari 1 MB", "here");
-          }
-        } else {
-          JSMassage("there was an error while uplaoding your file", "here");
-        }
-      } else {
-        JSMassage("upload file dengan ekstensi .jpg/.jpeg/.png", "here");
-      }
-    }
-  }
-
-  ?>
+<script src="assets/js/ubahInfo.js"></script>
 </body>
 
 </html>
