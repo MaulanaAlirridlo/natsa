@@ -35,6 +35,16 @@ $id = $_POST['idPengguna'];
 if ($updateFoto) {
     // echo $fileName.$username.$nama_belakang.$nama_depan.$no_hp.$wa.$email.$alamat.$deskripsi.$id;
 
+    //ambil nama_foto pengguna dari database
+    $query = "SELECT nama_foto from pengguna where id_pengguna='$id' limit 1";
+    $result = mysqli_query($conn, $query);
+    $row = mysqli_fetch_assoc($result);
+
+    //hapus foto sebelumnya jika foto bukan default foto
+    if ($row['nama_foto'] != "default_user.jpg") {
+        unlink("../assets/img/".$row['nama_foto']);
+    }
+    
     $fileExt = explode('.', $fileName);
     $fileActualExt = strtolower(end($fileExt));
     $fileNameNew = null;
