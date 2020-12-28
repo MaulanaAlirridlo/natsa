@@ -9,7 +9,7 @@ include './include/script.php';
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./vendor/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="./vendor/twbs/bootstrap/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="./assets/css/index.css">
   <link rel="stylesheet" href="./assets/css/navbar.css">
   <link rel="stylesheet" href="./assets/css/filter.css">
@@ -33,8 +33,8 @@ include './include/script.php';
   </div>
 
 
-  <script src="./vendor/jquery/jquery-3.5.1.min.js"></script>
-  <script src="./vendor/bootstrap/js/bootstrap.min.js"></script>
+  <script src="./vendor/components/jquery/jquery.min.js"></script>
+  <script src="./vendor/twbs/bootstrap/dist/js/bootstrap.min.js"></script>
   <script src="./assets/js/index.js"></script>
 
 </body>

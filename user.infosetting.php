@@ -13,14 +13,14 @@ $row = mysqli_fetch_assoc($result);
 
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="./vendor/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="./vendor/twbs/bootstrap/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="./assets/css/userinfosetting.css">
   <link rel="stylesheet" href="./assets/css/userlist.css">
   <link rel="stylesheet" href="./assets/css/navbar.css">
   <link rel="shortcut icon" href="./assets/img/logo.png" type="image/x-icon">
   <title>Pengaturan informasi pengguna | natsa</title>
 
-  <script src="./vendor/jquery/jquery-3.5.1.min.js"></script>
+  <script src="./vendor/components/jquery/jquery.min.js"></script>
 </head>
 
 <body style="overflow-x: hidden;">

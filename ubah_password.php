@@ -1,7 +1,7 @@
 <html>
     <head>
         <title>Ubah password</title>
-        <link rel="stylesheet" href="./vendor/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="./vendor/twbs/bootstrap/dist/css/bootstrap.min.css">
         <link rel="stylesheet" href="./assets/css/navbar.css">
         <link rel="stylesheet" href="assets/css/ubah_password.css">
         <link rel="shortcut icon" href="./assets/img/logo.png" type="image/x-icon">

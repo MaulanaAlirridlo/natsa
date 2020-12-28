@@ -1,5 +1,10 @@
 {
+    "name": "natsa/natsa",
+    "description": "natsa adalah website pengiklanan sawah.",
     "require": {
-        "phpmailer/phpmailer": "^6.2"
+        "phpmailer/phpmailer": "^6.2",
+        "twbs/bootstrap": "4.5.3",
+        "components/font-awesome": "^5.15",
+        "components/jquery": "^3.5"
     }
 }

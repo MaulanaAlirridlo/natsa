@@ -8,7 +8,8 @@ include './include/script.php';
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./vendor/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="./vendor/twbs/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="./vendor/components/font-awesome/css/all.min.css">
   <link rel="stylesheet" href="./assets/css/navbar.css">
   <link rel="stylesheet" href="./assets/css/jual.galeri.css">
   <link rel="stylesheet" href="./assets/css/buttontambahsawah.css">
@@ -22,6 +23,5 @@ include './include/script.php';
     <?php include('./layouts/buttontambahsawah.php') ?>
   </a>
 
-  <script src="./vendor/fontawesome/fontawesome.js" crossorigin="anonymous"></script>
 </body>
 </html>
