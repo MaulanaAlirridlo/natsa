@@ -14,6 +14,8 @@ include './include/script.php';
   <link rel="stylesheet" href="./assets/css/jual.galeri.css">
   <link rel="stylesheet" href="./assets/css/buttontambahsawah.css">
   <link rel="shortcut icon" href="./assets/img/logo.png" type="image/x-icon">
+
+  <script src="./vendor/components/jquery/jquery.min.js"></script>
   <title>Galeri penjualan | natsa</title>
 </head>
 <body>
@@ -23,5 +25,6 @@ include './include/script.php';
     <?php include('./layouts/buttontambahsawah.php') ?>
   </a>
 
+  <script src="./assets/js/jual.js"></script>
 </body>
 </html>

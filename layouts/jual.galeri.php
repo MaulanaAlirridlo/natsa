@@ -27,24 +27,24 @@ while ($row = mysqli_fetch_assoc($result)) {
         'harga' => $row['harga'],
         'alamat' => $row['daerah_sawah'],
         'img' => './assets/img/'.$foto[0],
-        'id' => $row['id_sawah']
+        'id' => $id_sawah
     ));
 
 }
 ?>
-<div class="row mt-3 katalog-wrapper justify-content-center pb-3">
+<div class="row mt-3 katalog-wrapper justify-content-center pb-3" id="galeriJual">
   <?php
   foreach ($dummy as $key => $v) {
   ?>
     <div class="card" >
       <div class="row crud-icon">
-        <div class="col border detail">
-          <i class="fas fa-search-plus text-center text-success"></i>
+        <div class="col border detail lihatSawah" data-idS="<?= $v->id ?>">
+          <i class="fas fa-search-plus text-center text-success"  ></i>
         </div>
-        <div class="col border edit">
-          <i class="fas fa-pencil-alt text-center text-warning"></i>
+        <div class="col border edit editSawah" data-idS="<?= $v->id ?>">
+          <i class="fas fa-pencil-alt text-center text-warning editSawah" ></i>
         </div>
-        <div class="col border delete">
+        <div class="col border delete hapusSawah" data-idS="<?= $v->id ?>">
           <i class="fas fa-trash-alt text-center text-danger"></i>
         </div>
       </div>
