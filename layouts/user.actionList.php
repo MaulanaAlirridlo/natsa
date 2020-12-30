@@ -1,4 +1,4 @@
-<div class="sidebar">
+<div class="sidebar border">
   <a class="contact info" href="./userprofil.php">contact info</a>
   <a href="./user.infosetting.php">ubah info</a>
   <a href="./user.changePassword.php">ubah password</a>

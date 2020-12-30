@@ -26,10 +26,11 @@ $row = mysqli_fetch_assoc($result);
 <body style="overflow-x: hidden;">
   <?php include './layouts/navbar.php' ?>
   <div class="row">
+    <div class="col-1"></div>
     <div class="col-2">
       <?php include './layouts/user.actionList.php' ?>
     </div>
-    <div class="col">
+    <div class="col border">
       <form action="" class="form-group" method="POST" enctype="multipart/form-data">
         <div class="row p-3">
           <div class="photo-profile">

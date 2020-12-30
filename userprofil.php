@@ -24,10 +24,11 @@ $row = mysqli_fetch_assoc($result);
 <body>
   <?php include './layouts/navbar.php' ?>
   <div class="row">
+    <div class="col-1"></div>
     <div class="col-2">
       <?php include('./layouts/user.actionList.php') ?>
     </div>
-    <div class="col p-0 mt-3">
+    <div class="col p-0 mt-3 border">
       <div class="row">
         <div class="col ">
           <div class="row pl-2">

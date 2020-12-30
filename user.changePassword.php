@@ -23,10 +23,11 @@ include './include/script.php';
 <body style="overflow-x: hidden;">
   <?php include './layouts/navbar.php' ?>
   <div class="row">
+    <div class="col-1"></div>
     <div class="col-2">
       <?php include('./layouts/user.actionList.php') ?>
     </div>
-    <div class="col">
+    <div class="col border">
       <form action="" class="form-group" method="post">
         <div class="row mt-2">
           <div class="col-2">
