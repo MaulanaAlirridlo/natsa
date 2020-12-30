@@ -1,10 +1,8 @@
 body {
-  
   margin: 0;
   font-family: "Lato", sans-serif;
 }
 .sidebar {
-  background-color: #f8f8f8;
   margin-top: 25px;
   border-radius: 5px;
 }
