@@ -1,5 +1,6 @@
 <?php
 session_start();
+include './include/conn.php';
 include './include/script.php';
 
 ?>
