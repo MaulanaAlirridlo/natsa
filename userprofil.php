@@ -28,11 +28,11 @@ $row = mysqli_fetch_assoc($result);
     <div class="col-2">
       <?php include('./layouts/user.actionList.php') ?>
     </div>
-<<<<<<< Updated upstream
+
     <div class="col p-0 mt-3 border">
-=======
+
     <div class="col p-0 border konten-profil">
->>>>>>> Stashed changes
+
       <div class="row">
         <div class="col ">
           <div class="row pl-2">

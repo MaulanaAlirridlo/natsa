@@ -30,6 +30,16 @@ $("body").on('click', '.hapusSawah', function () {
 
 
 });
+$("body").on('click', '.lihatSawah', function () {
+    var formData = new FormData();
+
+    var idsawah = $(this).attr("data-idS");
+
+    window.location.href = "./fulldesc.php?id="+idsawah;
+
+
+});
+
 
 // window.onload = function() {
 //     if (window.jQuery) {  
