@@ -1,6 +1,11 @@
 body{
   overflow-x: hidden;
 }
+.konten-profil{
+  max-width: 66%;
+  margin-top: 25px;
+  padding: 7px!important;
+}
 .rounded-circle{
   overflow: hidden;
 }
