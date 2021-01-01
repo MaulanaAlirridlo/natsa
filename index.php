@@ -30,6 +30,7 @@ include './include/script.php';
     </div>
     <div class="col katalog-container">
       <?php include './layouts/katalog.php'?>
+      <button class="btn btn-primary " id="loadMore" current=""> LOAD MORE</button>
     </div>
   </div>
 

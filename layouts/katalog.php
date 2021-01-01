@@ -22,9 +22,17 @@ if (isset($_GET['cari'])) {
     $cari = "HAVING daerah_sawah LIKE '%$keyword%'";
 }
 
+
+
+$limit = 6 ;
+
+if(isset($_POST['tambahData_Baru'])){
+    $limit = $_POST['tambahData_Baru'] ;
+}
+
 $querySawah = "SELECT *, FORMAT(harga, 0) as harga,
 (SELECT CONCAT(d.provinsi,', ', d.kabupaten) FROM daerah d WHERE sawah.id_daerah=d.id_daerah) as daerah_sawah
-from sawah $filter $cari";
+from sawah $filter $cari LIMIT $limit ";
 $resultSawah = mysqli_query($conn, $querySawah) or die(mysqli_error($conn));
 
 $dummy = array();
@@ -60,7 +68,7 @@ while ($rowSawah = mysqli_fetch_assoc($resultSawah)) {
 }
 
 ?>
-<div class="row mt-3 katalog-wrapper">
+<div class="row mt-3 katalog-wrapper" id="dataSawah">
   <?php
   // echo "<pre>";
   // print_r($dummy);

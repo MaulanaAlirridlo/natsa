@@ -44,3 +44,11 @@ $(".card").click(function () {
   }
 
 });
+
+var tambahData = 6 ;
+  $("#loadMore").click(function(){
+      tambahData =  tambahData + 6;
+      $("#dataSawah").load("./layouts/katalog.php",{
+          tambahData_Baru: tambahData 
+      });
+  });
