@@ -25,12 +25,20 @@ include './include/script.php';
   <?php include './layouts/navbar.php'?>
   <div class="row">
     <div class="col-1"></div>
+
     <div class="col-2 filter-container p-0">
       <?php include './layouts/filter.php'?>
     </div>
-    <div class="col katalog-container">
+    <div class="col katalog-container" id="dataSawah">
       <?php include './layouts/katalog.php'?>
-      <button class="btn btn-primary " id="loadMore" current=""> LOAD MORE</button>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-1"></div>
+    <div class="col-2 p-0"></div>
+    <div class="col">
+        <button class="btn btn-primary" id="loadMore" current="">LOAD MORE</button>
     </div>
   </div>
 

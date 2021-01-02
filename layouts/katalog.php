@@ -1,28 +1,26 @@
 <?php
 $filter = null;
 $cari = null;
-if (isset($_POST['filter'])) {
-    $minLuas = $_POST['luas-min'];
-    $maxLuas = $_POST['luas-max'];
-    $minHarga = $_POST['harga-min'];
-    $maxHarga = $_POST['harga-max'];
-    $bekas = $_POST['bekas'];
-    $tipe = $_POST['tipe'];
-    $irigasi = $_POST['irigasi'];
+// if (isset($_POST['filter'])) {
+//     $minLuas = $_POST['luas-min'];
+//     $maxLuas = $_POST['luas-max'];
+//     $minHarga = $_POST['harga-min'];
+//     $maxHarga = $_POST['harga-max'];
+//     $bekas = $_POST['bekas'];
+//     $tipe = $_POST['tipe'];
+//     $irigasi = $_POST['irigasi'];
 
-    $filter = "WHERE luas BETWEEN '$minLuas' AND '$maxLuas'  OR
-    harga BETWEEN '$minHarga' AND '$maxHarga'  OR
-    id_bekas_sawah='$bekas' OR
-    id_tipe_sawah='$tipe' OR
-    id_irigasi_sawah='$irigasi'";
-}
+//     $filter = "WHERE luas BETWEEN '$minLuas' AND '$maxLuas'  OR
+//     harga BETWEEN '$minHarga' AND '$maxHarga'  OR
+//     id_bekas_sawah='$bekas' OR
+//     id_tipe_sawah='$tipe' OR
+//     id_irigasi_sawah='$irigasi'";
+// }
 
-if (isset($_GET['cari'])) {
-    $keyword = $_GET['cari'];
-    $cari = "HAVING daerah_sawah LIKE '%$keyword%'";
-}
-
-
+// if (isset($_GET['cari'])) {
+//     $keyword = $_GET['cari'];
+//     $cari = "HAVING daerah_sawah LIKE '%$keyword%'";
+// }
 
 $limit = 6 ;
 
@@ -68,7 +66,7 @@ while ($rowSawah = mysqli_fetch_assoc($resultSawah)) {
 }
 
 ?>
-<div class="row mt-3 katalog-wrapper" id="dataSawah">
+<div class="row mt-3 katalog-wrapper">
   <?php
   // echo "<pre>";
   // print_r($dummy);
@@ -115,3 +113,4 @@ if ($key == $katalogKeyEnd) {
 }
 ?>
 </div>
+
