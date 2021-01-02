@@ -29,14 +29,13 @@ $row = mysqli_fetch_assoc($result);
       <?php include('./layouts/user.actionList.php') ?>
     </div>
 
-    <div class="col p-0 mt-3 border">
+    <div class="col p-30 mt-4 border">
 
-    <div class="col p-0 border konten-profil">
+   
 
-      <div class="row">
-        <div class="col ">
+      
           <div class="row pl-2">
-            <div class="col-3">
+            <div class="col-1">
               <div class="w-100 rounded-circle">
                 <img alt="User Pic" src="./assets/img/<?php echo $row['nama_foto'];?>" id="profile-image1" class="w-100">
               </div>

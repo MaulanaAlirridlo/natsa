@@ -10,7 +10,7 @@
    
     <body>
         <div class="container">
-            <div class="form-group w-50 mx-auto mt-5 border p-5 rounded">
+            <div class="form-group w-50 mx-auto mt-4 border p-5 rounded">
                 <h1 class="text-center">Ubah password</h1>
                 <?php
                     $selector = (isset($_GET['selector'])) ? $_GET['selector'] : "" ;
