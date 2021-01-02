@@ -1,7 +1,7 @@
 <?php
 
-include "./include/conn.php";
-include './include/sendMail.php';
+// include "./include/conn.php";
+// include './include/sendMail.php';
 
 /*
 jenis table dan codenya
@@ -385,8 +385,8 @@ function signUp($conn, $email, $password){
             $url = $_SERVER['HTTP_HOST'].dirname($_SERVER['PHP_SELF'])."/verifikasi.php?vkey=$vkey";
             $subject = "
                     <h2> Verifikasi Email </h2>
+                    Klik dibawah ini untuk verifikasi email anda <p>
                     <a href='".$url."'>verfikasi akun</a>
-                    ini yang benar-benar terbaru
                     " ;
             $mail = sendMail($senderMail, $senderPassword, $senderName, $reciever, $subject);
             if (!$mail) {

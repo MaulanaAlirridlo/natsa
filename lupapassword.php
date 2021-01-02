@@ -1,6 +1,8 @@
 <?php
 session_start();
+include './include/conn.php';
 include './include/script.php';
+include './include/sendMail.php';
 
 ?>
 <html>
@@ -69,7 +71,9 @@ include './include/script.php';
             $subject = "
                     <h2> Reset Password </h2>
                     <p>Kami menerima permintaan untuk mengubah password dari anda, jika anda merasa tidak meminta hal ini anda bisa mengabaikan pesan ini</p>
-                    link anda untuk mengubah password <a href='".$url."'>".$url."</a>
+                    link anda untuk mengubah password </p>
+                    Klik dibawah ini untuk merubah password anda <p>
+                    <a href='".$url."'>".$url."</a>
                     " ;
     
             $mail = sendMail($senderMail, $senderPassword, $senderName, $receiver, $subject);

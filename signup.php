@@ -1,4 +1,6 @@
 <?php
+include './include/conn.php';
+include './include/sendMail.php';
 include './include/script.php';
 
 if (isset($_POST['signup'])) {

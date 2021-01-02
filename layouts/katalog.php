@@ -1,30 +1,36 @@
 <?php
 $filter = null;
 $cari = null;
-if (isset($_POST['filter'])) {
-    $minLuas = $_POST['luas-min'];
-    $maxLuas = $_POST['luas-max'];
-    $minHarga = $_POST['harga-min'];
-    $maxHarga = $_POST['harga-max'];
-    $bekas = $_POST['bekas'];
-    $tipe = $_POST['tipe'];
-    $irigasi = $_POST['irigasi'];
+// if (isset($_POST['filter'])) {
+//     $minLuas = $_POST['luas-min'];
+//     $maxLuas = $_POST['luas-max'];
+//     $minHarga = $_POST['harga-min'];
+//     $maxHarga = $_POST['harga-max'];
+//     $bekas = $_POST['bekas'];
+//     $tipe = $_POST['tipe'];
+//     $irigasi = $_POST['irigasi'];
 
-    $filter = "WHERE luas BETWEEN '$minLuas' AND '$maxLuas'  OR
-    harga BETWEEN '$minHarga' AND '$maxHarga'  OR
-    id_bekas_sawah='$bekas' OR
-    id_tipe_sawah='$tipe' OR
-    id_irigasi_sawah='$irigasi'";
-}
+//     $filter = "WHERE luas BETWEEN '$minLuas' AND '$maxLuas'  OR
+//     harga BETWEEN '$minHarga' AND '$maxHarga'  OR
+//     id_bekas_sawah='$bekas' OR
+//     id_tipe_sawah='$tipe' OR
+//     id_irigasi_sawah='$irigasi'";
+// }
 
-if (isset($_GET['cari'])) {
-    $keyword = $_GET['cari'];
-    $cari = "HAVING daerah_sawah LIKE '%$keyword%'";
+// if (isset($_GET['cari'])) {
+//     $keyword = $_GET['cari'];
+//     $cari = "HAVING daerah_sawah LIKE '%$keyword%'";
+// }
+
+$limit = 6 ;
+
+if(isset($_POST['tambahData_Baru'])){
+    $limit = $_POST['tambahData_Baru'] ;
 }
 
 $querySawah = "SELECT *, FORMAT(harga, 0) as harga,
 (SELECT CONCAT(d.provinsi,', ', d.kabupaten) FROM daerah d WHERE sawah.id_daerah=d.id_daerah) as daerah_sawah
-from sawah $filter $cari";
+from sawah $filter $cari LIMIT $limit ";
 $resultSawah = mysqli_query($conn, $querySawah) or die(mysqli_error($conn));
 
 $dummy = array();
@@ -107,3 +113,4 @@ if ($key == $katalogKeyEnd) {
 }
 ?>
 </div>
+
