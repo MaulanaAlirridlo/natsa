@@ -66,3 +66,10 @@ $("#beli").click(function(){
      kategorinya: kategoribeli
  }, function () {init()});
 });
+
+$("#sewa").click(function(){
+  kategoribeli = "sewa";
+ $("#dataSawah").load(" #dataSawah > ",{
+     kategorinya: kategoribeli
+ }, function () {init()});
+});

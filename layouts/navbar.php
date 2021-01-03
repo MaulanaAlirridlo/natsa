@@ -19,7 +19,7 @@ if(isset($_SESSION['id_pengguna'])){
         <a class="nav-link" href="#" id="beli">Beli</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Sewa</a>
+        <a class="nav-link" href="#" id="sewa">Sewa</a>
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0 ml-auto mr-auto input-group w-auto" method="GET" action="">
