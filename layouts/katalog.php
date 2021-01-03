@@ -1,6 +1,7 @@
 <?php
 $filter = null;
 $cari = null;
+$beli_sawah = null ;
 // if (isset($_POST['filter'])) {
 //     $minLuas = $_POST['luas-min'];
 //     $maxLuas = $_POST['luas-max'];
