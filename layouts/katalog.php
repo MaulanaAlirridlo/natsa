@@ -38,7 +38,7 @@ if(isset($_POST['tambahData_Baru'])){
 
 $querySawah = "SELECT *, FORMAT(harga, 0) as harga,
 (SELECT CONCAT(d.provinsi,', ', d.kabupaten) FROM daerah d WHERE sawah.id_daerah=d.id_daerah) as daerah_sawah
-from sawah $filter $cari LIMIT $limit ";
+from sawah $filter $cari $beli_sawah LIMIT $limit ";
 $resultSawah = mysqli_query($conn, $querySawah) or die(mysqli_error($conn));
 
 $dummy = array();
