@@ -16,10 +16,10 @@ if(isset($_SESSION['id_pengguna'])){
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav">
       <li class="nav-item">
-        <a class="nav-link" href="index.php">Beli</a>
+        <a class="nav-link" href="#">Beli</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="index.php">Sewa</a>
+        <a class="nav-link" href="#">Sewa</a>
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0 ml-auto mr-auto input-group w-auto" method="GET" action="">

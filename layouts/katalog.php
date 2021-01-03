@@ -22,6 +22,14 @@ $cari = null;
 //     $cari = "HAVING daerah_sawah LIKE '%$keyword%'";
 // }
 
+
+if(isset($_POST['kategorinya'])){
+  $beli = $_POST['kategorinya'] ;
+  $beli_sawah = "WHERE jenis='$beli'" ; 
+}
+
+
+
 $limit = 6 ;
 
 if(isset($_POST['tambahData_Baru'])){

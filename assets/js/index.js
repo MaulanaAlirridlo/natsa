@@ -56,3 +56,13 @@ $("#loadMore").click(function () {
     tambahData_Baru: tambahData
   }, function () {init()});
 });
+
+
+
+
+$("#beli").click(function(){
+  kategoribeli = "jual";
+ $("#dataSawah").load(" #dataSawah > ",{
+     kategorinya: kategoribeli
+ }, function () {init()});
+});
