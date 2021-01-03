@@ -62,7 +62,7 @@ $("#loadMore").click(function () {
 
 $("#beli").click(function(){
   kategoribeli = "jual";
- $("#dataSawah").load(" #dataSawah ",{
+ $("#dataSawah").load(" #dataSawah > ",{
      kategorinya: kategoribeli
  }, function () {init()});
 });
