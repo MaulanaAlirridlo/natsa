@@ -16,7 +16,7 @@ if(isset($_SESSION['id_pengguna'])){
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav">
       <li class="nav-item">
-        <a class="nav-link" href="#">Beli</a>
+        <a class="nav-link" href="#" id="beli">Beli</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Sewa</a>
