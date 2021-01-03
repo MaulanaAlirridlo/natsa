@@ -28,7 +28,7 @@ include './include/script.php';
     <div class="col-2">
       <?php include('./layouts/user.actionList.php') ?>
     </div>
-    <div class="col border">
+    <div class="col border mt-4">
       <form action="" class="form-group" method="post">
         <div class="row mt-2">
           <div class="col-2">
@@ -54,7 +54,7 @@ include './include/script.php';
           </div>
         </div>
         <div class="row pl-3">
-          <input type="button" value="Submit" name="ganti" id="gantiPassword">
+          <input type="submit" class="btn btn-secondary active" value="Submit" name="ganti" id="gantiPassword">
         </div>
       </form>
     </div>
