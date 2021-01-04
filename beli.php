@@ -2,7 +2,7 @@
 session_start();
 include './include/conn.php';
 include './include/script.php';
-$jenis = "";
+$jenis = "jual";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -20,7 +20,7 @@ $jenis = "";
   <title>NatSa</title>
 </head>
 
-<body>
+<body onload="">
 
   <?php include './layouts/navbar.php'?>
   <div class="row">
@@ -43,7 +43,6 @@ $jenis = "";
     </div>
   </div>
 
-  <p style="display: none;" id="jejakHalaman"></p>
 
   <script src="./vendor/components/jquery/jquery.min.js"></script>
   <script src="./vendor/twbs/bootstrap/dist/js/bootstrap.min.js"></script>

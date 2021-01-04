@@ -23,23 +23,52 @@ $beli_sawah = null ;
 //     $cari = "HAVING daerah_sawah LIKE '%$keyword%'";
 // }
 
+//set filter halaman, filter yang dikiri dan daerah
+// if(isset($_POST['jenisSawah'])){
+//   $jenis = $_POST['jenisSawah'] ;
+//   $filter = "WHERE jenis like '%$jenis%' OR harga > 500000"; 
+// }
 
-if(isset($_POST['kategorinya'])){
-  $beli = $_POST['kategorinya'] ;
-  $beli_sawah = "WHERE jenis='$beli'" ; 
-}
-
-
+$filter = "WHERE jenis like '%$jenis%'";
 
 $limit = 6 ;
-
 if(isset($_POST['tambahData_Baru'])){
     $limit = $_POST['tambahData_Baru'] ;
 }
 
+if (isset($_POST["filterSawah"])) {
+    $minLuas = $_POST['luasMin'];
+    $maxLuas = $_POST['luasMax'];
+    $minHarga = $_POST['hargaMin'];
+    $maxHarga = $_POST['hargaMax'];
+    $bekas = $_POST['bekas'];
+    $tipe = $_POST['tipe'];
+    $irigasi = $_POST['irigasi'];
+    
+    if (empty($maxHarga) || $maxHarga=="" || $maxHarga==0) $maxHarga = 9999999999999999999999999999999;
+    if (empty($maxLuas) || $maxLuas=="" || $maxLuas==0) $maxLuas = 9999999999999999999999999999999;
+    if (empty($minHarga) || $minHarga=="") $minHarga = 0;
+    if (empty($minLuas) || $minLuas=="") $minLuas = 0;
+
+    $filter .= " AND 
+              luas BETWEEN '$minLuas' AND '$maxLuas'  AND
+              harga BETWEEN '$minHarga' AND '$maxHarga'  AND
+              id_bekas_sawah like '%$bekas%' AND
+              id_tipe_sawah like '%$tipe%' AND
+              id_irigasi_sawah like '%$irigasi%'";
+
+}
+
+if (isset($_POST["cariDaerah"])) {
+  $keyword = $_POST["cariDaerah"];
+  $filter .= "HAVING daerah_sawah LIKE '%$keyword%'";
+}
+
 $querySawah = "SELECT *, FORMAT(harga, 0) as harga,
-(SELECT CONCAT(d.provinsi,', ', d.kabupaten) FROM daerah d WHERE sawah.id_daerah=d.id_daerah) as daerah_sawah
-from sawah $filter $cari $beli_sawah LIMIT $limit ";
+                (SELECT CONCAT(d.provinsi,', ', d.kabupaten) FROM daerah d WHERE sawah.id_daerah=d.id_daerah) as daerah_sawah
+                from sawah 
+                $filter 
+                LIMIT $limit ";
 $resultSawah = mysqli_query($conn, $querySawah) or die(mysqli_error($conn));
 
 $dummy = array();
@@ -77,9 +106,6 @@ while ($rowSawah = mysqli_fetch_assoc($resultSawah)) {
 ?>
 <div class="row mt-3 katalog-wrapper">
   <?php
-  // echo "<pre>";
-  // print_r($dummy);
-  // echo "</pre>";
 foreach ($dummy as $key => $v) {
     ?>
     <?php if ($key % 3 == 0) {?>

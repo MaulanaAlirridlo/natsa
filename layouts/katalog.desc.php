@@ -50,7 +50,7 @@
       <p class="desc-desk">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea dolorum laboriosam eveniet deserunt suscipit? Rem sint officiis maxime quam consequuntur. Nisi placeat, quis aliquam pariatur at et iure amet atque!</p>
     </div>
     <div class="filter-search">
-      <a id="link<?=$katalogKey?>" >
+      <a id="link<?=$katalogKey?>" rel="noopener noreferrer" target="_blank" rel="noopener noreferrer">
         <button class="btn btn-secondary float-right mt-5 rounded-pill">Detail</button>
       </a>
     </div>

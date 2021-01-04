@@ -10,14 +10,17 @@
                 <input
                   type="text"
                   class="custom-range d-inline-block range-left form-control bg-white"
-                  id="customRange11"
+                  id="luasMin"
                   name="luas-min"
+                  placeholder="Min"
                 />
                 <input
                   type="text"
                   class="custom-range d-inline-block range-right form-control bg-white"
-                  id="customRange12"
+                  id="luasMax"
                   name="luas-max"
+                  placeholder="Max"
+
                 />
               <span
                 class="font-weight-bold text-primary ml-2 valueSpan2"
@@ -32,14 +35,18 @@
                 <input
                   type="text"
                   class="custom-range d-inline-block range-left form-control bg-white"
-                  id="customRange21"
+                  id="hargaMin"
                   name="harga-min"
+                  placeholder="Min"
+
                 />
                 <input
                   type="text"
                   class="custom-range d-inline-block range-right form-control bg-white"
-                  id="customRange22"
+                  id="hargaMax"
                   name="harga-max"
+                  placeholder="Max"
+
                 />
               <span
                 class="font-weight-bold text-primary ml-2 valueSpan2"
@@ -69,7 +76,7 @@
           </select>
         </div>
         <div class="filter-search">
-          <button class="btn btn-secondary float-right mt-2 rounded-pill" name="filter" type="filter">Filter</button>
+          <button class="btn btn-secondary float-right mt-2 rounded-pill" name="filter" type="button" id="filterSawah">Filter</button>
         </div>
       </div>
     </form>

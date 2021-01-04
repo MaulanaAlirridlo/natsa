@@ -8,7 +8,7 @@ function setLastDescId(id) {
 function init() {
   $(".desc").hide();
   $(".card").click(function () {
-  
+
     let harga = $(this).data("harga");
     let alamat = $(this).data("alamat");
     let cardId = $(this).data("cardid");
@@ -21,7 +21,7 @@ function init() {
     let jumlahPanen = $(this).data("jumlah-panen");
     let deskripsi = $(this).data("deskripsi");
     let jenis = $(this).data("jenis");
-  
+
     $('#img' + descId + '1').attr('src', img1);
     $('#img' + descId + '2').attr('src', img2);
     $('#img' + descId + '3').attr('src', img3);
@@ -35,7 +35,7 @@ function init() {
     $(".desc-jenis").text(jenis);
     $(".desc-desk").text(deskripsi);
     $('#link' + descId).attr('href', './fulldesc.php?id=' + id);
-  
+
     if (lastCardId === cardId) {
       $(".desc").hide();
       setLastDescId(undefined);
@@ -44,25 +44,98 @@ function init() {
       $("#desc" + descId).show();
       setLastDescId(cardId);
     }
-  
+
   });
 }
+
+// $(document).ready(function() {
+//   jenisSawah = $('#jejakHalaman').text();
+//   console.log(jenisSawah);
+//   $('dataSawah').load(' #dataSawah > ', {
+//     jenisSawah: jenisSawah
+//   }, function () { init() });
+
+// });
+
+// function jenisOnLoad() {
+//   jenisSawah = $('#jejakHalaman').text();
+//   console.log(jenisSawah);
+//   $('dataSawah').load(' #dataSawah > ', {
+//     jenisSawah: jenisSawah
+//   }, function () { init() });
+// }
 
 
 var tambahData = 6;
 $("#loadMore").click(function () {
+  var cariDaerah = $('#cariDaerah').val();
+  var hargaMin = $('#hargaMin').val();
+  var hargaMax = $('#hargaMax').val();
+  var luasMin = $('#luasMin').val();
+  var luasMax = $('#luasMax').val();
+  var bekas = $('#bekas').val();
+  var tipe = $('#tipe').val();
+  var irigasi = $('#irigasi').val();
+  var filterSawah = $('#filterSawah').text();
+
   tambahData = tambahData + 6;
   $("#dataSawah").load(" #dataSawah > ", {
-    tambahData_Baru: tambahData
-  }, function () {init()});
+    cariDaerah: cariDaerah,
+    tambahData_Baru: tambahData,
+    filterSawah: filterSawah,
+    hargaMin: hargaMin,
+    hargaMax: hargaMax,
+    luasMin: luasMin,
+    luasMax: luasMax,
+    bekas: bekas,
+    tipe: tipe,
+    irigasi: irigasi
+  }, function () { init() });
 });
 
+$('#filterSawah').on('click', function () {
+  var cariDaerah = $('#cariDaerah').val();
+  var hargaMin = $('#hargaMin').val();
+  var hargaMax = $('#hargaMax').val();
+  var luasMin = $('#luasMin').val();
+  var luasMax = $('#luasMax').val();
+  var bekas = $('#bekas').val();
+  var tipe = $('#tipe').val();
+  var irigasi = $('#irigasi').val();
+  var filterSawah = $('#filterSawah').text();
 
+  $("#dataSawah").load(" #dataSawah > ", {
+    cariDaerah: cariDaerah,
+    filterSawah: filterSawah,
+    hargaMin: hargaMin,
+    hargaMax: hargaMax,
+    luasMin: luasMin,
+    luasMax: luasMax,
+    bekas: bekas,
+    tipe: tipe,
+    irigasi: irigasi
+  }, function () { init() });
 
-
-$("#beli").click(function(){
-  kategoribeli = "jual";
- $("#dataSawah").load(" #dataSawah > ",{
-     kategorinya: kategoribeli
- }, function () {init()});
 });
+
+$('#cariDaerah').on('keyup', function () {
+  var cariDaerah = $('#cariDaerah').val();
+
+  $("#dataSawah").load(" #dataSawah > ", {
+    cariDaerah: cariDaerah
+  }, function () { init() });
+
+});
+// $("a.halBeliSewa").on('click', function () {
+
+//   jenisSawah = $(this).attr('id');
+//   $('#jejakHalaman').text(jenisSawah);
+
+//   $("#dataSawah").load(" #dataSawah > ", {
+//     jenisSawah: jenisSawah
+//   }, function () { init() });
+
+// });
+
+// var locate = location.pathname;
+// console.log(locate);

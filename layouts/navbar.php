@@ -16,18 +16,20 @@ if(isset($_SESSION['id_pengguna'])){
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav">
       <li class="nav-item">
-        <a class="nav-link" href="#" id="beli">Beli</a>
+        <a class="nav-link halBeliSewa" href="./beli.php" id="jual">Beli</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Sewa</a>
+        <a class="nav-link halBeliSewa" href="./sewa.php" id="sewa">Sewa</a>
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0 ml-auto mr-auto input-group w-auto" method="GET" action="">
-      <input class="form-control search" type="search" name="cari" placeholder="Cari Berdasarkan Daerah" aria-label="Search" list="alamat" autocomplete="off">
+      <input class="form-control search" type="search" name="cari" id="cariDaerah" placeholder="Cari Berdasarkan Daerah" aria-label="Search" list="alamat" autocomplete="off">
       <div class="input-group-append">
-        <button type="submit" class="input-group-text" id="basic-addon2">
-          <img src="./assets/img/logo.png" alt="C">
-        </button>
+        <a href="./index.php">
+          <button type="button" class="input-group-text" id="basic-addon2">
+            <img src="./assets/img/logo.png" alt="C">
+          </button>
+        </a>
       </div>
     </form>
     <?php if ($user) { ?>
@@ -49,6 +51,7 @@ if(isset($_SESSION['id_pengguna'])){
     <?php } ?>
   </div>
 </nav>
+
 
 <datalist id="alamat">
   <?php 
