@@ -31,89 +31,91 @@ $row = mysqli_fetch_assoc($result);
     <div class="col-2">
       <?php include './layouts/user.actionList.php' ?>
     </div>
-    <div class="col border">
-      <form action="" class="form-group" method="POST" enctype="multipart/form-data">
-        <div class="row p-3">
-          <div class="photo-profile">
-            <img src="./assets/img/<?php echo $row['nama_foto']; ?>" alt="profile">
-            <input type="file" name="foto" class="pl-2" id="fotoProfil">
+    <div class="row border width">
+      <div class="col">
+        <form action="" class="form-group" method="POST" enctype="multipart/form-data">
+          <div class="row p-3">
+            <div class="photo-profile">
+              <img src="./assets/img/<?php echo $row['nama_foto']; ?>" alt="profile">
+              <input type="file" name="foto" class="pl-2" id="fotoProfil">
+            </div>
           </div>
-        </div>
-        <div class="row mt-2">
-          <div class="col-2">
-            <label for="username">Username</label>
+          <div class="row mt-2">
+            <div class="col-2">
+              <label for="username">Username</label>
+            </div>
+            <div class="col-75 col">
+              <input class="form-control" type="text" id="username" name="username" placeholder="Masukkan username" value="<?php echo $row['username']; ?>" required>
+            </div>
           </div>
-          <div class="col-75">
-            <input class="form-control" type="text" id="username" name="username" placeholder="Masukkan username" value="<?php echo $row['username']; ?>" required>
+          <div class="row mt-2">
+            <div class="col-2">
+              <label for="fnama">Nama </label>
+            </div>
+            <div class="col-75 col d-flex">
+              <input class="form-control w-50 nama-depan" type="text" id="namaDepan" name="nama_depan" placeholder="Nama depan" value="<?php echo $row['nama_depan']; ?>" required maxlength="20">
+              <input class="form-control w-50" type="text" id="namaBelakang" name="nama_belakang" placeholder="Nama belakang" value="<?php echo $row['nama_belakang']; ?>" required maxlength="20">
+            </div>
           </div>
-        </div>
-        <div class="row mt-2">
-          <div class="col-2">
-            <label for="fnama">Nama </label>
+          <div class="row mt-2">
+            <div class="col-2">
+              <label for="fnohp">No HP</label>
+            </div>
+            <div class="col-75 col">
+              <input class="form-control" type="number" id="fnohp" name="no_hp" placeholder="No hp" value="<?php echo $row['no_hp']; ?>" required oninput="this.value=this.value.slice(0,this.maxLength)" maxlength="13">
+            </div>
           </div>
-          <div class="col-75 d-flex">
-            <input class="form-control w-50 nama-depan" type="text" id="namaDepan" name="nama_depan" placeholder="Nama depan" value="<?php echo $row['nama_depan']; ?>" required maxlength="20">
-            <input class="form-control w-50" type="text" id="namaBelakang" name="nama_belakang" placeholder="Nama belakang" value="<?php echo $row['nama_belakang']; ?>" required maxlength="20">
+          <div class="row mt-2">
+            <div class="col-2">
+              <label for="fwa">WhatsApp</label>
+            </div>
+            <div class="col-75 col">
+              <input class="form-control" type="number" id="fwa" name="wa" placeholder="No wa" value="<?php echo $row['wa']; ?>" required oninput="this.value=this.value.slice(0,this.maxLength)" maxlength="13">
+            </div>
           </div>
-        </div>
-        <div class="row mt-2">
-          <div class="col-2">
-            <label for="fnohp">No HP</label>
+          <div class="row mt-2">
+            <div class="col-2">
+              <label for="email">Email</label>
+            </div>
+            <div class="col-75 col">
+              <input class="form-control" type="email" id="email" name="email" placeholder="Email" value="<?php echo $row['email']; ?>" required maxlength="30" readonly>
+            </div>
           </div>
-          <div class="col-75">
-            <input class="form-control" type="number" id="fnohp" name="no_hp" placeholder="No hp" value="<?php echo $row['no_hp']; ?>" required oninput="this.value=this.value.slice(0,this.maxLength)" maxlength="13">
+          <div class="row">
+            <div class="col-2">
+              <label for="alamatPengguna">Alamat</label>
+            </div>
+            <div class="col-75 col">
+              <textarea name="alamat" id="alamatPengguna" class="form-control" placeholder="Alamat" required><?php echo $row['alamat']; ?></textarea>
+            </div>
           </div>
-        </div>
-        <div class="row mt-2">
-          <div class="col-2">
-            <label for="fwa">WhatsApp</label>
+          <div class="row">
+            <div class="col-2">
+              <label for="deskripsi">Deskripsi</label>
+            </div>
+            <div class="col-75 col">
+              <textarea name="deskripsi" id="deskripsi" class="form-control" placeholder="Deskripsi anda" required><?php echo $row['deskripsi']; ?></textarea>
+            </div>
           </div>
-          <div class="col-75">
-            <input class="form-control" type="number" id="fwa" name="wa" placeholder="No wa" value="<?php echo $row['wa']; ?>" required oninput="this.value=this.value.slice(0,this.maxLength)" maxlength="13">
+          <input type="hidden" name="id" id="idPengguna" value="<?php echo $row['id_pengguna']; ?>">
+  
+          <div class="row">
+            <div class="col-2">
+            </div>
+            <div class="col-75 col">
+              <div class="col alert alert-danger" role="alert" id="pesanError">error</div>
+            </div>
           </div>
-        </div>
-        <div class="row mt-2">
-          <div class="col-2">
-            <label for="email">Email</label>
+  
+          <div class="pl-3 row py-3">
+            <div class="col-2"></div>
+            <div class="col-75 col">
+              <input type="button" value="Simpan" name="updateInfo" class="float-right" id="updateInfo">
+            </div>
+  
           </div>
-          <div class="col-75">
-            <input class="form-control" type="email" id="email" name="email" placeholder="Email" value="<?php echo $row['email']; ?>" required maxlength="30" readonly>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-2">
-            <label for="alamatPengguna">Alamat</label>
-          </div>
-          <div class="col-75">
-            <textarea name="alamat" id="alamatPengguna" class="form-control" placeholder="Alamat" required><?php echo $row['alamat']; ?></textarea>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-2">
-            <label for="deskripsi">Deskripsi</label>
-          </div>
-          <div class="col-75">
-            <textarea name="deskripsi" id="deskripsi" class="form-control" placeholder="Deskripsi anda" required><?php echo $row['deskripsi']; ?></textarea>
-          </div>
-        </div>
-        <input type="hidden" name="id" id="idPengguna" value="<?php echo $row['id_pengguna']; ?>">
-
-        <div class="row">
-          <div class="col-2">
-          </div>
-          <div class="col-75">
-            <div class="col alert alert-danger" role="alert" id="pesanError">error</div>
-          </div>
-        </div>
-
-        <div class="pl-3 row py-3">
-          <div class="col-2"></div>
-          <div class="col-75">
-            <input type="button" value="Simpan" name="updateInfo" class="ml-auto" id="updateInfo">
-          </div>
-
-        </div>
-      </form>
+        </form>
+      </div>
     </div>
   </div>
 <script src="assets/js/ubahInfo.js"></script>

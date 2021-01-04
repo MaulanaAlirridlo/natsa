@@ -1,10 +1,10 @@
 body {
   margin: 0;
-  font-family: "Lato", sans-serif;
 }
 .sidebar {
   margin-top: 25px;
   border-radius: 5px;
+  background-color: white;
 }
 
 .sidebar a {

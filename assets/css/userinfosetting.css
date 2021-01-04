@@ -1,6 +1,6 @@
-
 body  {
   box-sizing: border-box;
+  background-color: #f8f8f8;
 }
 .photo-profile{
   position: relative;
@@ -59,7 +59,6 @@ input[type=submit]:hover {
 
 .col-75 {
   float: left;
-  width: 75%;
   margin-top: 6px;
 }
 
@@ -76,4 +75,11 @@ input[type=submit]:hover {
     width: 100%;
     margin-top: 0;
   }
+}
+
+
+.width{
+  width: 65%;
+  margin: 25px 0 25px 0px;
+  background-color: white;
 }

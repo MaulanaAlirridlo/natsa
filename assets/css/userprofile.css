@@ -1,9 +1,28 @@
 body{
   overflow-x: hidden;
-
+  background-color: #f8f8f8;
+}
+.username{
+  margin: 23px 0 10px 0;
+  font-size: 23px;
+  font-weight: bold;
+}
+.info-wrapper{
+  width: 90%;
+  background-color: white;
+  border-radius: 5px;
+}
 .rounded-circle{
   overflow: hidden;
 }
-.user-name{
-  padding-top: 60px;
+.photo-profile{
+  max-width: 80%;
+  margin: 20px 0px 20px 20px;
+}
+.info-content{
+  font-size: 14px;
+  margin-top: 10px;
+}
+.info-content .font-weight-bold{
+  font-size: 16px;
 }
