@@ -34,6 +34,9 @@ include './include/script.php';
         <div class="col">
           <h1>Ubah Data Sawah</h1>
 
+          <label for="foto-sawah">Foto sawah</label> <br>
+          <input type="file" name="foto[]" id="foto-sawah" multiple="multiple"> <br>
+
           <label for="jenis">Jenis</label>
           <select name="jenis" id="jenis" class="form-control" required>
             <option value="">jenis ----</option>
@@ -113,9 +116,6 @@ include './include/script.php';
               <textarea name="deskripsi" id="deskripsi" class="form-control" required></textarea>
             </div>
           </div>
-
-          <label for="foto-sawah">Foto sawah</label> <br>
-          <input type="file" name="foto[]" id="foto-sawah" multiple="multiple"> <br>
 
         </div>
         <div class="col">
