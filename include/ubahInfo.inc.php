@@ -70,6 +70,7 @@ if ($updateFoto) {
         return false;
     }
 
+    //upload file
     $fileNameNew = uniqid('PGN-', true) . "." . $fileActualExt;
     $fileDestination = '../assets/img/' . $fileNameNew;
     $result = move_uploaded_file($fileTmp, $fileDestination);
