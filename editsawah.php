@@ -11,6 +11,7 @@ include './include/script.php';
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./vendor/twbs/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="./vendor/components/font-awesome/css/all.min.css">
   <link rel="stylesheet" href="./assets/css/navbar.css">
   <link rel="stylesheet" href="./assets/css/editsawah.css">
 
@@ -35,8 +36,44 @@ include './include/script.php';
           <h1>Ubah Data Sawah</h1>
 
           <label for="foto-sawah">Foto sawah</label> <br>
-          <input type="file" name="foto[]" id="foto-sawah" multiple="multiple"> <br>
+          <div class="row">
+            <div class="col edit-image pr-0">
+              <div class="border p-1">
+                <div class="upload-button border">
+                  <input type="file" name="foto1" id="file-foto-sawah1" multiple="multiple" class="d-none">
+                  <label for="file-foto-sawah1"><i class="fas fa-pencil-alt upload"></i></label>
+                </div>
+                <div class="image-view">
+                  <img id="foto-sawah1" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/P_20160703_103837.jpg/250px-P_20160703_103837.jpg" alt="">
+                </div>
+              </div>
+            </div>
+            <div class="col edit-image pl-0 pr-0">
+              <div class="border p-1">
+                <div class="upload-button border">
+                  <input type="file" name="foto2" id="file-foto-sawah2" multiple="multiple" class="d-none">
+                  <label for="file-foto-sawah2"><i class="fas fa-pencil-alt upload"></i></label>
+                </div>
+                <div class="image-view">
+                  <img id="foto-sawah2" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/P_20160703_103837.jpg/250px-P_20160703_103837.jpg" alt="">
+                </div>
+              </div>
+            </div>
+            <div class="col edit-image pl-0">
+              <div class="border p-1">
+                <div class="upload-button border right-15">
+                  <input type="file" name="foto3" id="file-foto-sawah3" multiple="multiple" class="d-none">
+                  <label for="file-foto-sawah3"><i class="fas fa-pencil-alt upload"></i></label>
+                </div>
+                <div class="image-view">
+                  <img id="foto-sawah3" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/P_20160703_103837.jpg/250px-P_20160703_103837.jpg" alt="">
+                </div>
+              </div>
+            </div>
+          </div>
 
+
+          <br>
           <label for="jenis">Jenis</label>
           <select name="jenis" id="jenis" class="form-control" required>
             <option value="">jenis ----</option>
@@ -124,14 +161,12 @@ include './include/script.php';
           <label for="maps">Maps</label>
           <input type="text" name="maps" id="maps" class="form-control mb-2" placeholder="alamat rinci Kota, daerah, desa" required oninput="myFunction(this.value)">
 
-          <iframe width="100%" height="355" id="frameMaps" src="https://maps.google.com/maps?q=indonesia&output=embed" frameborder="0"></iframe>
+          <iframe width="100%" height="430" id="frameMaps" src="https://maps.google.com/maps?q=indonesia&output=embed" frameborder="0"></iframe>
 
+          <input type="submit" value="Simpan" class="btn btn-secondary float-right mt-3 editsawah" name="editSawah">
         </div>
         <input type="hidden" name="id_pengguna" value="<?php echo $_SESSION['id_pengguna']; ?>">
         <input type="hidden" name="kodeDaerah" id="kodeDaerah">
-      </div>
-      <div class="row justify-content-center mt-4 mb-4">
-        <input type="submit" value="Simpan" class="btn btn-secondary editsawah" name="editSawah">
       </div>
     </div>
   </form>
@@ -247,6 +282,7 @@ include './include/script.php';
   }
 
   ?>
+  <script src="./assets/js/editSawah.js"></script>
 </body>
 
 </html>
