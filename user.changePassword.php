@@ -61,7 +61,7 @@ if (!isset($_SESSION['id_pengguna'])) {
           </div>
           <div class="row pl-3">
             <div class="col">
-              <input type="submit" class="btn btn-secondary active float-right" value="Submit" name="ganti" id="gantiPassword">
+              <input type="button" class="btn btn-secondary active float-right" value="Submit" name="ganti" id="gantiPassword">
             </div>
           </div>
         </form>
@@ -70,47 +70,6 @@ if (!isset($_SESSION['id_pengguna'])) {
   </div>
 
   <script src="./assets/js/ubahPassword.js"></script>
-  <?php
-  if (isset($_POST['ganti'])) {
-    $id_pengguna = $_SESSION['id_pengguna'];
-    $password_lama = $_POST['passwordLama'];
-    $password_baru = $_POST['passwordBaru'];
-
-    $query = "SELECT id_pengguna, email, `password` from pengguna where id_pengguna='$id_pengguna' AND `password`='$password_lama'";
-    $result = mysqli_query($conn, $query);
-    $rows = mysqli_num_rows($result);
-    $data = mysqli_fetch_assoc($result);
-
-    if ($rows == 1) {
-      $qUpdatePassword = "UPDATE pengguna set `password`='$password_baru' where id_pengguna='$id_pengguna'";
-      $result = mysqli_query($conn, $qUpdatePassword);
-      if (!$result) {
-        ?>
-        <script>
-          alert("Gagal dalam");
-          window.location.href = "<?php echo $_SERVER['REQUEST_URI'] ?>";
-        </script>
-      <?php
-          } else {
-            ?>
-        <script>
-          alert("Password anda berhasil diubah");
-          window.location.href = "<?php echo $_SERVER['REQUEST_URI'] ?>";
-        </script>
-      <?php
-          }
-        } else {
-
-          ?>
-      <script>
-        alert("Gagal");
-        window.location.href = "<?php echo $_SERVER['REQUEST_URI'] ?>";
-      </script>
-  <?php
-    }
-  }
-
-  ?>
 </body>
 
 </html>

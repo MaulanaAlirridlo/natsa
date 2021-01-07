@@ -6,9 +6,9 @@ use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception ;
 
 // Load Composer's autoloader
-require './vendor/phpmailer/phpmailer/src/Exception.php';
-require './vendor/phpmailer/phpmailer/src/PHPMailer.php';
-require './vendor/phpmailer/phpmailer/src/SMTP.php';
+require '../vendor/phpmailer/phpmailer/src/Exception.php';
+require '../vendor/phpmailer/phpmailer/src/PHPMailer.php';
+require '../vendor/phpmailer/phpmailer/src/SMTP.php';
 
 // require './vendor/autoload.php';
 // $senderMail = "naturalsawah@gmail.com";
@@ -51,7 +51,6 @@ function sendMail($senderMail,$senderPassword,$senderName,$reciever,$subject){
     
         $mail -> send();
         
-        echo 'Message has been sent';
         return true;
     } catch (Exception $e) {
         echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
