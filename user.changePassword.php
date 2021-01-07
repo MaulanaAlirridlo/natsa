@@ -4,6 +4,11 @@ include './include/conn.php';
 include './include/script.php';
 // echo $_SESSION['id_pengguna'];
 
+if (!isset($_SESSION['id_pengguna'])) {
+  $id = "";
+  kickUser($id);
+}
+
 ?>
 <!DOCTYPE html>
 <html>

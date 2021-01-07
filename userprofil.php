@@ -1,11 +1,17 @@
 <?php
 session_start();
 include './include/conn.php';
+include './include/script.php';
 
 $id = $_SESSION['id_pengguna'];
 $query = "SELECT * from pengguna where id_pengguna='$id'";
 $result = mysqli_query($conn, $query);
 $row = mysqli_fetch_assoc($result);
+
+if (!isset($_SESSION['id_pengguna'])) {
+  $id = "";
+  kickUser($id);
+}
 
 ?>
 <!DOCTYPE html>

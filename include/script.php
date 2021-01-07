@@ -294,54 +294,6 @@ function hargaMinMax($conn, $hitung){
     return $harga;
 }
 
-function login($conn, $email, $password){
-    session_start();
-    //pengecekan
-    $passwordEnkripsi = md5($password);
-
-    //cek email dan password
-    $queryLogin = "SELECT email, `password`, id_pengguna, verifikasi FROM pengguna WHERE email='$email' AND `password`='$passwordEnkripsi'";
-    $resultLogin = mysqli_query($conn, $queryLogin);
-    $rowsLogin = mysqli_num_rows($resultLogin);
-    $dataLogin = mysqli_fetch_assoc($resultLogin);
-    $id_pengguna = $dataLogin['id_pengguna'];
-
-    if ($rowsLogin == 1) {
-        //cek apakah sudah verifikasi
-        // $queryVerfikasi = "SELECT verfikasi FROM pengguna WHERE verifikasi='0' and id_pengguna='$id_pengguna'";
-        // $resultVerfikasi = mysqli_query($conn, $queryVerfikasi);
-        // $rowVerfikasi = mysqli_num_rows($resultVerfikasi);
-
-        if ($dataLogin['verifikasi'] == 1) {
-            session_start();
-            $_SESSION['email'] = $email;
-            $_SESSION['password'] = $password;
-            $_SESSION['id_pengguna'] = $id_pengguna;
-            echo "berhasil";
-            ?>
-            <script>
-                alert("Selamat datang <?php echo $_SESSION['email'];?>");
-                window.location.href = "index.php";
-            </script>
-            <?php
-        } else {
-            session_start();
-            $_SESSION['email'] = $email;
-            $_SESSION['password'] = $password;
-            header("location:login.php?pesan=verfikasi&id_pengguna=$id_pengguna");
-        }
-
-    } else {
-        session_start();
-        $_SESSION['email'] = $email;
-        $_SESSION['password'] = $password;
-        // header('location:login.php?pesan=gagal');
-        header("location:login.php?pesan=gagal&password=$password&passwordE=$passwordEnkripsi");
-
-    }
-
-
-}
 
 function signUp($conn, $email, $password){
     $email = mysqli_real_escape_string($conn, $email);
@@ -404,22 +356,6 @@ function signUp($conn, $email, $password){
     }
 }
 
-function logout(){
-    // session_start();
-    unset($_SESSION["email"]);
-    unset($_SESSION["password"]);
-    unset($_SESSION["id_pengguna"]);
-    session_destroy();
-    ?>
-    <script>
-        alert("anda logout");
-        window.location.href = "index.php";
-
-    </script>
-    <?php
-    // header("Location: index.php");
-}
-
 function JSMassage($pesan, $href="here"){
     ?>
     <script>
@@ -437,4 +373,16 @@ function JSMassage($pesan, $href="here"){
         ?>
     </script>
     <?php
+}
+
+function kickUser($userID, $kick = "index.php"){
+    if (empty($userID) && $userID == "") {
+?>
+    <script>
+        alert("harap login");
+        window.location.href = "<?= $kick?>";
+    </script>
+<?php
+
+    }
 }

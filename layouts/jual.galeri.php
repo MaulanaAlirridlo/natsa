@@ -42,7 +42,7 @@ while ($row = mysqli_fetch_assoc($result)) {
           <i class="fas fa-search-plus text-center text-success"  ></i>
         </div>
         <div class="col border edit editSawah" data-idS="<?= $v->id ?>">
-          <i class="fas fa-pencil-alt text-center text-warning editSawah" ></i>
+          <i class="fas fa-pencil-alt text-center text-warning" ></i>
         </div>
         <div class="col border delete hapusSawah" data-idS="<?= $v->id ?>">
           <i class="fas fa-trash-alt text-center text-danger"></i>

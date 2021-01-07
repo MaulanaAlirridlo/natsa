@@ -3,6 +3,11 @@ session_start();
 include './include/conn.php';
 include './include/script.php';
 
+if (!isset($_SESSION['id_pengguna'])) {
+  $id = "";
+  kickUser($id);
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">

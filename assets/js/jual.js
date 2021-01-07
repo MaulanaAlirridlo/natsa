@@ -40,6 +40,16 @@ $("body").on('click', '.lihatSawah', function () {
 
 });
 
+$("body").on('click', '.editSawah', function () {
+    var formData = new FormData();
+
+    var idsawah = $(this).attr("data-idS");
+
+    window.location.href = "./editsawah.php?idSawah="+idsawah;
+
+
+});
+
 
 // window.onload = function() {
 //     if (window.jQuery) {  
