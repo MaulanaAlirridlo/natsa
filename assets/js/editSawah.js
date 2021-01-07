@@ -5,6 +5,7 @@ $("#file-foto-sawah1").change(function (e) {
     $("#foto-sawah1").attr("src", e.target.result);
   };
   reader.readAsDataURL(this.files[0]);
+  $('#file-foto-sawah1').attr("up-stat", "true");
 });
 $("#file-foto-sawah2").change(function (e) {
   var reader = new FileReader();
@@ -13,6 +14,8 @@ $("#file-foto-sawah2").change(function (e) {
     $("#foto-sawah2").attr("src", e.target.result);
   };
   reader.readAsDataURL(this.files[0]);
+  $('#file-foto-sawah2').attr("up-stat", "true");
+
 });
 $("#file-foto-sawah3").change(function (e) {
   var reader = new FileReader();
@@ -21,6 +24,8 @@ $("#file-foto-sawah3").change(function (e) {
     $("#foto-sawah3").attr("src", e.target.result);
   };
   reader.readAsDataURL(this.files[0]);
+  $('#file-foto-sawah3').attr("up-stat", "true");
+
 });
 
 
@@ -46,21 +51,26 @@ $("body").on('click', '#editSawah', function () {
   maps = maps.split(" ").join("+");
 
   // alert(idPengguna);
-  // var fotoSatu = $('#file-foto-sawah1')[0];
-  // var fotoDua = $('#file-foto-sawah2')[0];
-  // var fotoTiga = $('#file-foto-sawah3')[0];
+  var fotoSatu = $('#file-foto-sawah1')[0].files[0];
+  var fotoDua = $('#file-foto-sawah2')[0].files[0];
+  var fotoTiga = $('#file-foto-sawah3')[0].files[0];
 
-  // var fileName = "";
-  // // fileName = fileName.append('fileName[]', fotoSatu.files[0].name);
-  // // fileName = fileName.append('fileName[]', fotoDua.files[0].name);
-  // // fileName = fileName.append('fileName[]', fotoTiga.files[0].name);
-  // fileName += fotoSatu.files[0].name;
-  // fileName += fotoDua.files[0].name;
-  // fileName += fotoTiga.files[0].name;
-  
-  // console.table(fileName);
-  // console.table(fotoSatu.files[0].name);
+  var fotoId = [];
+  if ($('#file-foto-sawah1').attr("up-stat") == "true") {
+    // fotoId.push($('#file-foto-sawah1').attr('id-foto'));
+    formData.append('fotoId[]', $('#file-foto-sawah1').attr('id-foto'));
+  }
+  if ($('#file-foto-sawah2').attr("up-stat") == "true") {
+    formData.append('fotoId[]', $('#file-foto-sawah2').attr('id-foto'));
+  }
+  if ($('#file-foto-sawah3').attr("up-stat") == "true") {
+    formData.append('fotoId[]', $('#file-foto-sawah3').attr('id-foto'));
+  }
 
+  // fotoSatu = fotoSatu.join(fotoSatuId);
+
+  console.table(fotoId);
+  // console.table(fotoId);
 
   formData.append('idPengguna', idPengguna);
   formData.append('idSawah', idSawah);
@@ -75,6 +85,10 @@ $("body").on('click', '#editSawah', function () {
   formData.append('alamat', alamat);
   formData.append('deskripsi', deskripsi);
   formData.append('maps', maps);
+  formData.append('fotoSawah[]', fotoSatu);
+  formData.append('fotoSawah[]', fotoDua);
+  formData.append('fotoSawah[]', fotoTiga);
+  // formData.append('fotoId[]', fotoId);
 
   $.ajax({
       type: "POST",

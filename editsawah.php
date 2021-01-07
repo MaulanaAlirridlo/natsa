@@ -70,7 +70,7 @@ while ($rowGambar = mysqli_fetch_assoc($resultGambar)) {
             <div class="col edit-image pr-0">
               <div class="border p-1">
                 <div class="upload-button border">
-                  <input type="file" name="foto1" id="file-foto-sawah1" class="d-none" id-foto="<?php echo $idFoto[0];?>">
+                  <input type="file" name="foto1" id="file-foto-sawah1" class="d-none" up-stat="false" id-foto="<?php echo $idFoto[0];?>">
                   <label for="file-foto-sawah1"><i class="fas fa-pencil-alt upload"></i></label>
                 </div>
                 <div class="image-view">
@@ -81,7 +81,7 @@ while ($rowGambar = mysqli_fetch_assoc($resultGambar)) {
             <div class="col edit-image pl-0 pr-0">
               <div class="border p-1">
                 <div class="upload-button border">
-                  <input type="file" name="foto2" id="file-foto-sawah2" class="d-none" id-foto="<?php echo $idFoto[1];?>">
+                  <input type="file" name="foto2" id="file-foto-sawah2" class="d-none" up-stat="false" id-foto="<?php echo $idFoto[1];?>">
                   <label for="file-foto-sawah2"><i class="fas fa-pencil-alt upload"></i></label>
                 </div>
                 <div class="image-view">
@@ -92,7 +92,7 @@ while ($rowGambar = mysqli_fetch_assoc($resultGambar)) {
             <div class="col edit-image pl-0">
               <div class="border p-1">
                 <div class="upload-button border right-15">
-                  <input type="file" name="foto3" id="file-foto-sawah3" class="d-none" id-foto="<?php echo $idFoto[2];?>">
+                  <input type="file" name="foto3" id="file-foto-sawah3" class="d-none" up-stat="false" id-foto="<?php echo $idFoto[2];?>">
                   <label for="file-foto-sawah3"><i class="fas fa-pencil-alt upload"></i></label>
                 </div>
                 <div class="image-view">

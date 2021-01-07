@@ -40,6 +40,15 @@
         foreach ($dummy as $key => $value) {
             include 'showData.php';  
         }
+
+        $update = [1,0,1];
+        for ($i=0; $i < count($update); $i++) { 
+            if ($update[$i] == 0) {
+                echo "tidak update $i ";
+            }else{
+                echo "update $i ";
+            }
+        }
     ?>
 </body>
 </html>
